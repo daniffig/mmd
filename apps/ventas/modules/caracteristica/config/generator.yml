@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Caracteristica
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Caracteristica
+    plural:                Caracteristicas
+    route_prefix:          caracteristica
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

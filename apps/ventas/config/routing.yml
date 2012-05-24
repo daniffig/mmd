@@ -1,3 +1,75 @@
+tipo_producto:
+  class: sfPropelRouteCollection
+  options:
+    model:                TipoProducto
+    module:               tipo_producto
+    prefix_path:          /tipo_producto
+    column:               producto_id
+    with_wildcard_routes: true
+
+stock_producto_sucursal:
+  class: sfPropelRouteCollection
+  options:
+    model:                StockProductoSucursal
+    module:               stock_producto_sucursal
+    prefix_path:          /stock_producto_sucursal
+    column:               id
+    with_wildcard_routes: true
+
+caracteristica_producto:
+  class: sfPropelRouteCollection
+  options:
+    model:                CaracteristicaProducto
+    module:               caracteristica_producto
+    prefix_path:          /caracteristica_producto
+    column:               producto_id
+    with_wildcard_routes: true
+
+producto:
+  class: sfPropelRouteCollection
+  options:
+    model:                Producto
+    module:               producto
+    prefix_path:          /producto
+    column:               id
+    with_wildcard_routes: true
+
+sucursal:
+  class: sfPropelRouteCollection
+  options:
+    model:                Sucursal
+    module:               sucursal
+    prefix_path:          /sucursal
+    column:               id
+    with_wildcard_routes: true
+
+marca:
+  class: sfPropelRouteCollection
+  options:
+    model:                Marca
+    module:               marca
+    prefix_path:          /marca
+    column:               id
+    with_wildcard_routes: true
+
+caracteristica:
+  class: sfPropelRouteCollection
+  options:
+    model:                Caracteristica
+    module:               caracteristica
+    prefix_path:          /caracteristica
+    column:               id
+    with_wildcard_routes: true
+
+tipo:
+  class: sfPropelRouteCollection
+  options:
+    model:                Tipo
+    module:               tipo
+    prefix_path:          /tipo
+    column:               id
+    with_wildcard_routes: true
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 

@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Sucursal
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Sucursal
+    plural:                Sucursals
+    route_prefix:          sucursal
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

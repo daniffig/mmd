@@ -1,79 +1,122 @@
-# config/schema.yml
-
 propel:
+
   marca:
-    id:  ~
-    nombre: { type: varchar(255) , required: true, index:unique }
+    _attributes:
+      phpName: Marca
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
 
   tipo:
+    _attributes:
+      phpName: Tipo
     id: ~
-    nombre: { type: varchar(255) , required: true, index:unique }
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+    tipo_padre_id:
+      type: integer
+      foreignTable: tipo
+      foreignReference: id
 
   caracteristica:
+    _attributes:
+      phpName: Caracteristica
     id: ~
-    tipo_id: { type: integer, foreignTable: tipo, foreignReference: id, required: true }
-    nombre: { type: varchar(255), required: true, index:unique }  
+    tipo_id:
+      type: integer
+      foreignTable: tipo
+      foreignReference: id
+      required: true
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
   
   producto:
+    _attributes:
+      phpName: Producto
     id: ~
-    marca_id: { type: integer, foreignTable: tipo, foreignReference: id, required: true }
-    modelo: { type: varchar(255), index:unique }
-    precio: { type: float, required: true }
-    descripcion: { type: blob }
-    stock: { type: integer, foreignTable: stock, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
+    marca_id:
+      type: integer
+      foreignTable: tipo
+      foreignReference: id
+      required: true
+    modelo:
+      type: varchar(255)
+      index: unique
+    precio:
+      type: float
+      required: true
+    descripcion:
+      type: blob
+    # ¿Qué quiso hacer Andrés acá? Producto es una tabla de referencia, no tiene sentido meter un campo stock.
+    #stock: { type: integer, foreignTable: stock, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
   
-  producto_caracteristica:
-    producto_id: { type: integer, foreignTable: producto, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-    caracteristica_id: { type: integer, foreignTable: caracteristica, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
+  caracteristica_producto:
+    _attributes:
+      phpName: CaracteristicaProducto
+    producto_id:
+      type: integer
+      foreignTable: producto
+      foreignReference: id
+      required: true
+      primaryKey: true
+      onDelete: cascade
+    caracteristica_id:
+      type: integer
+      foreignTable: caracteristica
+      foreignReference: id
+      required: true
+      primaryKey: true
+      onDelete: cascade
   
-  producto_tipo:
-    producto_id: { type: integer, foreignTable: producto, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-    tipo_id: { type: integer, foreignTable: tipo, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
+  tipo_producto:
+    _attributes:
+      phpName: TipoProducto
+    producto_id:
+      type: integer
+      foreignTable: producto
+      foreignReference: id
+      required: true
+      primaryKey: true
+      onDelete: cascade
+    tipo_id:
+      type: integer
+      foreignTable: tipo
+      foreignReference: id
+      required: true
+      primaryKey: true
+      onDelete: cascade
 
-  stock:
+  stock_producto_sucursal:
+    _attributes:
+      phpName: StockProductoSucursal
     id: ~
-    cantidad: { type: integer, required: true } 
+    producto_id:
+      type: integer
+      foreignTable: producto
+      foreignReference: id
+      required: true
+      primaryKey: true
+      onDelete: cascade
+    sucursal_id:
+      type: integer
+      foreignTable: sucursal
+      foreignReference: id
+      required: true      
+    cantidad:
+      type: integer
+      required: true
   
   sucursal:
+    _attributes:
+      phpName: Sucursal
     id: ~
-    nombre: { type: varchar(255), required: true, index:unique }
-  
-#hasta aca sprint1
-   
-  venta_producto:
-     venta_id: { type: integer, foreignTable: venta, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-     producto_id: { type: integer, foreignTable: producto, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-     precio_unitario: { type: float , required: true }
-     cantidad: { type: integer, required:true }
-
-  #falta idCliente ,idEmpleado
-  venta: 
-    id: ~
-    fecha: { type: date, required:true }
-    sucursal_id:{ type: integer, foreignTable: sucursal, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-    medios_pago_id: { type: integer, foreignTable: medio_pago, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-
-  medio_pago:
-    id:  ~
-    nombre: { type: varchar(255) , required: true, index:unique }
-  
-  #falta idPersona , 
-  proveedor: 
-    id: ~
-    nombre: { type: varchar(255) , required: true }
-    cuit: { type: varchar(255) , required: true }
-    direccion: { type: varchar(255) }
-    telefono: { type: integer }
-    mail: { type: varchar(255) , required: true }
-
-  #falta idSupervisor
-  compra:
-    id: ~
-    montoTotal: { type: float, required:true }
-    proveedor_id: { type: integer, foreignTable: proveedor, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-    sucursal_id: { type: integer, foreignTable: sucursal, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
-
-  transaccion:
-    id: ~
-    descripcion: { type: blob, required: true }
-    fecha: { type: datetime, required:true }
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique

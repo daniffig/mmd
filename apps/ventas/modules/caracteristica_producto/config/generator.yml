@@ -1,0 +1,21 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           CaracteristicaProducto
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              CaracteristicaProducto
+    plural:                CaracteristicaProductos
+    route_prefix:          caracteristica_producto
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    ~
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~
