@@ -1,0 +1,164 @@
+#tipo_producto = { ID, producto_id(fk), tipo_id (fk) }
+
+#  TipoProducto_:
+#    producto_id: Producto_
+#    tipo_id: Tipo_
+
+TipoProducto:
+  TipoProducto_1:
+    producto_id: Producto_1
+    tipo_id: Tipo_11
+  TipoProducto_2:
+    producto_id: Producto_2
+    tipo_id: Tipo_21
+  TipoProducto_3:
+    producto_id: Producto_3
+    tipo_id: Tipo_21
+  TipoProducto_4:
+    producto_id: Producto_4
+    tipo_id: Tipo_21
+  TipoProducto_5:
+    producto_id: Producto_5
+    tipo_id: Tipo_21
+  TipoProducto_6:
+    producto_id: Producto_6
+    tipo_id: Tipo_26
+  TipoProducto_7:
+    producto_id: Producto_7
+    tipo_id: Tipo_26
+  TipoProducto_8:
+    producto_id: Producto_8
+    tipo_id: Tipo_26
+  TipoProducto_9:
+    producto_id: Producto_9
+    tipo_id: Tipo_26
+  TipoProducto_10:
+    producto_id: Producto_10
+    tipo_id: Tipo_23
+  TipoProducto_11:
+    producto_id: Producto_11
+    tipo_id: Tipo_23
+  TipoProducto_12:
+    producto_id: Producto_12
+    tipo_id: Tipo_23
+  TipoProducto_13:
+    producto_id: Producto_13
+    tipo_id: Tipo_23
+  TipoProducto_14:
+    producto_id: Producto_14
+    tipo_id: Tipo_23
+  TipoProducto_15:
+    producto_id: Producto_15
+    tipo_id: Tipo_15
+  TipoProducto_16:
+    producto_id: Producto_16
+    tipo_id: Tipo_15
+  TipoProducto_17:
+    producto_id: Producto_17
+    tipo_id: Tipo_15
+  TipoProducto_18:
+    producto_id: Producto_18
+    tipo_id: Tipo_15
+  TipoProducto_19:
+    producto_id: Producto_19
+    tipo_id: Tipo_15
+  TipoProducto_20:
+    producto_id: Producto_20
+    tipo_id: Tipo_12
+  TipoProducto_21:
+    producto_id: Producto_21
+    tipo_id: Tipo_12
+  TipoProducto_22:
+    producto_id: Producto_22
+    tipo_id: Tipo_12
+  TipoProducto_23:
+    producto_id: Producto_23
+    tipo_id: Tipo_12
+  TipoProducto_24:
+    producto_id: Producto_24
+    tipo_id: Tipo_18
+  TipoProducto_25:
+    producto_id: Producto_25
+    tipo_id: Tipo_18
+  TipoProducto_26:
+    producto_id: Producto_26
+    tipo_id: Tipo_18
+  TipoProducto_27:
+    producto_id: Producto_27
+    tipo_id: Tipo_18
+  TipoProducto_28:
+    producto_id: Producto_28
+    tipo_id: Tipo_18
+  TipoProducto_29:
+    producto_id: Producto_29
+    tipo_id: Tipo_13
+  TipoProducto_30:
+    producto_id: Producto_30
+    tipo_id: Tipo_13
+  TipoProducto_31:
+    producto_id: Producto_31
+    tipo_id: Tipo_13
+  TipoProducto_32:
+    producto_id: Producto_32
+    tipo_id: Tipo_13
+  TipoProducto_33:
+    producto_id: Producto_33
+    tipo_id: Tipo_13
+  TipoProducto_34:
+    producto_id: Producto_33
+    tipo_id: Tipo_4
+  TipoProducto_35:
+    producto_id: Producto_35
+    tipo_id: Tipo_4
+  TipoProducto_36:
+    producto_id: Producto_36
+    tipo_id: Tipo_4
+  TipoProducto_37:
+    producto_id: Producto_37
+    tipo_id: Tipo_4
+  TipoProducto_38:
+    producto_id: Producto_38
+    tipo_id: Tipo_4
+  TipoProducto_39:
+    producto_id: Producto_39
+    tipo_id: Tipo_44
+  TipoProducto_40:
+    producto_id: Producto_40
+    tipo_id: Tipo_44
+  TipoProducto_41:
+    producto_id: Producto_41
+    tipo_id: Tipo_44
+  TipoProducto_42:
+    producto_id: Producto_42
+    tipo_id: Tipo_44
+  TipoProducto_43:
+    producto_id: Producto_43
+    tipo_id: Tipo_44
+  TipoProducto_44:
+    producto_id: Producto_44
+    tipo_id: Tipo_44
+  TipoProducto_45:
+    producto_id: Producto_45
+    tipo_id: Tipo_45
+  TipoProducto_46:
+    producto_id: Producto_46
+    tipo_id: Tipo_45
+  TipoProducto_47:
+    producto_id: Producto_47
+    tipo_id: Tipo_46
+  TipoProducto_48:
+    producto_id: Producto_48
+    tipo_id: Tipo_46
+  TipoProducto_49:
+    producto_id: Producto_49
+    tipo_id: Tipo_47
+  TipoProducto_50:
+    producto_id: Producto_50
+    tipo_id: Tipo_47
+  TipoProducto_51:
+    Producto_id: Producto_51
+    tipo_id: Tipo_48
+  TipoProducto_52:
+    Producto_id: Producto_52
+    tipo_id: Tipo_48
+	

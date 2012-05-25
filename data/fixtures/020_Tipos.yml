@@ -96,3 +96,121 @@ Tipo:
     nombre: GPS
     tipo_padre_id: Tipo_2
 
+  # Accesorios
+  Tipo_31:
+    nombre: Acc. Computadoras
+    tipo_padre_id: Tipo_3
+  Tipo_32:
+    nombre: Acc. Notebook - Netbook
+    tipo_padre_id: Tipo_3
+  Tipo_33: 
+    nombre: Acc. Teléfonos Celulares 
+    tipo_padre_id: Tipo_3
+  Tipo_34:
+    nombre: Acc. Consolas de Juegos
+    tipo_padre_id: Tipo_3
+  Tipo_35:
+    nombre: Acc. Camaras Digitales
+    tipo_padre_id: Tipo_3
+  Tipo_36:
+    nombre: Acc. TV - LCD
+    tipo_padre_id: Tipo_3
+  Tipo_37:
+    nombre: Insumos
+    tipo_padre_id: Tipo_3
+  Tipo_38:
+    nombre: Memorias
+    tipo_padre_id: Tipo_3
+  Tipo_39:
+    nombre: Cables
+    tipo_padre_id: Tipo_3
+  Tipo_40:
+    nombre: Acc. Apple
+    tipo_padre_id: Tipo_3
+  Tipo_41:
+    nombre: Auriculares
+    tipo_padre_id: Tipo_3
+
+  # Celulares
+  Tipo_42:
+    nombre: Celulares Libres
+    tipo_padre_id: Tipo_4
+
+  # Cámaras
+  Tipo_43:
+    nombre: Videos
+    tipo_padre_id: Tipo_5
+  Tipo_44: Digitales
+    nombre:
+    tipo_padre_id: Tipo_5
+
+  # Cocina y heladeras
+  Tipo_45:
+    nombre: Cocinas
+    tipo_padre_id: Tipo_6
+  Tipo_46:
+    nombre: Hornos
+    tipo_padre_id: Tipo_6
+  Tipo_47:
+    nombre: Anafes
+    tipo_padre_id: Tipo_6
+  Tipo_48:
+    nombre: Purificadores
+    tipo_padre_id: Tipo_6
+  Tipo_49:
+    nombre: Campanas
+    tipo_padre_id: Tipo_6
+  Tipo_50:
+    nombre: Microondas
+    tipo_padre_id: Tipo_6
+  Tipo_51:
+    nombre: Heladeras
+    tipo_padre_id: Tipo_6
+  Tipo_52:
+    nombre: Freezers
+    tipo_padre_id: Tipo_6
+  Tipo_53:
+    nombre: Enfriadoras y Cavas
+    tipo_padre_id: Tipo_6
+
+  # Aire y Calefacción
+  Tipo_54:
+    nombre: Aire Acondicionado
+    tipo_padre_id: Tipo_7
+  Tipo_55:
+    nombre: Ventiladores
+    tipo_padre_id: Tipo_7
+  Tipo_56:
+    nombre: Calefacción
+    tipo_padre_id: Tipo_7
+
+  # Agua y Lavado
+  Tipo_57:
+    nombre: Lavarropas
+    tipo_padre_id: Tipo_8
+  Tipo_58:
+    nombre: Secarropas
+    tipo_padre_id: Tipo_8
+  Tipo_59:
+    nombre: Lavasecarropas
+    tipo_padre_id: Tipo_8
+  Tipo_60:
+    nombre: Lavavajillas
+    tipo_padre_id: Tipo_8
+  Tipo_61:
+    nombre: Calefones
+    tipo_padre_id: Tipo_8
+  Tipo_62:
+    nombre: Termotanque
+    tipo_padre_id: Tipo_8
+
+  # Pequeños
+  Tipo_63:
+    nombre: Cuidado Personal
+    tipo_padre_id: Tipo_9
+  Tipo_64:
+    nombre: Electro Cocina
+    tipo_padre_id: Tipo_9
+  Tipo_65:
+    nombre: Electro Hogar
+    tipo_padre_id: Tipo_9
