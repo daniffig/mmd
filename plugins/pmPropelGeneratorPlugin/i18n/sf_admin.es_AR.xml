@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+ <file original="global" source-language="en" datatype="plaintext" date="2009-04-30T12:40:33Z">
+  <header/>
+  <body>
+    <trans-unit>
+      <source>Save and list</source>
+      <target>Guardar y listar</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Back to list</source>
+      <target>Volver al listado</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Show</source>
+      <target>Mostrar</target>
+   </trans-unit>
+    <trans-unit>
+      <source>Some fields that haven't been unsetted in the form are not being rendered. This message is only shown in development environment as a warning.</source>
+      <target>Algunos campos que no han sido eliminados del formulario no están siendo renderizados. Este mensaje solo es mostrado en el ambiente de desarrollo como una advertencia.</target>
+    </trans-unit>
+    <trans-unit>
+      <source>show</source>
+      <target>mostrar</target>
+    </trans-unit>
+    <trans-unit>
+      <source>hide</source>
+      <target>ocultar</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Export</source>
+      <target>Exportar</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Custom export</source>
+      <target>Exportación personalizada</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Please, select the group of items you want to export</source>
+      <target>Por favor, seleccione el grupo de items que desea exportar</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Export results from %1% to %2%</source>
+      <target>Exportar resultados de %1% a %2%</target>
+    </trans-unit>
+    <trans-unit>
+      <source>There were no results with the current search options.</source>
+      <target>No hubo resultados para las opciones de búsqueda actuales.</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Cancel</source>
+      <target>Cancelar</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Please wait...</source>
+      <target>Por favor, espere...</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Exportation Form</source>
+      <target>Formulario de exportación</target>
+    </trans-unit>
+    <trans-unit>
+      <source>Yes</source>
+      <target>Sí</target>
+    </trans-unit>
+    <trans-unit>
+      <source>No</source>
+      <target>No</target>
+    </trans-unit>
+    <trans-unit>
+      <source>There was an error while trying to export the desired page.</source>
+      <target>Hubo un error al tratar de exportar la página seleccionada.</target>
+    </trans-unit>
+    <trans-unit>
+      <source></source>
+      <target></target>
+    </trans-unit>
+</body>
+ </file>
+</xliff>

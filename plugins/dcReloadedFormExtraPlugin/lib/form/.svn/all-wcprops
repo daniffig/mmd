@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/32903/plugins/dcReloadedFormExtraPlugin/trunk/lib/form
+END
+pmFormFilterPropel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/32673/plugins/dcReloadedFormExtraPlugin/trunk/lib/form/pmFormFilterPropel.class.php
+END
+pmWidgetFactory.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/32903/plugins/dcReloadedFormExtraPlugin/trunk/lib/form/pmWidgetFactory.class.php
+END
+pmFormCommon.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/32674/plugins/dcReloadedFormExtraPlugin/trunk/lib/form/pmFormCommon.class.php
+END
+pmValidatorFactory.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/32665/plugins/dcReloadedFormExtraPlugin/trunk/lib/form/pmValidatorFactory.class.php
+END
+pmWidgetFormSchemaFormatterTable.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/32665/plugins/dcReloadedFormExtraPlugin/trunk/lib/form/pmWidgetFormSchemaFormatterTable.class.php
+END
+pmFormPropel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/32665/plugins/dcReloadedFormExtraPlugin/trunk/lib/form/pmFormPropel.class.php
+END

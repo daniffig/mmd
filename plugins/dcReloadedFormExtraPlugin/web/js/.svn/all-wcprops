@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/web/js
+END
+jquery_search.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/33109/plugins/dcReloadedFormExtraPlugin/trunk/web/js/jquery_search.js
+END
+dc_widget_form_jquery_dependence.js
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/32282/plugins/dcReloadedFormExtraPlugin/trunk/web/js/dc_widget_form_jquery_dependence.js
+END
+prototype.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/!svn/ver/30877/plugins/dcReloadedFormExtraPlugin/trunk/web/js/prototype.js
+END
+pm_widget_form_propel_input_by_code.js
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/web/js/pm_widget_form_propel_input_by_code.js
+END
+change_for_credentials.js
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/31243/plugins/dcReloadedFormExtraPlugin/trunk/web/js/change_for_credentials.js
+END
+dc_widget_form_activator.js
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/!svn/ver/32644/plugins/dcReloadedFormExtraPlugin/trunk/web/js/dc_widget_form_activator.js
+END
+ajax_dependence.js
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/30877/plugins/dcReloadedFormExtraPlugin/trunk/web/js/ajax_dependence.js
+END
+choice_or_create.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/!svn/ver/30709/plugins/dcReloadedFormExtraPlugin/trunk/web/js/choice_or_create.js
+END
+chosen.jquery.js
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/!svn/ver/33110/plugins/dcReloadedFormExtraPlugin/trunk/web/js/chosen.jquery.js
+END
+jquery.tokeninput.js
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/web/js/jquery.tokeninput.js
+END
+select_jquery_autocomplete.js
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/!svn/ver/31630/plugins/dcReloadedFormExtraPlugin/trunk/web/js/select_jquery_autocomplete.js
+END
+dc_widget_form_finder.js
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/web/js/dc_widget_form_finder.js
+END

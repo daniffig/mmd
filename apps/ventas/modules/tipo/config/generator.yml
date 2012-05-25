@@ -1,5 +1,5 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Tipo
     theme:                 admin
@@ -13,8 +13,12 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+        tipo_related_by_tipo_padre_id:
+          label: Tipo (padre)
+      list:
+        title: Listado de Tipos de Producto
+        display: [nombre, tipo_related_by_tipo_padre_id]
       filter:  ~
       form:    ~
       edit:    ~

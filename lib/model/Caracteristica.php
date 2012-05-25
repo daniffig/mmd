@@ -18,4 +18,8 @@
  */
 class Caracteristica extends BaseCaracteristica {
 
+  public function __toString()
+  {
+    return $this->getNombre();
+  }
 } // Caracteristica

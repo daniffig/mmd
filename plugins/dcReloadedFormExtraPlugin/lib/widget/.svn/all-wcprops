@@ -1,0 +1,191 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget
+END
+mtWidgetFormPartial.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/31255/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormPartial.class.php
+END
+pmWidgetFormPropelChoiceOrCreate.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/30709/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormPropelChoiceOrCreate.class.php
+END
+pmWidgetFormDoctrineChoiceOrCreate.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/30709/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormDoctrineChoiceOrCreate.php
+END
+dcWidgetFormChosenChoice.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/33072/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormChosenChoice.class.php
+END
+dcWidgetFormJQueryDependence.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/!svn/ver/32507/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormJQueryDependence.class.php
+END
+pmWidgetFormPropelInputByCode.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/!svn/ver/33161/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormPropelInputByCode.class.php
+END
+mtWidgetFormEmbedRenderer.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/32988/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormEmbedRenderer.class.php
+END
+dcWidgetFormAjaxDependence.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/31275/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormAjaxDependence.class.php
+END
+pmWidgetFormInputRange.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/32912/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormInputRange.class.php
+END
+mtWidgetFormEmbed.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/!svn/ver/33008/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormEmbed.class.php
+END
+dcWidgetFormFinder.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormFinder.class.php
+END
+pmWidgetFormPropelJQueryTokeninput.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormPropelJQueryTokeninput.class.php
+END
+ncWidgetFormPlainDate.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/32138/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/ncWidgetFormPlainDate.class.php
+END
+pmWidgetFormPropelJQuerySearch.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/33072/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormPropelJQuerySearch.class.php
+END
+dcWidgetFormDoctrineChosenChoice.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/33072/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormDoctrineChosenChoice.class.php
+END
+dcWidgetI18nNumberInput.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/!svn/ver/31946/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetI18nNumberInput.class.php
+END
+mtWidgetFormCuil.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/32250/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormCuil.class.php
+END
+pmWidgetFormSelectJQueryAutocomplete.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/31292/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormSelectJQueryAutocomplete.class.php
+END
+mtWidgetFormInputDate.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/32781/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormInputDate.class.php
+END
+mtWidgetFormPlain.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/!svn/ver/32826/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormPlain.php
+END
+pmWidgetFormJQuerySearch.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/33067/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/pmWidgetFormJQuerySearch.class.php
+END
+dcWidgetFormActivator.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/!svn/ver/32823/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormActivator.class.php
+END
+alWidgetFormTimepicker.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/33130/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/alWidgetFormTimepicker.class.php
+END
+mbWidgetFormChosenChoice.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mbWidgetFormChosenChoice.class.php
+END
+mtWidgetFormWrapper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/!svn/ver/32250/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/mtWidgetFormWrapper.class.php
+END
+dcWidgetFormChangeForCredentials.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/31255/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormChangeForCredentials.class.php
+END
+dcWidgetFormJQueryPropelDependence.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/32507/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormJQueryPropelDependence.class.php
+END
+dcWidgetFormPropelChosenChoice.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/!svn/ver/33072/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormPropelChosenChoice.class.php
+END
+dcWidgetFormSchemaFormatterFinder.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/!svn/ver/33163/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormSchemaFormatterFinder.class.php
+END
+dcWidgetFormAjaxDependencePropel.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/32250/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormAjaxDependencePropel.class.php
+END
+dcWidgetFormPropelAjaxDependence.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/!svn/ver/30877/plugins/dcReloadedFormExtraPlugin/trunk/lib/widget/dcWidgetFormPropelAjaxDependence.class.php
+END

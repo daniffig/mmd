@@ -14,13 +14,15 @@ abstract class BaseCaracteristicaProductoForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'producto_id'       => new sfWidgetFormInputHidden(),
-      'caracteristica_id' => new sfWidgetFormInputHidden(),
+      'id'                => new sfWidgetFormInputHidden(),
+      'producto_id'       => new sfWidgetFormPropelChoice(array('model' => 'Producto', 'add_empty' => false)),
+      'caracteristica_id' => new sfWidgetFormPropelChoice(array('model' => 'Caracteristica', 'add_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'producto_id'       => new sfValidatorPropelChoice(array('model' => 'Producto', 'column' => 'id', 'required' => false)),
-      'caracteristica_id' => new sfValidatorPropelChoice(array('model' => 'Caracteristica', 'column' => 'id', 'required' => false)),
+      'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
+      'producto_id'       => new sfValidatorPropelChoice(array('model' => 'Producto', 'column' => 'id')),
+      'caracteristica_id' => new sfValidatorPropelChoice(array('model' => 'Caracteristica', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('caracteristica_producto[%s]');

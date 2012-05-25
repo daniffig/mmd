@@ -19,7 +19,7 @@ propel:
       index: unique
     tipo_padre_id:
       type: integer
-      foreignTable: tipo
+      foreignClass: Tipo
       foreignReference: id
 
   caracteristica:
@@ -28,7 +28,7 @@ propel:
     id: ~
     tipo_id:
       type: integer
-      foreignTable: tipo
+      foreignClass: Tipo
       foreignReference: id
       required: true
     nombre:
@@ -42,7 +42,7 @@ propel:
     id: ~
     marca_id:
       type: integer
-      foreignTable: tipo
+      foreignClass: Marca
       foreignReference: id
       required: true
     modelo:
@@ -59,37 +59,35 @@ propel:
   caracteristica_producto:
     _attributes:
       phpName: CaracteristicaProducto
+    id: ~
     producto_id:
       type: integer
-      foreignTable: producto
+      foreignClass: Producto
       foreignReference: id
       required: true
-      primaryKey: true
       onDelete: cascade
     caracteristica_id:
       type: integer
-      foreignTable: caracteristica
+      foreignClass: Caracteristica
       foreignReference: id
       required: true
-      primaryKey: true
       onDelete: cascade
   
   tipo_producto:
     _attributes:
       phpName: TipoProducto
+    id: ~
     producto_id:
       type: integer
-      foreignTable: producto
+      foreignClass: Producto
       foreignReference: id
       required: true
-      primaryKey: true
       onDelete: cascade
     tipo_id:
       type: integer
-      foreignTable: tipo
+      foreignClass: Tipo
       foreignReference: id
       required: true
-      primaryKey: true
       onDelete: cascade
 
   stock_producto_sucursal:
@@ -98,14 +96,14 @@ propel:
     id: ~
     producto_id:
       type: integer
-      foreignTable: producto
+      foreignClass: Producto
       foreignReference: id
       required: true
       primaryKey: true
       onDelete: cascade
     sucursal_id:
       type: integer
-      foreignTable: sucursal
+      foreignClass: Sucursal
       foreignReference: id
       required: true      
     cantidad:
@@ -120,3 +118,4 @@ propel:
       type: varchar(255)
       required: true
       index: unique
+

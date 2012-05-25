@@ -2,9 +2,9 @@ sfGuardUser:
   sfGuardUser_1:
     username: admin
     algorithm: sha1
-    salt:
+    salt: ~
     password: admin
-    created_at:
-    last_login:
+    created_at: ~
+    last_login: ~
     is_active: 1
     is_super_admin: 1

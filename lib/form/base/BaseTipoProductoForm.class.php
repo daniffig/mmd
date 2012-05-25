@@ -14,13 +14,15 @@ abstract class BaseTipoProductoForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'producto_id' => new sfWidgetFormInputHidden(),
-      'tipo_id'     => new sfWidgetFormInputHidden(),
+      'id'          => new sfWidgetFormInputHidden(),
+      'producto_id' => new sfWidgetFormPropelChoice(array('model' => 'Producto', 'add_empty' => false)),
+      'tipo_id'     => new sfWidgetFormPropelChoice(array('model' => 'Tipo', 'add_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'producto_id' => new sfValidatorPropelChoice(array('model' => 'Producto', 'column' => 'id', 'required' => false)),
-      'tipo_id'     => new sfValidatorPropelChoice(array('model' => 'Tipo', 'column' => 'id', 'required' => false)),
+      'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
+      'producto_id' => new sfValidatorPropelChoice(array('model' => 'Producto', 'column' => 'id')),
+      'tipo_id'     => new sfValidatorPropelChoice(array('model' => 'Tipo', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('tipo_producto[%s]');

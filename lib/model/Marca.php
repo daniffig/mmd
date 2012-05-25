@@ -18,4 +18,9 @@
  */
 class Marca extends BaseMarca {
 
+  public function __toString()
+  {
+    return $this->getNombre();
+  }
+
 } // Marca

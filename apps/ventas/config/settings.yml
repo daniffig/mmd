@@ -33,3 +33,24 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    # sfGuard configuration
+    enabled_modules:        [default, sfGuardAuth, sfGuardUser]
+    
+    secure_module:          sfGuardAuth
+    secure_action:          secure
+    
+    sf_guard_plugin:
+      routes_register:      false
+
+    # Settings personalizadas
+    i18n:                   true
+    default_culture:        es_AR
+    charset:                utf-8
+
+    error_404_module:       default
+    error_404_action:       error404
+
+  .actions:
+    login_module:           sfGuardAuth
+    login_action:           signin

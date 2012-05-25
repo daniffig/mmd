@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/!svn/ver/33130/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator
+END
+mtValidatorDateExtended.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/31946/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/mtValidatorDateExtended.class.php
+END
+dcValidatorI18NDecimal.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/!svn/ver/31946/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/dcValidatorI18NDecimal.class.php
+END
+mtValidatorDateString.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/31335/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/mtValidatorDateString.class.php
+END
+pmValidatorIP.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/!svn/ver/32668/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/pmValidatorIP.class.php
+END
+alValidatorTimepicker.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/33130/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/alValidatorTimepicker.class.php
+END
+dcValidatorPassword.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/!svn/ver/32824/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/dcValidatorPassword.class.php
+END
+pmValidatorInputRange.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/!svn/ver/32912/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/pmValidatorInputRange.class.php
+END
+mtValidatorCuil.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/!svn/ver/32250/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/mtValidatorCuil.class.php
+END
+mtValidatorCuilExtended.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/!svn/ver/32250/plugins/dcReloadedFormExtraPlugin/trunk/lib/validator/mtValidatorCuilExtended.class.php
+END

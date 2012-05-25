@@ -1,0 +1,98 @@
+Tipo:
+# Nivel 0
+  Tipo_1:
+    nombre: TV, Imagen y Sonido
+    tipo_padre_id: ~
+  Tipo_2:
+    nombre: Informática y Gaming
+    tipo_padre_id: ~
+  Tipo_3:
+    nombre: Accesorios
+    tipo_padre_id: ~
+  Tipo_4:
+    nombre: Celulares
+    tipo_padre_id: ~
+  Tipo_5:
+    nombre: Cámaras
+    tipo_padre_id: ~
+  Tipo_6:
+    nombre: Cocina y Heladeras
+    tipo_padre_id: ~
+  Tipo_7:
+    nombre: Aire y Calefacción
+    tipo_padre_id: ~
+  Tipo_8:
+    nombre: Agua y Lavado
+    tipo_padre_id: ~
+  Tipo_9:
+    nombre: Pequeños
+    tipo_padre_id: ~
+  Tipo_10:
+    nombre: Motos
+    tipo_padre_id: ~
+
+# Nivel 1
+  # TV, Imagen y Sonido
+  Tipo_21:
+    nombre: Televisores
+    tipo_padre_id: Tipo_1
+  Tipo_22:
+    nombre: Monitores con TV
+    tipo_padre_id: Tipo_1
+  Tipo_23:
+    nombre: DVD - BluRay
+    tipo_padre_id: Tipo_1
+  Tipo_24:
+    nombre: Sintonizadoras
+    tipo_padre_id: Tipo_1
+  Tipo_25:
+    nombre: Combos
+    tipo_padre_id: Tipo_1
+  Tipo_26:
+    nombre: Sistemas de Audio
+    tipo_padre_id: Tipo_1
+  Tipo_27:
+    nombre: Audio Portable
+    tipo_padre_id: Tipo_1
+  Tipo_28:
+    nombre: Home Theatre
+    tipo_padre_id: Tipo_1
+  Tipo_29:
+    nombre: Juego de Parlantes
+    tipo_padre_id: Tipo_1
+  Tipo_30:
+    nombre: Parlantes para Autos
+    tipo_padre_id: Tipo_1
+
+  # Informática y Gaming
+  Tipo_11:
+    nombre: Computadoras
+    tipo_padre_id: Tipo_2
+  Tipo_12:
+    nombre: Notebook - Netbook
+    tipo_padre_id: Tipo_2
+  Tipo_13:
+    nombre: Tablets PC
+    tipo_padre_id: Tipo_2
+  Tipo_14:
+    nombre: e-Readers
+    tipo_padre_id: Tipo_2
+  Tipo_15:
+    nombre: Consolas
+    tipo_padre_id: Tipo_2
+  Tipo_16:
+    nombre: Monitores
+    tipo_padre_id: Tipo_2
+  Tipo_17:
+    nombre: Proyectores
+    tipo_padre_id: Tipo_2
+  Tipo_18:
+    nombre: Impresión
+    tipo_padre_id: Tipo_2
+  Tipo_19:
+    nombre: Teléfonos
+    tipo_padre_id: Tipo_2
+  Tipo_20:
+    nombre: GPS
+    tipo_padre_id: Tipo_2
+

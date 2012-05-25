@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/33067/plugins/dcReloadedFormExtraPlugin/trunk/modules/dc_ajax/templates
+END
+_pmWidgetFormJQuerySearch.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/!svn/ver/33067/plugins/dcReloadedFormExtraPlugin/trunk/modules/dc_ajax/templates/_pmWidgetFormJQuerySearch.php
+END
+_pmWidgetFormPropelJQuerySearch.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/!svn/ver/33067/plugins/dcReloadedFormExtraPlugin/trunk/modules/dc_ajax/templates/_pmWidgetFormPropelJQuerySearch.php
+END
+_pmWidgetFormJQuerySearchPagination.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/!svn/ver/31350/plugins/dcReloadedFormExtraPlugin/trunk/modules/dc_ajax/templates/_pmWidgetFormJQuerySearchPagination.php
+END
+mtWidgetFormEmbedAddSuccess.php
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/!svn/ver/32986/plugins/dcReloadedFormExtraPlugin/trunk/modules/dc_ajax/templates/mtWidgetFormEmbedAddSuccess.php
+END

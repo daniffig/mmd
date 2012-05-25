@@ -1,0 +1,40 @@
+10
+
+dir
+33171
+http://svn.symfony-project.com/plugins/dcReloadedFormExtraPlugin/trunk/lib
+http://svn.symfony-project.com
+
+
+
+2011-10-31T15:32:25.963762Z
+33163
+pmacadden
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ee427ae8-e902-0410-961c-c3ed070cd9f9
+
+helper
+dir
+
+form
+dir
+
+widget
+dir
+
+validator
+dir
+
