@@ -85,7 +85,7 @@ Producto:
    precio: 299
    descripcion: CONSOLA MICROBOY PRO PORTATIL
   Producto_16:
-   marca_id: Maraca_Sony
+   marca_id: Marca_Sony
    modelo: PS2
    precio: 1099
    descripcion: CONSOLA SONY PS2 + JAK 3
@@ -238,8 +238,7 @@ Producto:
    marca_id: Marca_Coventry
    modelo: CO53SPA
    precio: 1049
-   descripcion: Gas natural.
-Carcterísticas Generales. Color: Blanco. Medidas. Ancho: 53cm. 
+   descripcion: Gas natural. Carcterísticas Generales. Color: Blanco. Medidas. Ancho: 53cm. 
   Producto_47:
    marca_id: Marca_Orbis
    modelo: 980520
@@ -249,14 +248,12 @@ Carcterísticas Generales. Color: Blanco. Medidas. Ancho: 53cm.
    marca_id: Marca_Ultracomb
    modelo: UC40-AH
    precio: 1499
-   descripcion: Manija ergonómica. Selector de control de temperatura 50º a 250ºC. Selector de potencia.
-Características Generales. Capacidad: 40Litros. Potencia: 3000Watts.
+   descripcion: Manija ergonómica. Selector de control de temperatura 50º a 250ºC. Selector de potencia. Características Generales. Capacidad: 40Litros. Potencia: 3000Watts.
   Producto_49:
    marca_id: Marca_Domec
    modelo: A2QM IX
    precio: 1599
-   descripcion: Multigas.
-Características Generales. Color: Inoxidable. Encendido electrónico. Dimensiones. Ancho: 29cm. Profundidad: 51cm.  
+   descripcion: Multigas. Características Generales. Color: Inoxidable. Encendido electrónico. Dimensiones. Ancho: 29cm. Profundidad: 51cm.  
   Producto_50:
    marca_id: Marca_Orbis
    modelo: 714510
@@ -277,4 +274,3 @@ Características Generales. Color: Inoxidable. Encendido electrónico. Dimension
    modelo:
    precio:
    descripcion:
-

@@ -1,5 +1,5 @@
-# Las marcas se identifican con Marca_(nombre de la marca sin parentesis empezando con mayuscula y luego minusculas)
 Marca:
+# Las marcas se identifican con Marca_(nombre de la marca sin parentesis empezando con mayuscula y luego minusculas)
   Marca_Gateway:
     nombre: Gateway
   Marca_Noblex:
@@ -10,7 +10,7 @@ Marca:
     nombre: Philips
   Marca_Lg:
     nombre: LG
-  Marca_Daihatsu
+  Marca_Daihatsu:
     nombre: Daihatsu
   Marca_Stromberg:
     nombre: Stromberg
@@ -18,6 +18,8 @@ Marca:
     nombre: Ranser
   Marca_Sony:
     nombre: Sony
+  Marca_Microboy:
+    nombre: Microboy
   Marca_Microsoft:
     nombre: Microsoft
   Marca_Asus:
@@ -50,7 +52,9 @@ Marca:
     nombre: Ultracomb
   Marca_Domec:
     nombre: Domec
-
-
-
-
+  Marca_Brother:
+    nombre: Brother
+  Marca_Apple:
+    nombre: Apple
+  Marca_Coby:
+    nombre: Coby

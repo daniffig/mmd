@@ -136,12 +136,12 @@ Tipo:
     nombre: Celulares Libres
     tipo_padre_id: Tipo_4
 
-  # Cámaras
+# Camaras
   Tipo_43:
     nombre: Videos
     tipo_padre_id: Tipo_5
-  Tipo_44: Digitales
-    nombre:
+  Tipo_44: 
+    nombre: Digitales
     tipo_padre_id: Tipo_5
 
   # Cocina y heladeras
