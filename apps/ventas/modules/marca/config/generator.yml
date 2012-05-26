@@ -12,8 +12,14 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions:
+        _new:
+          label: Nuevo
+        _edit:
+          label: Editar
+        _delete:
+          label: Eliminar
+      fields:  ~      
       list:    ~
       filter:  ~
       form:    ~
