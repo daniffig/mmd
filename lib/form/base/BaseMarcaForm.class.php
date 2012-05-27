@@ -3,6 +3,7 @@
 /**
  * Marca form base class.
  *
+ *   'nombre' => new sfWidgetFormInputText(array(), array('class' => 'btn')),
  * @method Marca getObject() Returns the current form's model object
  *
  * @package    mmd
@@ -28,7 +29,7 @@ abstract class BaseMarcaForm extends BaseFormPropel
     );
 
     $this->widgetSchema->setNameFormat('marca[%s]');
-
+    
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
     parent::setup();
