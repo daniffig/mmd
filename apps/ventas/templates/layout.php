@@ -12,6 +12,14 @@
     <?php if($sf_user->isAuthenticated()):?>
         <?php include_partial('menu/menu'); ?>
     <?php endif?>
-    <?php echo $sf_content ?>
+ 
+    <div class="container" id="wrapper"><!--wrapper -->
+	<?php echo $sf_content ?>
+    </div><!--/wrapper -->
+
+    <div id="footer">
+    	<hr class="divider-footer"/>
+     	<?php echo image_tag('dvorak_icon.png'); ?>
+    </div>	
   </body>
 </html>

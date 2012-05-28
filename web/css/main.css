@@ -1,0 +1,15 @@
+body{
+	padding-top:60px;
+	}
+div#wrapper{
+	background-image:url(../images/background.jpg);
+	background-repeat:no-repeat;
+	margin:0px auto;
+	min-height:600px;
+	}
+	
+hr.divider-footer{
+	margin: 20px 0 18px;
+  	border: 0;
+  	border-bottom: 2px solid #CCC;
+	}
