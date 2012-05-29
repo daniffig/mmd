@@ -17,8 +17,21 @@ generator:
       fields:  ~
       list:
         title: Listado de Productos
+        display: [marca, modelo, _precio, es_activo]
 
-      filter: ~
+        object_actions:
+          _edit:
+            credentials: Administrador
+          borrar_logico:
+            action: borrarLogico
+            credentials: Administrador
+            label: Borrar     
+          ver_caracteristicas:
+            action: verCaracteristicas
+
+            
+
+      filter:  ~
       form:    ~
       edit:    ~
       new:     ~

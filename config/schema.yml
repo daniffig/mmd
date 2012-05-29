@@ -8,6 +8,10 @@ propel:
       type: varchar(255)
       required: true
       index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
 
   tipo:
     _attributes:
@@ -21,6 +25,10 @@ propel:
       type: integer
       foreignClass: Tipo
       foreignReference: id
+    es_activo:
+      type: boolean
+      required: true
+      default: true
 
   caracteristica:
     _attributes:
@@ -35,6 +43,10 @@ propel:
       type: varchar(255)
       required: true
       index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
   
   producto:
     _attributes:
@@ -53,8 +65,10 @@ propel:
       required: true
     descripcion:
       type: clob
-    # ¿Qué quiso hacer Andrés acá? Producto es una tabla de referencia, no tiene sentido meter un campo stock.
-    #stock: { type: integer, foreignTable: stock, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
+    es_activo:
+      type: boolean
+      required: true
+      default: true
   
   caracteristica_producto:
     _attributes:
@@ -72,6 +86,10 @@ propel:
       foreignReference: id
       required: true
       onDelete: cascade
+    es_activo:
+      type: boolean
+      required: true
+      default: true
   
   tipo_producto:
     _attributes:
@@ -89,6 +107,10 @@ propel:
       foreignReference: id
       required: true
       onDelete: cascade
+    es_activo:
+      type: boolean
+      required: true
+      default: true
 
   stock_producto_sucursal:
     _attributes:
@@ -118,4 +140,8 @@ propel:
       type: varchar(255)
       required: true
       index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
 

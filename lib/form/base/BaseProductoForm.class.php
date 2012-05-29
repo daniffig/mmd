@@ -19,6 +19,7 @@ abstract class BaseProductoForm extends BaseFormPropel
       'modelo'      => new sfWidgetFormInputText(),
       'precio'      => new sfWidgetFormInputText(),
       'descripcion' => new sfWidgetFormTextarea(),
+      'es_activo'   => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
@@ -27,6 +28,7 @@ abstract class BaseProductoForm extends BaseFormPropel
       'modelo'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'precio'      => new sfValidatorNumber(),
       'descripcion' => new sfValidatorString(array('required' => false)),
+      'es_activo'   => new sfValidatorBoolean(),
     ));
 
     $this->validatorSchema->setPostValidator(

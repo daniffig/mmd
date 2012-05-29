@@ -20,7 +20,7 @@ class Producto extends BaseProducto {
 
   public function __toString()
   {
-    return "algo";
+    return $this->getMarca() . " :: " . $this->getModelo();
   }
 
 } // Producto

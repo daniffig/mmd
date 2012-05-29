@@ -14,15 +14,17 @@ abstract class BaseCaracteristicaForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'id'      => new sfWidgetFormInputHidden(),
-      'tipo_id' => new sfWidgetFormPropelChoice(array('model' => 'Tipo', 'add_empty' => false)),
-      'nombre'  => new sfWidgetFormInputText(),
+      'id'        => new sfWidgetFormInputHidden(),
+      'tipo_id'   => new sfWidgetFormPropelChoice(array('model' => 'Tipo', 'add_empty' => false)),
+      'nombre'    => new sfWidgetFormInputText(),
+      'es_activo' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
-      'id'      => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
-      'tipo_id' => new sfValidatorPropelChoice(array('model' => 'Tipo', 'column' => 'id')),
-      'nombre'  => new sfValidatorString(array('max_length' => 255)),
+      'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
+      'tipo_id'   => new sfValidatorPropelChoice(array('model' => 'Tipo', 'column' => 'id')),
+      'nombre'    => new sfValidatorString(array('max_length' => 255)),
+      'es_activo' => new sfValidatorBoolean(),
     ));
 
     $this->validatorSchema->setPostValidator(

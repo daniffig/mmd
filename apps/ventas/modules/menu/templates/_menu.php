@@ -27,7 +27,7 @@
               <li class="nav-header">Características</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Características"), '@caracteristica'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Característica"), '@caracteristica_new'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Asociaciones a Producto"), '@caracteristica_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Asociaciones a Producto"), '@caracteristica_producto'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Asociar a Producto"), '@caracteristica_producto_new'); ?></li>
             </ul>
           </li>

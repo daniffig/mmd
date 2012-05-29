@@ -16,6 +16,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
       'modelo'      => new sfWidgetFormFilterInput(),
       'precio'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'descripcion' => new sfWidgetFormFilterInput(),
+      'es_activo'   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
@@ -23,6 +24,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
       'modelo'      => new sfValidatorPass(array('required' => false)),
       'precio'      => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'descripcion' => new sfValidatorPass(array('required' => false)),
+      'es_activo'   => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('producto_filters[%s]');
@@ -45,6 +47,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
       'modelo'      => 'Text',
       'precio'      => 'Number',
       'descripcion' => 'Text',
+      'es_activo'   => 'Boolean',
     );
   }
 }

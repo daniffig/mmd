@@ -14,11 +14,13 @@ abstract class BaseCaracteristicaProductoFormFilter extends BaseFormFilterPropel
     $this->setWidgets(array(
       'producto_id'       => new sfWidgetFormPropelChoice(array('model' => 'Producto', 'add_empty' => true)),
       'caracteristica_id' => new sfWidgetFormPropelChoice(array('model' => 'Caracteristica', 'add_empty' => true)),
+      'es_activo'         => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
       'producto_id'       => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Producto', 'column' => 'id')),
       'caracteristica_id' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Caracteristica', 'column' => 'id')),
+      'es_activo'         => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('caracteristica_producto_filters[%s]');
@@ -39,6 +41,7 @@ abstract class BaseCaracteristicaProductoFormFilter extends BaseFormFilterPropel
       'id'                => 'Number',
       'producto_id'       => 'ForeignKey',
       'caracteristica_id' => 'ForeignKey',
+      'es_activo'         => 'Boolean',
     );
   }
 }
