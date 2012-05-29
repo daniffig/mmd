@@ -10,15 +10,38 @@
         <ul class="nav">
          
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tablas de referencia<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Productos<b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li class="nav-header">Tipos de Productos</li>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Listado"), '@tipo'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Nueva"), '@tipo_new'); ?></li>
+              <li class="nav-header">Productos</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Productos"), '@producto'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Producto"), '@producto_new'); ?></li>
               <li class="divider"></li>
-              <li class="nav-header">Marcas de Productos</li>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Listado"), '@marca'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Nueva"), '@marca_new'); ?></li>
+              <li class="nav-header">Marcas</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Marcas"), '@marca'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Marca"), '@marca_new'); ?></li>
+              <li class="divider"></li>
+              <li class="nav-header">Tipos</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos"), '@tipo'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo"), '@tipo_new'); ?></li>
+              <li class="divider"></li>
+              <li class="nav-header">Características</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Características"), '@caracteristica'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Característica"), '@caracteristica_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Asociaciones a Producto"), '@caracteristica_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Asociar a Producto"), '@caracteristica_producto_new'); ?></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">Usuarios</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Usuarios"), '@sf_guard_user'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
+              <li class="divider"></li>
+              <li class="nav-header">Sucursales</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Sucursales"), '@sucursal'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Sucursal"), '@sucursal_new'); ?></li>
             </ul>
           </li>
           

@@ -52,7 +52,7 @@ propel:
       type: float
       required: true
     descripcion:
-      type: blob
+      type: clob
     # ¿Qué quiso hacer Andrés acá? Producto es una tabla de referencia, no tiene sentido meter un campo stock.
     #stock: { type: integer, foreignTable: stock, foreignReference: id, required: true, primaryKey: true, onDelete: cascade }
   

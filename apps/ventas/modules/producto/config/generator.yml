@@ -10,7 +10,8 @@ generator:
     route_prefix:          producto
     with_propel_route:     1
     actions_base_class:    sfActions
-    css:                   false
+    #css:                   false
+
     config:
       actions: ~
       fields:  ~

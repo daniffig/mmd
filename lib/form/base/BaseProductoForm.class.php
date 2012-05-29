@@ -18,7 +18,7 @@ abstract class BaseProductoForm extends BaseFormPropel
       'marca_id'    => new sfWidgetFormPropelChoice(array('model' => 'Marca', 'add_empty' => false)),
       'modelo'      => new sfWidgetFormInputText(),
       'precio'      => new sfWidgetFormInputText(),
-      'descripcion' => new sfWidgetFormInputText(),
+      'descripcion' => new sfWidgetFormTextarea(),
     ));
 
     $this->setValidators(array(
@@ -26,7 +26,7 @@ abstract class BaseProductoForm extends BaseFormPropel
       'marca_id'    => new sfValidatorPropelChoice(array('model' => 'Marca', 'column' => 'id')),
       'modelo'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'precio'      => new sfValidatorNumber(),
-      'descripcion' => new sfValidatorPass(array('required' => false)),
+      'descripcion' => new sfValidatorString(array('required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
