@@ -12,10 +12,20 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
-      list:    ~
+      actions:
+        _new:
+          label: Agregar
+        _edit:
+          label: Editar
+        _delete:
+          label: Eliminar
+      fields: ~
+      list:    
+        title: Lista de Caracteristicas
+        hide: [id]
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:    
+        title: Editar Caracteristica
+      new:
+        title: Nueva Caracteristica
