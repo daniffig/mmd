@@ -13,4 +13,14 @@ hr.divider-footer{
   	border: 0;
   	border-bottom: 2px solid #CCC;
 	}
-
+div#informacion-basica{
+	width:450px;
+	float:left;
+}
+h2#caja-stock{
+	color:white;
+}
+div#imagen{
+	float:right;
+        border: 4px solid #009fcb;
+}
