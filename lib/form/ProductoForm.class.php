@@ -11,5 +11,6 @@ class ProductoForm extends BaseProductoForm
 {
   public function configure()
   {
+    $this->setWidget('marca_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Marca')));
   }
 }

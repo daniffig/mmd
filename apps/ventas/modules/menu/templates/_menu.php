@@ -23,11 +23,13 @@
               <li class="nav-header">Tipos</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos"), '@tipo'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo"), '@tipo_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Asociaciones a Productos"), '@tipo_producto'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Asociar a Producto"), '@tipo_producto_new'); ?></li>
               <li class="divider"></li>
               <li class="nav-header">Características</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Características"), '@caracteristica'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Característica"), '@caracteristica_new'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Asociaciones a Producto"), '@caracteristica_producto'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Asociaciones a Productos"), '@caracteristica_producto'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Asociar a Producto"), '@caracteristica_producto_new'); ?></li>
             </ul>
           </li>
