@@ -25,6 +25,7 @@ generator:
           is_link: false
       list:
         title: Listado de Marcas
+        hide: [id]
       filter: ~
       form: ~
       edit: ~
