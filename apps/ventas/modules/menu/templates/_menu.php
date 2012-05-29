@@ -4,7 +4,7 @@
     <div class="container" style="width: auto;">
       
       <div class="nav-collapse">
-        
+        <?php echo image_tag('electrohogar_icon.png','style=float:left;margin:0px 10px 2px'); ?>
         <?php  echo link_to(__('MMD'), '@producto', array('class' => 'brand')); ?>
         
         <ul class="nav">
