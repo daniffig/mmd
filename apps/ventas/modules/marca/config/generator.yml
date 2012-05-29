@@ -1,5 +1,5 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class: Marca
     theme: admin
@@ -14,7 +14,7 @@ generator:
     config:
       actions:
         _new:
-          label: Agregar
+          label: Agregar Marca
         _edit:
           label: Editar
         _delete:

@@ -23,4 +23,14 @@ class Marca extends BaseMarca {
     return $this->getNombre();
   }
 
+  public function puedenBorrarme()
+  {
+    $criteria = new Criteria();
+    $criteria->addJoin(ProductoPeer::MARCA_ID, MarcaPeer::ID, Criteria::INNER_JOIN);
+    $criteria->add(ProductoPeer::ES_ACTIVO, 1);
+    $criteria->addAnd(MarcaPeer::ID, $this->getId());
+
+    return (MarcaPeer::doCount($criteria) == 0);
+  }
+
 } // Marca

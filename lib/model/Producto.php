@@ -23,4 +23,18 @@ class Producto extends BaseProducto {
     return $this->getMarca() . " :: " . $this->getModelo();
   }
 
+  public function getEsActivoIcono()
+  {
+    if ($this->getEsActivo())
+    {
+      $icono = "tick.png";
+    }
+    else
+    {
+      $icono = "cross-small.png";
+    }
+
+    return $icono;
+  }
+
 } // Producto

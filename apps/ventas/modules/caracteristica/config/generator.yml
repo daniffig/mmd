@@ -21,8 +21,9 @@ generator:
           label: Eliminar
       fields: ~
       list:    
-        title: Lista de Caracteristicas
-        hide: [id]
+        title: Listado de Caracteristicas
+        display: [tipo, nombre, es_activo]
+
       filter:  ~
       form:    ~
       edit:    

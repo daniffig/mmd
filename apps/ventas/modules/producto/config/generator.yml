@@ -14,7 +14,14 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        _new:
+          label: Agregar Producto
+        _delete:
+          label: Eliminar
+        es_activo:
+          label: Activo
+
       list:
         title: Listado de Productos
         display: [marca, modelo, _precio, es_activo]
@@ -22,16 +29,14 @@ generator:
         object_actions:
           _edit:
             credentials: Administrador
-          borrar_logico:
-            action: borrarLogico
+          _delete:
             credentials: Administrador
-            label: Borrar     
           ver_caracteristicas:
             action: verCaracteristicas
-
-            
+            icon: tick.png
 
       filter:  ~
       form:    ~
       edit:    ~
-      new:     ~
+      new:
+        title: Agregar Producto

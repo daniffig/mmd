@@ -18,4 +18,15 @@
  */
 class MarcaPeer extends BaseMarcaPeer {
 
+  public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
+  {
+    if ($criteria == null){
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(MarcaPeer::ES_ACTIVO, true);
+
+    return self::doSelect($criteria);
+  }
+
 } // MarcaPeer

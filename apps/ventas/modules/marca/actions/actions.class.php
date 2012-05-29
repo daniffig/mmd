@@ -13,4 +13,24 @@ require_once dirname(__FILE__).'/../lib/marcaGeneratorHelper.class.php';
  */
 class marcaActions extends autoMarcaActions
 {
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+
+    if ($this->getRoute()->getObject()->puedenBorrarme())
+    {
+      $this->getRoute()->getObject()->setEsActivo(false);
+      $this->getRoute()->getObject()->save();
+
+      $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'La Marca tiene Productos asociados.');
+    }
+
+    $this->redirect('@marca');
+  }
 }

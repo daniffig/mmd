@@ -23,4 +23,26 @@ class Tipo extends BaseTipo {
     return $this->getNombre();
   }
 
+  public function getTiposHijos()
+  {
+    $criteria = new Criteria();
+    $criteria->addJoin(TipoPeer::TIPO_PADRE_ID, $this->getId());
+
+    return TipoPeer::doSelect($criteria);
+  }
+
+  public function getProductosAsociados()
+  {
+    // Falta implementar.
+    return false;
+  }
+
+  public function puedenBorrarme()
+  {
+    $criteria = new Criteria();
+    $criteria->add(TipoProductoPeer::TIPO_ID, $this->getId());
+
+    return (TipoProductoPeer::doCount($criteria) == 0);
+  }
+
 } // Tipo

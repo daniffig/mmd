@@ -11,6 +11,6 @@ class TipoForm extends BaseTipoForm
 {
   public function configure()
   {
-    $this->setWidget('tipo_padre_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Tipo')));
+    $this->setWidget('tipo_padre_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Tipo', 'add_empty' => true)));
   }
 }

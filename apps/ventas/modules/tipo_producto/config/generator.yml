@@ -14,8 +14,12 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title: Listado de asociaciones de Productos a Tipos
+        display: [producto, tipo, es_activo]
+
       filter:  ~
       form:    ~
       edit:    ~
-      new:     ~
+      new:
+        title: Asociar Producto a Tipo

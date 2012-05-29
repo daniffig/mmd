@@ -13,4 +13,17 @@ require_once dirname(__FILE__).'/../lib/productoGeneratorHelper.class.php';
  */
 class productoActions extends autoProductoActions
 {
+  public function executeDelete(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+
+    $this->getRoute()->getObject()->setEsActivo(false);
+    $this->getRoute()->getObject()->save();
+
+    $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+
+    $this->redirect('@producto');
+  }
 }

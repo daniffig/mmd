@@ -18,4 +18,15 @@
  */
 class TipoPeer extends BaseTipoPeer {
 
+  public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
+  {
+    if ($criteria == null){
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(TipoPeer::ES_ACTIVO, true);
+
+    return self::doSelect($criteria);
+  }
+
 } // TipoPeer

@@ -1,5 +1,5 @@
 generator:
-  class: pmPropelGenerator
+  class: sfPropelGenerator
   param:
     model_class:           Tipo
     theme:                 admin
@@ -16,10 +16,15 @@ generator:
       fields:
         tipo_related_by_tipo_padre_id:
           label: Tipo (padre)
+        es_activo:
+          label: Activo
+
       list:
         title: Listado de Tipos de Producto
-        display: [nombre, tipo_related_by_tipo_padre_id]
+        display: [nombre, tipo_related_by_tipo_padre_id, es_activo]
+
       filter:  ~
       form:    ~
       edit:    ~
-      new:     ~
+      new:
+        title: Agregar Tipo
