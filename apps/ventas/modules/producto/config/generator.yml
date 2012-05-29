@@ -10,6 +10,7 @@ generator:
     route_prefix:          producto
     with_propel_route:     1
     actions_base_class:    sfActions
+    css:                   bootstrap.min.css
 
     config:
       actions: ~
@@ -17,7 +18,7 @@ generator:
       list:
         title: Listado de Productos
 
-      filter:  ~
+      filter: ~
       form:    ~
       edit:    ~
       new:     ~
