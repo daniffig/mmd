@@ -28,6 +28,7 @@ generator:
         hide: [id]
       filter: ~
       form: ~
-      edit: ~
+      edit:
+        title: Editar Marca
       new:
         title: Agregar Marca
