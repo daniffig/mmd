@@ -1,0 +1,68 @@
+
+# Para mi los onDelete: cascade estan bien puestos
+
+  venta_producto:
+    _attributes:
+      phpName: VentaProducto
+    id: ~
+    venta_id:
+      type: integer
+      foreignClass: Venta
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    producto_id:
+      type: integer
+      foreignClass: Producto
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    precio_unitario:
+      type: float
+      required: true
+    cantidad:
+      type: integer
+      required:true
+    es_activo:
+     type: boolean
+     required: true
+     default: true
+
+  #falta idCliente ,idEmpleado
+  venta:
+    _attributes:
+      phpName: Venta
+    id: ~
+    fecha:
+      type: date
+      required: true
+    sucursal_id:
+      type: integer
+      foreignClass: Sucursal
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    medios_pago_id:
+      type: integer
+      foreignClass: MedioPago
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+  medio_pago:
+     _attributes:
+       phpName: MedioPago
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+

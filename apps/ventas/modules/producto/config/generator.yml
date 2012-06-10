@@ -21,7 +21,6 @@ generator:
           label: Eliminar
         es_activo:
           label: Activo
-
       list:
         title: Listado de Productos
         display: [marca, modelo, _precio, es_activo]
@@ -34,7 +33,6 @@ generator:
           ver_caracteristicas:
             action: verCaracteristicas
             icon: tick.png
-
       filter:  ~
       form:    ~
       edit:    ~

@@ -1,0 +1,27 @@
+propel:   
+  # del cliente se guarda todos los datos necesarios para realizar una venta
+   # nombre,apellido,direccion,dni o cuit
+   # en el DER no estaba el CUIT asi que lo puse como opcional
+   cliente:
+      _attributes:
+        phpName:Cliente
+      id: ~
+      dni: 
+       type: integer
+       required: true
+       index: unique
+      apellido:
+       type: varchar(255)
+       required: true
+      nombre:
+       type: varchar(255)
+       required: true
+      telefono:
+       type: integer
+       required: true
+      direccion:
+       type: varchar(255)
+       required: true
+      cuit:
+        type: integer
+        index: unique 
