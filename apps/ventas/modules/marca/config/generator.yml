@@ -1,5 +1,5 @@
 generator:
-  class: pmPropelGenerator
+  class: sfPropelGenerator
   param:
     model_class: Marca
     theme: admin

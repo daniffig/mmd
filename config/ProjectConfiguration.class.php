@@ -10,6 +10,5 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfPropelPlugin');
     $this->enablePlugins('sfGuardPlugin');
     $this->enablePlugins('dcReloadedFormExtraPlugin');
-    $this->enablePlugins('pmPropelGeneratorPlugin');
   }
 }
