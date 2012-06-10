@@ -25,6 +25,7 @@ propel:
       type: integer
       foreignClass: Tipo
       foreignReference: id
+      onDelete: restrict
     es_activo:
       type: boolean
       required: true
@@ -52,11 +53,18 @@ propel:
     _attributes:
       phpName: Producto
     id: ~
+    tipo_id:
+      type: integer
+      foreignClass: Tipo
+      foreignReference: id
+      required: false
+      onDelete: restrict
     marca_id:
       type: integer
       foreignClass: Marca
       foreignReference: id
       required: true
+      onDelete: restrict
     modelo:
       type: varchar(255)
       index: unique
@@ -83,27 +91,6 @@ propel:
     caracteristica_id:
       type: integer
       foreignClass: Caracteristica
-      foreignReference: id
-      required: true
-      onDelete: cascade
-    es_activo:
-      type: boolean
-      required: true
-      default: true
-  
-  tipo_producto:
-    _attributes:
-      phpName: TipoProducto
-    id: ~
-    producto_id:
-      type: integer
-      foreignClass: Producto
-      foreignReference: id
-      required: true
-      onDelete: cascade
-    tipo_id:
-      type: integer
-      foreignClass: Tipo
       foreignReference: id
       required: true
       onDelete: cascade

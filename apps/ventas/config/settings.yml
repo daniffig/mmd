@@ -35,7 +35,7 @@ all:
     use_database:           true
 
     # sfGuard configuration
-    enabled_modules:        [default, sfGuardAuth, sfGuardUser]
+    enabled_modules:        [default, dc_ajax, sfGuardAuth, sfGuardUser]
     
     secure_module:          sfGuardAuth
     secure_action:          secure

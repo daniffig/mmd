@@ -12,6 +12,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
+      'tipo_id'     => new sfWidgetFormPropelChoice(array('model' => 'Tipo', 'add_empty' => true)),
       'marca_id'    => new sfWidgetFormPropelChoice(array('model' => 'Marca', 'add_empty' => true)),
       'modelo'      => new sfWidgetFormFilterInput(),
       'precio'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -20,6 +21,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
     ));
 
     $this->setValidators(array(
+      'tipo_id'     => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Tipo', 'column' => 'id')),
       'marca_id'    => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Marca', 'column' => 'id')),
       'modelo'      => new sfValidatorPass(array('required' => false)),
       'precio'      => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
@@ -43,6 +45,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
   {
     return array(
       'id'          => 'Number',
+      'tipo_id'     => 'ForeignKey',
       'marca_id'    => 'ForeignKey',
       'modelo'      => 'Text',
       'precio'      => 'Number',
