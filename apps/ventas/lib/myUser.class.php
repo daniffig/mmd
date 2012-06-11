@@ -31,12 +31,12 @@ class myUser extends sfGuardSecurityUser
 
   public function cerrarVenta()
   {
-    // FALTA IMPLEMENTAR.
-    return true;
+    $this->setAttribute('venta', null);
   }
 
   public function cancelarVenta()
   {
+    $this->getVenta()->cancelarVenta();
     $this->setAttribute('venta', null);
   }
 

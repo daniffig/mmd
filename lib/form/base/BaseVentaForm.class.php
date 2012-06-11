@@ -15,11 +15,11 @@ abstract class BaseVentaForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'            => new sfWidgetFormInputHidden(),
-      'fecha'         => new sfWidgetFormDate(),
       'created_at'    => new sfWidgetFormDateTime(),
       'created_by'    => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => false)),
       'updated_at'    => new sfWidgetFormDateTime(),
       'updated_by'    => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => true)),
+      'cliente_id'    => new sfWidgetFormPropelChoice(array('model' => 'Cliente', 'add_empty' => false)),
       'sucursal_id'   => new sfWidgetFormPropelChoice(array('model' => 'Sucursal', 'add_empty' => true)),
       'medio_pago_id' => new sfWidgetFormPropelChoice(array('model' => 'MedioPago', 'add_empty' => false)),
       'es_finalizado' => new sfWidgetFormInputCheckbox(),
@@ -28,11 +28,11 @@ abstract class BaseVentaForm extends BaseFormPropel
 
     $this->setValidators(array(
       'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
-      'fecha'         => new sfValidatorDate(),
       'created_at'    => new sfValidatorDateTime(array('required' => false)),
       'created_by'    => new sfValidatorPropelChoice(array('model' => 'sfGuardUser', 'column' => 'id')),
       'updated_at'    => new sfValidatorDateTime(array('required' => false)),
       'updated_by'    => new sfValidatorPropelChoice(array('model' => 'sfGuardUser', 'column' => 'id', 'required' => false)),
+      'cliente_id'    => new sfValidatorPropelChoice(array('model' => 'Cliente', 'column' => 'id')),
       'sucursal_id'   => new sfValidatorPropelChoice(array('model' => 'Sucursal', 'column' => 'id', 'required' => false)),
       'medio_pago_id' => new sfValidatorPropelChoice(array('model' => 'MedioPago', 'column' => 'id')),
       'es_finalizado' => new sfValidatorBoolean(),

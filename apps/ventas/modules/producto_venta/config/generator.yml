@@ -28,6 +28,13 @@ generator:
         actions:
           agregar_producto:
             action: agregarProducto
+            label: Agregar Producto
+          cancelar_venta:
+            action: cancelarVenta
+            label: Cancelar Venta
+          cerrar_venta:
+            action: cerrarVenta
+            label: Cerrar Venta
   
       filter:  ~
       form:

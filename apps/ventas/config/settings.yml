@@ -25,7 +25,7 @@ test:
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            454224d7b9198e0c114be38bd73fdc7edaf51654
+    # csrf_secret:            454224d7b9198e0c114be38bd73fdc7edaf51654
 
     # Output escaping settings
     escaping_strategy:      true
@@ -35,7 +35,7 @@ all:
     use_database:           true
 
     # sfGuard configuration
-    enabled_modules:        [default, dc_ajax, sfGuardAuth, sfGuardUser]
+    enabled_modules:        [default, dc_ajax, sfGuardAuth, sfGuardUser, sfGuardGroup, sfGuardPermission]
     
     secure_module:          sfGuardAuth
     secure_action:          secure

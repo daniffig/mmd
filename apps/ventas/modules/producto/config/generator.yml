@@ -42,8 +42,11 @@ generator:
           _delete:
             credentials: Administrador
           agregar_producto_venta:
-            label: Agregar a la Venta Activa
             action: agregarProductoVenta
+            #condition: algo
+              #functionName: usuarioTieneVenta
+            #credentials: [[Empleados]]
+            label: Agregar a la Venta Activa
           ver_detalles:
             action: verDetalles
 

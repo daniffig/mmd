@@ -1,0 +1,45 @@
+Cliente:
+  # Clientes de Referencia | NO TOCAR
+  SinSeleccionar:
+    tipo_documento_id: DNI
+    nro_documento: 0
+    apellido: S/D
+    nombre: S/D
+    telefono: S/D
+    direccion: S/D
+    cuit: 0
+
+  # Clientes de Prueba
+  MatiasArrech:
+    tipo_documento_id: DNI
+    nro_documento: 35000000
+    apellido: Arrech
+    nombre: Matías
+    telefono: 4500000
+    direccion: Calle 123 N1234
+    cuit: 1
+  AndresCimadamore:
+    tipo_documento_id: DNI
+    nro_documento: 35000001
+    apellido: Cimadamore
+    nombre: Andrés
+    telefono: 4510000
+    direccion: Calle 1 N234
+    cuit: 2
+  LucioDiGiacomo:
+    tipo_documento_id: DNI
+    nro_documento: 33000000
+    apellido: Di Giacomo
+    nombre: Lucio
+    telefono: 4520000
+    direccion: Calle 23 N123
+    cuit: 3
+  DuilioRay:
+    tipo_documento_id: DNI
+    nro_documento: 35000002
+    apellido: Ray
+    nombre: Duilio
+    telefono: 4530000
+    direccion: Calle 13 N124
+    cuit: 4
+

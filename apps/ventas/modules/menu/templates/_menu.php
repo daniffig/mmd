@@ -15,18 +15,24 @@
               <li class="nav-header">Productos</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Productos"), '@producto'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Producto"), '@producto_new'); ?></li>
+              <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
               <li class="divider"></li>
               <li class="nav-header">Marcas</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Marcas"), '@marca'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Marca"), '@marca_new'); ?></li>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('administrarTiposProducto')): ?>
               <li class="divider"></li>
               <li class="nav-header">Tipos de Producto</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos de Producto"), '@tipo_producto'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo de Producto"), '@tipo_producto_new'); ?></li>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('administrarCaracteristicas')): ?>
               <li class="divider"></li>
               <li class="nav-header">Características</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Características"), '@caracteristica'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Característica"), '@caracteristica_new'); ?></li>
+              <?php endif; ?>
             </ul>
           </li>
          
@@ -36,14 +42,16 @@
               <li class="nav-header">Ventas</li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Mis Ventas"), 'venta/verMisVentas'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Ventas"), '@venta'); ?></li>
+              <?php if ($sf_user->hasCredential('gestionarVentas')): ?>
               <li class="divider"></li>
               <li class="nav-header">Venta Activa</li>
               <?php if (!$sf_user->tieneVenta()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
               <?php else: ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), 'producto_venta/' . $sf_user->getVenta()->getId()); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), '@producto_venta'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
+              <?php endif; ?>
               <?php endif; ?>
             </ul>
           </li>
@@ -64,9 +72,19 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
             <ul class="dropdown-menu">
+              <?php if ($sf_user->hasCredential('administrarUsuarios')): ?>
               <li class="nav-header">Usuarios</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Usuarios"), '@sf_guard_user'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
+              <li class="divider"></li>
+              <?php endif; ?>
+              <li class="nav-header">Grupos</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Grupos"), '@sf_guard_group'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Grupo"), '@sf_guard_group_new'); ?></li>
+              <li class="divider"></li>
+              <li class="nav-header">Permisos</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Permisos"), '@sf_guard_permission'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Permiso"), '@sf_guard_permission_new'); ?></li>
               <li class="divider"></li>
               <li class="nav-header">Sucursales</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Sucursales"), '@sucursal'); ?></li>

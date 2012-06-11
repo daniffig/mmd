@@ -18,4 +18,16 @@
  */
 class MedioPagoPeer extends BaseMedioPagoPeer {
 
+	public static function doSelectValidos(Criteria $criteria, PropelPDO $con = null)
+  {
+    if ($criteria == null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ID, 1, Criteria::NOT_EQUAL);
+
+    return self::doSelect($criteria);
+  }
+
 } // MedioPagoPeer

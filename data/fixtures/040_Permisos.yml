@@ -1,0 +1,20 @@
+sfGuardPermission:
+  # Sprint 00
+  administrarUsuarios:
+    name: administrarUsuarios
+  administrarGrupos:
+    name: administrarGrupos
+  administrarPermisos:
+    name: administrarPermisos
+
+  # Sprint 01
+  administrarMarcas:
+    name: administrarMarcas
+  administrarTiposProducto:
+    name: administrarTiposProducto
+  administrarCaracteristicas:
+    name: administrarCaracteristicas
+
+  # Sprint 02
+  gestionarVentas:
+    name: gestionarVentas

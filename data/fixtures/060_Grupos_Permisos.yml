@@ -1,0 +1,16 @@
+sfGuardGroupPermission:
+  # Empleados
+  Empleados_gestionarVentas:
+    group_id: Empleados
+    permission_id: gestionarVentas
+
+  # Administradores
+  Administradores_administrarMarcas:
+    group_id: Administradores
+    permission_id: administrarMarcas
+  Administradores_administrarTiposProducto:
+    group_id: Administradores
+    permission_id: administrarTiposProducto
+  Administradores_administrarCaracteristicas:
+    group_id: Administradores
+    permission_id: administrarCaracteristicas

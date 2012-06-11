@@ -6,7 +6,7 @@ propel:
     _attributes:
       phpName: sfGuardUserProfile
     id: ~
-    sf_guard_user_id:
+    user_id:
       type: integer
       foreignClass: sfGuardUser
       foreignReference: id
@@ -185,9 +185,6 @@ propel:
     _attributes:
       phpName: Venta
     id: ~
-    fecha:
-      type: date
-      required: true
     created_at: ~
     created_by:
       type: integer
@@ -200,6 +197,12 @@ propel:
       type: integer
       foreignClass: sfGuardUser
       foreignReference: id
+      onDelete: restrict
+    cliente_id:
+      type: integer
+      foreignClass: Cliente
+      foreignReference: id
+      required: true
       onDelete: restrict
     sucursal_id:
       type: integer

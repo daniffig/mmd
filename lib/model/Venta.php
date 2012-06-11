@@ -33,19 +33,34 @@ class Venta extends BaseVenta {
 
   public function __toString()
   {
-    return $this->getFecha();
+    return $this->getCliente();
   }
 
   public static function nuevaVentaActiva()
   {
     $venta = new Venta();
-    $venta->setFecha(mktime(0, 0, 0));
     $venta->setCreatedBy(sfContext::getInstance()->getUser()->getGuardUser());
+    $venta->setClienteId(sfConfig::get('app_cliente_sin_seleccionar'));
     $venta->setMedioPagoId(sfConfig::get('app_medio_pago_sin_seleccionar'));
 
     $venta->save();
 
     return $venta;
+  }
+
+  public function getProductoVenta(ProductoVenta $producto_venta)
+  {
+    $criteria = new Criteria();
+    
+    $criteria->add(ProductoVentaPeer::PRODUCTO_ID, $producto_venta->getProductoId());
+    $criteria->add(ProductoVentaPeer::VENTA_ID, $producto_venta->getVentaId());
+
+    return ProductoVentaPeer::doSelectOne($criteria);
+  }
+
+  public function cancelarVenta()
+  {
+    $this->delete();
   }
 
 } // Venta

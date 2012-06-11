@@ -1,4 +1,19 @@
 sfGuardUser:
+  empleado:
+    username: empleado
+    password: empleado
+    is_active: 1
+    is_super_admin: 0
+  supervisor:
+    username: supervisor
+    password: supervisor
+    is_active: 1
+    is_super_admin: 0
+  administrador:
+    username: administrador
+    password: administrador
+    is_active: 1
+    is_super_admin: 0
   admin:
     username: admin
     password: admin

@@ -28,4 +28,9 @@ class Producto extends BaseProducto {
     return true;
   }
 
+  public function algo()
+  {
+    return sfContext::getInstance()->getUser()->tieneVenta();
+  }
+
 } // Producto

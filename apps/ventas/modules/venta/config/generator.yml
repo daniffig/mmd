@@ -16,7 +16,7 @@ generator:
       fields:  ~
       list:
         title: Listado de Ventas
-        display: [medio_pago, es_finalizado, es_activo]
+        display: [cliente, medio_pago, es_finalizado, es_activo]
 
         object_actions:
           reabrir_venta:
@@ -26,9 +26,13 @@ generator:
         actions:
           iniciar_venta:
             action: iniciarVenta
+            condition:
+              functionName: tieneVenta
+              invert: false
 
       filter:
-        display: [sucursal_id, medio_pago_id, es_activo]
+        display: [cliente_id, medio_pago_id, es_activo]
+
       form:    ~
       edit:    ~
       new:     ~

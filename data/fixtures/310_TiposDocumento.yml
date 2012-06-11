@@ -1,10 +1,10 @@
 TipoDocumento:
-  TipoDocumento_1:
+  DNI:
     nombre: DNI
-  TipoDocumento_2:
+  CI:
     nombre: CI
-  TipoDocumento_3:
+  LE:
     nombre: LE
-  TipoDocumento_4:
+  LC:
     nombre: LC
   

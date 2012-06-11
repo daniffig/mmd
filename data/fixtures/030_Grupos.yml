@@ -1,0 +1,7 @@
+sfGuardGroup:
+  Empleados:
+    name: Empleados
+  Supervisores:
+    name: Supervisores
+  Administradores:
+    name: Administradores

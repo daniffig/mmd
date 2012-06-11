@@ -1,0 +1,11 @@
+sfGuardUserGroup:
+  empleado_Empleados:
+    user_id: empleado
+    group_id: Empleados
+  supervisor_Supervisores:
+    user_id: supervisor
+    group_id: Supervisores
+  admin_Administradores:
+    user_id: admin
+    group_id: Administradores
+

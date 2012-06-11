@@ -18,4 +18,8 @@
  */
 class Cliente extends BaseCliente {
 
+  public function __toString()
+  {
+    return $this->getApellido() . ', ' . $this->getNombre() . ' (' . $this->getTipoDocumento() . ' ' . $this->getNroDocumento() . ')';
+  }
 } // Cliente

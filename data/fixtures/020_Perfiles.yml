@@ -1,21 +1,21 @@
 sfGuardUserProfile:
   admin:
-    sf_guard_user_id: admin
+    user_id: admin
     nombre: admin
     email: admin@dvorak-development.com.ar
   marrech:
-    sf_guard_user_id: marrech
+    user_id: marrech
     nombre: Matías Arrech
     email: marrech@dvorak-development.com.ar
   acimadamore:
-    sf_guard_user_id: acimadamore
+    user_id: acimadamore
     nombre: Andrés Cimadamore
     email: acimadamore@dvorak-development.com.ar
   ldigiacomo:
-    sf_guard_user_id: ldigiacomo
+    user_id: ldigiacomo
     nombre: Lucio Di Giacomo Noack
     email: ldigiacomo@dvorak-development.com.ar
   dray:
-    sf_guard_user_id: dray
+    user_id: dray
     nombre: Duilio Ray
     email: dray@dvorak-development.com.ar

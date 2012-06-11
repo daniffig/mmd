@@ -9,5 +9,8 @@ all:
     success_signin_url:     @producto
     success_signout_url:    @default
 
+# Clientes
+  cliente_sin_seleccionar: 1
+
 # Medios de Pago
   medio_pago_sin_seleccionar: 1
