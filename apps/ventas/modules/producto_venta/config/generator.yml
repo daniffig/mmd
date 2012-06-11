@@ -1,0 +1,29 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           ProductoVenta
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ProductoVenta
+    plural:                ProductoVentas
+    route_prefix:          producto_venta
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Productos de la Venta
+
+        actions:
+          agregar_producto:
+            action: agregarProducto
+  
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:
+        title: Agregar Producto a la Venta :: %%producto%%
+        display: [producto_id, venta_id, cantidad]

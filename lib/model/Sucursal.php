@@ -18,4 +18,8 @@
  */
 class Sucursal extends BaseSucursal {
 
+  public function __toString()
+  {
+    return $this->getNombre(); 
+  }
 } // Sucursal

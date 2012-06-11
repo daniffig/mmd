@@ -18,4 +18,16 @@
  */
 class TipoProductoPeer extends BaseTipoProductoPeer {
 
+  public static function doSelectChoices(Criteria $criteria, PropelPDO $con = null)
+  {
+    $collection = self::doSelect($criteria, $con);
+
+    foreach ($collection as $object)
+    {
+      $choices[$object->getId()] = $object->getNombre();
+    }
+
+    return $choices;    
+  }
+
 } // TipoProductoPeer

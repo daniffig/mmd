@@ -1,0 +1,43 @@
+
+
+# Del cliente se guarda todos los datos necesarios para realizar una venta: nombre, apellido, direccion, dni o cuit.
+# En el DER no estaba el CUIT asi que lo puse como opcional.
+
+  tipo_documento:
+    _attributes:
+      phpName: TipoDocumento
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+  
+  cliente:
+    _attributes:
+      phpName: Cliente
+    id: ~
+    tipo_documento_id:
+      type: integer
+      foreignClass: TipoDocumento
+      foreignReference: id
+      required: true
+    nro_documento: 
+      type: integer
+      required: true
+      index: unique
+    apellido:
+      type: varchar(255)
+      required: true
+    nombre:
+      type: varchar(255)
+      required: true
+    telefono:
+      type: varchar(255)
+      required: true
+    direccion:
+      type: varchar(255)
+      required: true
+    cuit:
+      type: integer
+      index: unique
+

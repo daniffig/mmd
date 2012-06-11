@@ -14,17 +14,17 @@ abstract class BaseTipoForm extends BaseFormPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'id'            => new sfWidgetFormInputHidden(),
-      'nombre'        => new sfWidgetFormInputText(),
-      'tipo_padre_id' => new sfWidgetFormPropelChoice(array('model' => 'Tipo', 'add_empty' => true)),
-      'es_activo'     => new sfWidgetFormInputCheckbox(),
+      'id'           => new sfWidgetFormInputHidden(),
+      'nombre'       => new sfWidgetFormInputText(),
+      'categoria_id' => new sfWidgetFormPropelChoice(array('model' => 'Categoria', 'add_empty' => true)),
+      'es_activo'    => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
-      'id'            => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
-      'nombre'        => new sfValidatorString(array('max_length' => 255)),
-      'tipo_padre_id' => new sfValidatorPropelChoice(array('model' => 'Tipo', 'column' => 'id', 'required' => false)),
-      'es_activo'     => new sfValidatorBoolean(),
+      'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
+      'nombre'       => new sfValidatorString(array('max_length' => 255)),
+      'categoria_id' => new sfValidatorPropelChoice(array('model' => 'Categoria', 'column' => 'id', 'required' => false)),
+      'es_activo'    => new sfValidatorBoolean(),
     ));
 
     $this->validatorSchema->setPostValidator(

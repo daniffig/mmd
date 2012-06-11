@@ -1,5 +1,26 @@
 propel:
 
+# Sprint 00
+
+  sf_guard_user_profile:
+    _attributes:
+      phpName: sfGuardUserProfile
+    id: ~
+    sf_guard_user_id:
+      type: integer
+      foreignClass: sfGuardUser
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    nombre:
+      type: varchar(255)
+    apellido:
+      type: varchar(255)
+    email:
+      type: varchar(255)
+
+# Sprint 01
+
   marca:
     _attributes:
       phpName: Marca
@@ -13,19 +34,32 @@ propel:
       required: true
       default: true
 
-  tipo:
+  categoria:
     _attributes:
-      phpName: Tipo
+      phpName: Categoria
     id: ~
     nombre:
       type: varchar(255)
       required: true
       index: unique
-    tipo_padre_id:
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+  tipo_producto:
+    _attributes:
+      phpName: TipoProducto
+    id: ~
+    categoria_id:
       type: integer
-      foreignClass: Tipo
+      foreignClass: Categoria
       foreignReference: id
       onDelete: restrict
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
     es_activo:
       type: boolean
       required: true
@@ -35,9 +69,9 @@ propel:
     _attributes:
       phpName: Caracteristica
     id: ~
-    tipo_id:
+    tipo_producto_id:
       type: integer
-      foreignClass: Tipo
+      foreignClass: TipoProducto
       foreignReference: id
       required: true
     nombre:
@@ -53,9 +87,9 @@ propel:
     _attributes:
       phpName: Producto
     id: ~
-    tipo_id:
+    tipo_producto_id:
       type: integer
-      foreignClass: Tipo
+      foreignClass: TipoProducto
       foreignReference: id
       required: false
       onDelete: restrict
@@ -126,6 +160,134 @@ propel:
     nombre:
       type: varchar(255)
       required: true
+      index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+# Sprint 02
+
+  medio_pago:
+    _attributes:
+       phpName: MedioPago
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+  venta:
+    _attributes:
+      phpName: Venta
+    id: ~
+    fecha:
+      type: date
+      required: true
+    created_at: ~
+    created_by:
+      type: integer
+      foreignClass: sfGuardUser
+      foreignReference: id
+      required: true
+      onDelete: restrict
+    updated_at: ~
+    updated_by:
+      type: integer
+      foreignClass: sfGuardUser
+      foreignReference: id
+      onDelete: restrict
+    sucursal_id:
+      type: integer
+      foreignClass: Sucursal
+      foreignReference: id
+      required: true
+      onDelete: restrict
+    medio_pago_id:
+      type: integer
+      foreignClass: MedioPago
+      foreignReference: id
+      required: true
+      onDelete: restrict
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+  producto_venta:
+    _attributes:
+      phpName: ProductoVenta
+    id: ~
+    producto_id:
+      type: integer
+      foreignClass: Producto
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    venta_id:
+      type: integer
+      foreignClass: Venta
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    precio_unitario:
+      type: float
+      required: true
+    cantidad:
+      type: integer
+      required: true
+    es_activo:
+     type: boolean
+     required: true
+     default: true
+
+  #falta idCliente ,idEmpleado
+
+# Sprint 03
+
+# Del cliente se guarda todos los datos necesarios para realizar una venta: nombre, apellido, direccion, dni o cuit.
+# En el DER no estaba el CUIT asi que lo puse como opcional.
+
+  tipo_documento:
+    _attributes:
+      phpName: TipoDocumento
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+  
+  cliente:
+    _attributes:
+      phpName: Cliente
+    id: ~
+    tipo_documento_id:
+      type: integer
+      foreignClass: TipoDocumento
+      foreignReference: id
+      required: true
+    nro_documento: 
+      type: integer
+      required: true
+      index: unique
+    apellido:
+      type: varchar(255)
+      required: true
+    nombre:
+      type: varchar(255)
+      required: true
+    telefono:
+      type: varchar(255)
+      required: true
+    direccion:
+      type: varchar(255)
+      required: true
+    cuit:
+      type: integer
       index: unique
     es_activo:
       type: boolean

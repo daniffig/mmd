@@ -13,13 +13,22 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        categoria:
+          label: Categoría
+        categoria_id:
+          label: Categoría
+
       list:
-        title: Listado de asociaciones de Productos a Tipos
-        display: [producto, tipo, es_activo]
+        title: Listado de Tipos de Producto
+        display: [categoria, nombre, es_activo]
 
       filter:  ~
-      form:    ~
-      edit:    ~
+      form:
+        display: [categoria_id, nombre]
+
+      edit:
+        title: Editar Tipo de Producto :: %%categoria%% - %%nombre%%
+
       new:
-        title: Asociar Producto a Tipo
+        title: Agregar Tipo de Producto

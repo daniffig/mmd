@@ -1,10 +1,55 @@
+producto_venta:
+  class: sfPropelRouteCollection
+  options:
+    model:                ProductoVenta
+    module:               producto_venta
+    prefix_path:          /producto_venta
+    column:               id
+    with_wildcard_routes: true
+
+venta:
+  class: sfPropelRouteCollection
+  options:
+    model:                Venta
+    module:               venta
+    prefix_path:          /venta
+    column:               id
+    with_wildcard_routes: true
+
+tipo_documento:
+  class: sfPropelRouteCollection
+  options:
+    model:                TipoDocumento
+    module:               tipo_documento
+    prefix_path:          /tipo_documento
+    column:               id
+    with_wildcard_routes: true
+
+cliente:
+  class: sfPropelRouteCollection
+  options:
+    model:                Cliente
+    module:               cliente
+    prefix_path:          /cliente
+    column:               id
+    with_wildcard_routes: true
+
+categoria:
+  class: sfPropelRouteCollection
+  options:
+    model:                Categoria
+    module:               categoria
+    prefix_path:          /categoria
+    column:               id
+    with_wildcard_routes: true
+
 tipo_producto:
   class: sfPropelRouteCollection
   options:
     model:                TipoProducto
     module:               tipo_producto
     prefix_path:          /tipo_producto
-    column:               producto_id
+    column:               id
     with_wildcard_routes: true
 
 stock_producto_sucursal:

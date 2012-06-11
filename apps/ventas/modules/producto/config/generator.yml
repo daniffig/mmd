@@ -19,8 +19,19 @@ generator:
           label: Agregar Producto
         _delete:
           label: Eliminar
+        categoria:
+          label: Categoría
+        categoria_id:
+          label: Categoría
+        caracteristica:
+          label: Características
+        caracteristica_id:
+          label: Características
+        descripcion:
+          label: Descripción
         es_activo:
           label: Activo
+
       list:
         title: Listado de Productos
         display: [marca, modelo, _precio, es_activo]
@@ -30,11 +41,18 @@ generator:
             credentials: Administrador
           _delete:
             credentials: Administrador
-          ver_caracteristicas:
-            action: verCaracteristicas
-            icon: tick.png
+          agregar_producto_venta:
+            label: Agregar a la Venta Activa
+            action: agregarProductoVenta
+          ver_detalles:
+            action: verDetalles
+
       filter:  ~
-      form:    ~
-      edit:    ~
+      form:
+        display: [categoria_id, tipo_producto_id, marca_id, caracteristica_id, modelo, precio, descripcion]
+
+      edit:
+        title: Editar Producto :: %%tipo_producto%% - %%marca%% - %%modelo%%
       new:
         title: Agregar Producto
+

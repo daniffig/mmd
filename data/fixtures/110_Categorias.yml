@@ -1,0 +1,21 @@
+Categoria:
+  Categoria_1:
+    nombre: TV, Imagen y Sonido
+  Categoria_2:
+    nombre: Informática y Gaming
+  Categoria_3:
+    nombre: Accesorios
+  Categoria_4:
+    nombre: Celulares
+  Categoria_5:
+    nombre: Cámaras
+  Categoria_6:
+    nombre: Cocina y Heladeras
+  Categoria_7:
+    nombre: Aire y Calefacción
+  Categoria_8:
+    nombre: Agua y Lavado
+  Categoria_9:
+    nombre: Pequeños
+  Categoria_10:
+    nombre: Motos

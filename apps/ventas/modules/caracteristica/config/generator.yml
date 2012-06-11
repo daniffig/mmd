@@ -22,11 +22,14 @@ generator:
       fields: ~
       list:    
         title: Listado de Caracteristicas
-        display: [tipo, nombre, es_activo]
+        display: [tipo_producto, nombre, es_activo]
 
       filter:  ~
-      form:    ~
+      form:
+        display: [categoria_id, tipo_producto_id, nombre]
+
       edit:    
         title: Editar Caracteristica
+
       new:
         title: Nueva Caracteristica

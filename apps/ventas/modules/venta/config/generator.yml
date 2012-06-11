@@ -1,0 +1,23 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           Venta
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Venta
+    plural:                Ventas
+    route_prefix:          venta
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Ventas
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

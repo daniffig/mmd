@@ -1,0 +1,60 @@
+Marca:
+# Las marcas se identifican con Marca_(nombre de la marca sin parentesis empezando con mayuscula y luego minusculas)
+  Marca_Gateway:
+    nombre: Gateway
+  Marca_Noblex:
+    nombre: Noblex
+  Marca_Samsung:
+    nombre: Samsung
+  Marca_Philips:
+    nombre: Philips
+  Marca_Lg:
+    nombre: LG
+  Marca_Daihatsu:
+    nombre: Daihatsu
+  Marca_Stromberg:
+    nombre: Stromberg
+  Marca_Ranser:
+    nombre: Ranser
+  Marca_Sony:
+    nombre: Sony
+  Marca_Microboy:
+    nombre: Microboy
+  Marca_Microsoft:
+    nombre: Microsoft
+  Marca_Asus:
+    nombre: Asus
+  Marca_Epson:
+    nombre: Epson
+  Marca_Kodak:
+    nombre: Kodak
+  Marca_Canon:
+    nombre: Canon
+  Marca_BlackBerry:
+    nombre: BlackBerry
+  Marca_Wacom:
+    nombre: Wacom
+  Marca_Commodore:
+    nombre: Commodore
+  Marca_Nokia:
+    nombre: Nokia
+  Marca_Sanyo:
+    nombre: Sanyo
+  Marca_Jvc:
+    nombre: JVC
+  Marca_Luxman:
+    nombre: Luxman
+  Marca_Coventry:
+    nombre: Coventry
+  Marca_Orbis:
+    nombre: Orbis
+  Marca_Ultracomb:
+    nombre: Ultracomb
+  Marca_Domec:
+    nombre: Domec
+  Marca_Brother:
+    nombre: Brother
+  Marca_Apple:
+    nombre: Apple
+  Marca_Coby:
+    nombre: Coby

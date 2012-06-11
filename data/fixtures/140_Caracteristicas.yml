@@ -1,0 +1,23 @@
+#Lavarropas
+#  Automatico
+#  Semi-automatico
+
+Caracteristica:
+  Caracteristica_1:
+    tipo_producto_id: TipoProducto_21
+    nombre: 22"
+  Caracteristica_2:
+    tipo_producto_id: TipoProducto_21
+    nombre: 24"
+  Caracteristica_3:
+    tipo_producto_id: TipoProducto_21
+    nombre: 32"
+  Caracteristica_4:
+    tipo_producto_id: TipoProducto_21
+    nombre: 40"
+  Caracteristica_5:
+    tipo_producto_id: TipoProducto_21
+    nombre: 42"
+  Caracteristica_6:
+    tipo_producto_id: TipoProducto_21
+    nombre: 46"

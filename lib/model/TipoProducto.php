@@ -18,4 +18,9 @@
  */
 class TipoProducto extends BaseTipoProducto {
 
+  public function __toString()
+  {
+    return $this->getNombre();
+  }
+
 } // TipoProducto

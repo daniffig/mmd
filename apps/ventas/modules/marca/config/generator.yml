@@ -19,13 +19,17 @@ generator:
           label: Editar
         _delete:
           label: Eliminar
+
       fields: ~
       list:
         title: Listado de Marcas
         display: [nombre, es_activo]
+
       filter: ~
       form: ~
       edit:
         title: Editar Marca
+
       new:
         title: Agregar Marca
+

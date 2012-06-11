@@ -20,13 +20,40 @@
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Marcas"), '@marca'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Marca"), '@marca_new'); ?></li>
               <li class="divider"></li>
-              <li class="nav-header">Tipos</li>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos"), '@tipo'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo"), '@tipo_new'); ?></li>
+              <li class="nav-header">Tipos de Producto</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos de Producto"), '@tipo_producto'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo de Producto"), '@tipo_producto_new'); ?></li>
               <li class="divider"></li>
               <li class="nav-header">Características</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Características"), '@caracteristica'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Característica"), '@caracteristica_new'); ?></li>
+            </ul>
+          </li>
+         
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">Ventas</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Ventas"), '@venta'); ?></li>
+              <li class="divider"></li>
+              <li class="nav-header">Venta Activa</li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta"), '@venta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">Clientes</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Clientes"), '@cliente'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Cliente"), '@cliente_new'); ?></li>
+              <li class="divider"></li>
+              <li class="nav-header">Tipos de Documento</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos de Documento"), '@tipo_documento'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo de Documento"), '@tipo_documento_new'); ?></li>
             </ul>
           </li>
 
