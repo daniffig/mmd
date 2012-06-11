@@ -29,4 +29,19 @@ class ProductoVenta extends BaseProductoVenta {
 		parent::__construct();
 	}
 
+  public function getPrecioUnitarioFormateado()
+  {
+    return "$ " . number_format($this->getPrecioUnitario(), 2, ",", ".");
+  }
+
+  public function getPrecioTotal()
+  {
+    return $this->getCantidad() * $this->getPrecioUnitario();
+  }
+
+  public function getPrecioTotalFormateado()
+  {
+    return "$ " . number_format($this->getPrecioTotal(), 2, ",", ".");
+  }
+
 } // ProductoVenta

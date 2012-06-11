@@ -1,0 +1,10 @@
+MedioPago:
+  MedioPago_SinSeleccionar:
+    nombre: Sin Seleccionar
+  MedioPago_Efectivo:
+    nombre: Efectivo
+  MedioPago_TarjetaCredito:
+    nombre: Tarjeta de Crédito
+  MedioPago_TarjetaDebito:
+    nombre: Tarjeta de Débito
+

@@ -205,7 +205,7 @@ propel:
       type: integer
       foreignClass: Sucursal
       foreignReference: id
-      required: true
+      required: false
       onDelete: restrict
     medio_pago_id:
       type: integer
@@ -213,6 +213,10 @@ propel:
       foreignReference: id
       required: true
       onDelete: restrict
+    es_finalizado:
+      type: boolean
+      required: true
+      default: false
     es_activo:
       type: boolean
       required: true
@@ -227,7 +231,7 @@ propel:
       foreignClass: Producto
       foreignReference: id
       required: true
-      onDelete: cascade
+      onDelete: restrict
     venta_id:
       type: integer
       foreignClass: Venta

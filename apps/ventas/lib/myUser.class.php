@@ -20,8 +20,8 @@ class myUser extends sfGuardSecurityUser
   public function iniciarVenta()
   {
     if (!$this->tieneVenta())
-    {
-      $this->setVenta(new Venta());
+    {    
+      $this->setVenta(Venta::nuevaVentaActiva());
 
       return true;
     }

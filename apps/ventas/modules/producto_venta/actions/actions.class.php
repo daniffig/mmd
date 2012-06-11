@@ -13,6 +13,34 @@ require_once dirname(__FILE__).'/../lib/producto_ventaGeneratorHelper.class.php'
  */
 class producto_ventaActions extends autoProducto_ventaActions
 {
+  public function executeNew(sfWebRequest $request)
+  {
+    $producto = ProductoPeer::retrieveByPk($request->getParameter('producto_id'));
+
+    if ($this->ProductoVenta)
+    {
+      $this->ProductoVenta = $this->form->getObject();
+    }
+    else
+    {
+      $this->ProductoVenta = new ProductoVenta();
+    }
+
+    $this->ProductoVenta->setProducto($producto);
+    $this->ProductoVenta->setVentaId($this->getUser()->getVenta()->getId());
+    $this->ProductoVenta->setPrecioUnitario($producto->getPrecio());
+
+
+    if ($this->form)
+    {
+      $this->form = $this->configuration->getForm();
+    }
+    else
+    {
+      $this->form = new ProductoVentaForm($this->ProductoVenta);
+    }    
+  }
+
   public function executeAgregarProducto()
   {
     $this->redirect('@producto');

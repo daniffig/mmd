@@ -34,13 +34,17 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="nav-header">Ventas</li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Mis Ventas"), 'venta/verMisVentas'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Ventas"), '@venta'); ?></li>
               <li class="divider"></li>
               <li class="nav-header">Venta Activa</li>
+              <?php if (!$sf_user->tieneVenta()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta"), '@venta'); ?></li>
+              <?php else: ?>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), 'producto_venta/' . $sf_user->getVenta()->getId()); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
+              <?php endif; ?>
             </ul>
           </li>
 

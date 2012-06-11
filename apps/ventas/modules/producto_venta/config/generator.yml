@@ -13,17 +13,28 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        precio_unitario_formateado:
+          label: Precio unitario
+        precio_total_formateado:
+          label: Precio total
+
       list:
         title: Productos de la Venta
+        display: [producto, cantidad, precio_unitario_formateado, precio_total_formateado]
+        peer_method: doSelectByVenta
+        peer_count_method: doCountByVenta
 
         actions:
           agregar_producto:
             action: agregarProducto
   
       filter:  ~
-      form:    ~
-      edit:    ~
+      form:
+        display: [producto_id, venta_id, cantidad]
+
+      edit:
+        title: Editar Producto de la Venta :: %%producto%%
+
       new:
         title: Agregar Producto a la Venta :: %%producto%%
-        display: [producto_id, venta_id, cantidad]

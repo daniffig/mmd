@@ -18,6 +18,18 @@
  */
 class ProductoVentaPeer extends BaseProductoVentaPeer {
 
+	public static function doCountByVenta(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    if ($criteria == null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::VENTA_ID, sfContext::getInstance()->getUser()->getVenta()->getId());
+
+    return self::doCount($criteria, $distinct, $con);
+  }
+
 	public static function doSelectByVenta(Criteria $criteria, PropelPDO $con = null)
   {
     if ($criteria == null)

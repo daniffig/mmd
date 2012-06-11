@@ -20,8 +20,9 @@ abstract class BaseVentaForm extends BaseFormPropel
       'created_by'    => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => false)),
       'updated_at'    => new sfWidgetFormDateTime(),
       'updated_by'    => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => true)),
-      'sucursal_id'   => new sfWidgetFormPropelChoice(array('model' => 'Sucursal', 'add_empty' => false)),
+      'sucursal_id'   => new sfWidgetFormPropelChoice(array('model' => 'Sucursal', 'add_empty' => true)),
       'medio_pago_id' => new sfWidgetFormPropelChoice(array('model' => 'MedioPago', 'add_empty' => false)),
+      'es_finalizado' => new sfWidgetFormInputCheckbox(),
       'es_activo'     => new sfWidgetFormInputCheckbox(),
     ));
 
@@ -32,8 +33,9 @@ abstract class BaseVentaForm extends BaseFormPropel
       'created_by'    => new sfValidatorPropelChoice(array('model' => 'sfGuardUser', 'column' => 'id')),
       'updated_at'    => new sfValidatorDateTime(array('required' => false)),
       'updated_by'    => new sfValidatorPropelChoice(array('model' => 'sfGuardUser', 'column' => 'id', 'required' => false)),
-      'sucursal_id'   => new sfValidatorPropelChoice(array('model' => 'Sucursal', 'column' => 'id')),
+      'sucursal_id'   => new sfValidatorPropelChoice(array('model' => 'Sucursal', 'column' => 'id', 'required' => false)),
       'medio_pago_id' => new sfValidatorPropelChoice(array('model' => 'MedioPago', 'column' => 'id')),
+      'es_finalizado' => new sfValidatorBoolean(),
       'es_activo'     => new sfValidatorBoolean(),
     ));
 

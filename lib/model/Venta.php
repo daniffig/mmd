@@ -36,10 +36,16 @@ class Venta extends BaseVenta {
     return $this->getFecha();
   }
 
-  public function agregarProducto(Producto $producto)
+  public static function nuevaVentaActiva()
   {
-    // FALTA IMPLEMENTAR.
-    return true;
+    $venta = new Venta();
+    $venta->setFecha(mktime(0, 0, 0));
+    $venta->setCreatedBy(sfContext::getInstance()->getUser()->getGuardUser());
+    $venta->setMedioPagoId(sfConfig::get('app_medio_pago_sin_seleccionar'));
+
+    $venta->save();
+
+    return $venta;
   }
 
 } // Venta

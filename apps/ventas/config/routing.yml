@@ -1,3 +1,11 @@
+agregar_producto_venta:
+  url: /producto_venta/:producto_id/agregarProducto
+  params:
+    module: producto_venta
+    action: new
+  requirements:
+    producto_id: \d+
+
 producto_venta:
   class: sfPropelRouteCollection
   options:

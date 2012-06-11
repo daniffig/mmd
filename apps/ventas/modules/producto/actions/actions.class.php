@@ -22,16 +22,7 @@ class productoActions extends autoProductoActions
   {
     if ($this->getUser()->tieneVenta())
     {
-      $producto = $this->getRoute()->getObject();
-
-      $producto_venta = new ProductoVenta();
-      $producto_venta->setProducto($producto);
-      $producto_venta->setPrecioUnitario($producto->getPrecio());
-
-      $this->form = new ProductoVentaForm($producto_venta);
-
-      $this->setTemplate('new', 'producto_venta');
-//      $this->redirect('producto_venta/new');
+      $this->redirect($this->generateUrl('agregar_producto_venta', array('producto_id' => $this->getRoute()->getObject()->getId())));
     }
     else
     {

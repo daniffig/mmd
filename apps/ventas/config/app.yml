@@ -8,3 +8,6 @@ all:
     routes_register:        false
     success_signin_url:     @producto
     success_signout_url:    @default
+
+# Medios de Pago
+  medio_pago_sin_seleccionar: 1

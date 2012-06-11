@@ -19,6 +19,7 @@ abstract class BaseVentaFormFilter extends BaseFormFilterPropel
       'updated_by'    => new sfWidgetFormPropelChoice(array('model' => 'sfGuardUser', 'add_empty' => true)),
       'sucursal_id'   => new sfWidgetFormPropelChoice(array('model' => 'Sucursal', 'add_empty' => true)),
       'medio_pago_id' => new sfWidgetFormPropelChoice(array('model' => 'MedioPago', 'add_empty' => true)),
+      'es_finalizado' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'es_activo'     => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
@@ -30,6 +31,7 @@ abstract class BaseVentaFormFilter extends BaseFormFilterPropel
       'updated_by'    => new sfValidatorPropelChoice(array('required' => false, 'model' => 'sfGuardUser', 'column' => 'id')),
       'sucursal_id'   => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Sucursal', 'column' => 'id')),
       'medio_pago_id' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'MedioPago', 'column' => 'id')),
+      'es_finalizado' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
       'es_activo'     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
@@ -56,6 +58,7 @@ abstract class BaseVentaFormFilter extends BaseFormFilterPropel
       'updated_by'    => 'ForeignKey',
       'sucursal_id'   => 'ForeignKey',
       'medio_pago_id' => 'ForeignKey',
+      'es_finalizado' => 'Boolean',
       'es_activo'     => 'Boolean',
     );
   }
