@@ -13,6 +13,16 @@ require_once dirname(__FILE__).'/../lib/productoGeneratorHelper.class.php';
  */
 class productoActions extends autoProductoActions
 {
+  public function executeDesactivar()
+  {
+    $this->getRoute()->getObject()->setEsActivo(false);
+    $this->getRoute()->getObject()->save();
+    
+    $this->getUser()->setFlash('notice', 'El Producto fue desactivado con éxito.');
+
+    $this->redirect('@producto');
+  }
+
   public function executeVerDetalles(sfWebRequest $request)
   {
     $this->producto = $this->getRoute()->getObject();
@@ -20,6 +30,11 @@ class productoActions extends autoProductoActions
 
   public function executeAgregarProductoVenta(sfWebRequest $request)
   {
+    if (!$this->getRoute()->getObject()->getEsActivo())
+    {
+      $this->getUser()->setFlash('error', 'El Producto está desactivado.');
+    }
+
     if ($this->getUser()->tieneVenta())
     {
       $this->redirect($this->generateUrl('agregar_producto_venta', array('producto_id' => $this->getRoute()->getObject()->getId())));
@@ -27,9 +42,9 @@ class productoActions extends autoProductoActions
     else
     {
       $this->getUser()->setFlash('error', 'Ud. no tiene ninguna Venta Activa.');
-      
-      $this->redirect('@producto');
     }
+
+    $this->redirect('@producto');
   }
 
   public function executeDelete(sfWebRequest $request)

@@ -14,22 +14,36 @@ generator:
     config:
       actions:
         _new:
-          label: Agregar
-        _edit:
-          label: Editar
-        _delete:
-          label: Eliminar
-      fields: ~
+          label: Agregar Característica
+
+      fields:
+        tipo_producto:
+          label: Tipo
+        tipo_producto_id:
+          label: Tipo
+
       list:    
-        title: Listado de Caracteristicas
+        title: Listado de Características
         display: [tipo_producto, nombre, es_activo]
+
+        object_actions:
+          _edit:
+          desactivar:
+            action: desactivar
+
+        batch_actions: {}
 
       filter:  ~
       form:
         display: [categoria_id, tipo_producto_id, nombre]
 
       edit:    
-        title: Editar Caracteristica
+        title: Editar Característica :: %%tipo_producto%% - %%nombre%%
+
+        actions:
+          _list:
+          _save:
 
       new:
-        title: Nueva Caracteristica
+        title: Agregar Característica
+

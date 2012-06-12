@@ -13,7 +13,10 @@ generator:
     #css:                   false
 
     config:
-      actions: ~
+      actions:
+        _new:
+          label: Agregar Producto
+
       fields:
         _new:
           label: Agregar Producto
@@ -23,6 +26,10 @@ generator:
           label: Categoría
         categoria_id:
           label: Categoría
+        tipo_producto:
+          label: Tipo
+        tipo_producto_id:
+          label: Tipo
         caracteristica:
           label: Características
         caracteristica_id:
@@ -38,17 +45,15 @@ generator:
 
         object_actions:
           _edit:
-            credentials: Administrador
-          _delete:
-            credentials: Administrador
+          desactivar:
+            action: desactivar
           agregar_producto_venta:
             action: agregarProductoVenta
-            #condition: algo
-              #functionName: usuarioTieneVenta
-            #credentials: [[Empleados]]
             label: Agregar a la Venta Activa
           ver_detalles:
             action: verDetalles
+
+        batch_actions: {}
 
       filter:  ~
       form:
@@ -56,6 +61,11 @@ generator:
 
       edit:
         title: Editar Producto :: %%tipo_producto%% - %%marca%% - %%modelo%%
+
+        actions:
+          _list:
+          _save:
+
       new:
         title: Agregar Producto
 

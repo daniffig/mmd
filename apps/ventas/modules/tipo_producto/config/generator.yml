@@ -12,7 +12,10 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _new:
+          label: Agregar Tipo de Producto
+
       fields:
         categoria:
           label: Categoría
@@ -23,12 +26,23 @@ generator:
         title: Listado de Tipos de Producto
         display: [categoria, nombre, es_activo]
 
+        object_actions:
+          _edit:
+          desactivar:
+            action: desactivar
+
+        batch_actions: {}
+
       filter:  ~
       form:
         display: [categoria_id, nombre]
 
       edit:
         title: Editar Tipo de Producto :: %%categoria%% - %%nombre%%
+
+        actions:
+          _list:
+          _save:
 
       new:
         title: Agregar Tipo de Producto

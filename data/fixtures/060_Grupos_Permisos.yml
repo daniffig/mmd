@@ -1,10 +1,21 @@
 sfGuardGroupPermission:
   # Empleados
+  # Ventas
+  Empleados_verMisVentas:
+    group_id: Empleados
+    permission_id: verMisVentas
   Empleados_gestionarVentas:
     group_id: Empleados
     permission_id: gestionarVentas
 
+  # Supervisores
+  # Ventas
+  Supervisores_gestionarVentas:
+    group_id: Supervisores
+    permission_id: verVentas
+
   # Administradores
+  # Productos
   Administradores_administrarMarcas:
     group_id: Administradores
     permission_id: administrarMarcas
@@ -14,3 +25,5 @@ sfGuardGroupPermission:
   Administradores_administrarCaracteristicas:
     group_id: Administradores
     permission_id: administrarCaracteristicas
+
+  

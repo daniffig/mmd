@@ -63,4 +63,23 @@ class Venta extends BaseVenta {
     $this->delete();
   }
 
+  public function getTotal()
+  {
+    $productos_venta = $this->getProductoVentas();
+
+    $total = 0;
+
+    foreach ($productos_venta as $producto_venta)
+    {
+      $total += $producto_venta->getPrecioTotal();
+    }
+
+    return $total;
+  }
+
+  public function getTotalFormateado()
+  {
+    return "$ " . number_format($this->getTotal(), 2, ",", "."); 
+  }
+
 } // Venta

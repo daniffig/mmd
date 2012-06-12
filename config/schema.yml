@@ -2,6 +2,20 @@ propel:
 
 # Sprint 00
 
+  preferencia:
+    _attributes:
+      phpName: Preferencia
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+    valor:
+      type: varchar(255)
+      required: true
+    comentario:
+      type: varchar(255)
+
   sf_guard_user_profile:
     _attributes:
       phpName: sfGuardUserProfile

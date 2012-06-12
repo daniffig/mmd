@@ -13,4 +13,20 @@ require_once dirname(__FILE__).'/../lib/caracteristicaGeneratorHelper.class.php'
  */
 class caracteristicaActions extends autoCaracteristicaActions
 {
+  public function executeDesactivar()
+  {
+    if ($this->getRoute()->getObject()->puedenBorrarme())
+    {
+      $this->getRoute()->getObject()->setEsActivo(false);
+      $this->getRoute()->getObject()->save();
+
+      $this->getUser()->setFlash('notice', 'La Característica fue desactivada con éxito.');
+    }
+    else
+    {      
+      $this->getUser()->setFlash('error', 'La Característica tiene Productos asociados.');
+    }
+
+    $this->redirect('@caracteristica');
+  }
 }

@@ -21,10 +21,7 @@ class VentaCerrarVentaForm extends BaseVentaForm
     $this->setWidget('medio_pago_id', new sfWidgetFormPropelChoice(array('model' => 'MedioPago', 'peer_method' => 'doSelectValidos')));
 
     $this->setWidget('sucursal_id', new sfWidgetFormInputHidden());
-
     $this->setWidget('es_finalizado', new sfWidgetFormInputHidden());
-    $this->setDefault('es_finalizado', true);
-
     $this->setWidget('es_activo', new sfWidgetFormInputHidden());
   }
 }

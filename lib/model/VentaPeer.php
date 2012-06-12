@@ -18,4 +18,41 @@
  */
 class VentaPeer extends BaseVentaPeer {
 
+	public static function doSelectByUsuario(Criteria $criteria = null, PropelPDO $con = null)
+  {
+    if ($criteria == null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::CREATED_BY, sfContext::getInstance()->getUser()->getGuardUser()->getId());
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doSelect($criteria, $con);    
+  }
+
+  public static function doSelectFinalizadasByUsuario(Criteria $criteria = null, PropelPDO $con = null)
+  {
+    if ($criteria == null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_FINALIZADO, true);
+
+    return self::doSelectByUsuario($criteria, $con);    
+  }
+
+  public static function doSelectActivasByUsuario(Criteria $criteria = null, PropelPDO $con = null)
+  {
+    if ($criteria == null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_FINALIZADO, false);
+
+    return self::doSelectByUsuario($criteria, $con);    
+  }
+
 } // VentaPeer

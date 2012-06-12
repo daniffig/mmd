@@ -12,10 +12,33 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _new:
+          label: Agregar Categoría
+
       fields:  ~
-      list:    ~
+      list:
+        title: Listado de Categorías
+        display: [nombre, es_activo]
+
+        object_actions:
+          _edit:
+          desactivar:
+            action: desactivar
+
+        batch_actions: {}
+
       filter:  ~
-      form:    ~
-      edit:    ~
-      new:     ~
+      form:
+        display: [nombre]
+
+      edit:
+        title: Editar Categoría :: %%nombre%%
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Agregar Categoría
+

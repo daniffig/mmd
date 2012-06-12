@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+table#HeaderFactura , table#bodyFactura{
+	font-family:Tahoma, Geneva, sans-serif;
+	table-layout:fixed;
+	width:21cm;
+	border:2px solid black;
+	border-radius:10px;
+	-moz-border-radius:10px; /* Firefox 3.6 and earlier */
+	}
+	
+table#bodyFactura{
+	margin-top:10px;
+	}
+td#tipoFactura{
+	border:2px solid black;
+	}
+col.ladoIzqH{
+	width:9cm;
+	}
+col.ladoDerH{
+	width:9cm;
+	}
+col.centroH{
+	width:2cm;
+	}
+td.datosEmpresa{
+	font-size:12px;
+	}

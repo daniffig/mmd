@@ -29,4 +29,16 @@ class ClientePeer extends BaseClientePeer {
 
     return self::doSelect($criteria);
   }
+
+	public static function doCountValidos(Criteria $criteria, PropelPDO $con = null)
+  {
+    if ($criteria == null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ID, 1, Criteria::NOT_EQUAL);
+
+    return self::doCount($criteria);
+  }
 } // ClientePeer

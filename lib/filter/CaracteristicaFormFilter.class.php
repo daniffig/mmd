@@ -11,6 +11,6 @@ class CaracteristicaFormFilter extends BaseCaracteristicaFormFilter
 {
   public function configure()
   {
-    $this->setWidget('tipo_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Tipo', 'add_empty' => true, 'peer_method' => 'doSelectActivos')));
+    $this->setWidget('tipo_producto_id', new dcWidgetFormPropelChosenChoice(array('model' => 'TipoProducto', 'peer_method' => 'doSelectActivos', 'add_empty' => true)));
   }
 }

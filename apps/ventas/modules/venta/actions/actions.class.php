@@ -30,8 +30,29 @@ class ventaActions extends autoVentaActions
     $this->pager = $this->getPager();
     $this->sort = $this->getSort();
 
-    $criteria = new Criteria();
-    $this->Venta = VentaPeer::doSelect($criteria);
+    $this->Venta = VentaPeer::doSelectFinalizadasByUsuario();
+
+    $this->setTemplate('index');
+  }
+
+  public function executeVerMisVentasActivas(sfWebRequest $request)
+  {
+    // sorting
+    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort')))
+    {
+      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
+    }
+
+    // pager
+    if ($request->getParameter('page'))
+    {
+      $this->setPage($request->getParameter('page'));
+    }
+
+    $this->pager = $this->getPager();
+    $this->sort = $this->getSort();
+
+    $this->Venta = VentaPeer::doSelectActivasByUsuario();
 
     $this->setTemplate('index');
   }
@@ -82,6 +103,16 @@ class ventaActions extends autoVentaActions
     $this->redirect('@producto');
   }
 
+  public function executeVerFactura(sfWebRequest $request)
+  {
+    $this->Venta = $this->getRoute()->getObject();
+    $this->ProductoVentas = $this->Venta->getProductoVentas();
+    $this->Cliente = $this->Venta->getCliente();
+    
+    //print_r($this->ProductoVentas);
+    //$this->setTemplate('edit');
+  }
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -89,7 +120,11 @@ class ventaActions extends autoVentaActions
     {
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
+      // Esto hay que hacerlo de otra forma, pero no me voy a poner al eer toda la interface de sfForm ahora...
       $Venta = $form->save();
+      $Venta->setEsFinalizado(true);
+      $Venta->save();
+      // Fin del código feo.
 
       $this->getUser()->cerrarVenta();
 

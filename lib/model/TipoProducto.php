@@ -23,4 +23,15 @@ class TipoProducto extends BaseTipoProducto {
     return $this->getNombre();
   }
 
+  public function puedenBorrarme()
+  {
+    $criteria_producto = new Criteria();
+    $criteria_producto->add(ProductoPeer::TIPO_PRODUCTO_ID, $this->getId());
+
+    $criteria_caracteristica = new Criteria();
+    $criteria_caracteristica->add(CaracteristicaPeer::TIPO_PRODUCTO_ID, $this->getId());
+
+    return ((ProductoPeer::doCount($criteria_producto) == 0) && (CaracteristicaPeer::doCount($criteria_caracteristica) == 0));
+  }
+
 } // TipoProducto

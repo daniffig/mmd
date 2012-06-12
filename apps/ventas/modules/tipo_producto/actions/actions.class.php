@@ -13,4 +13,20 @@ require_once dirname(__FILE__).'/../lib/tipo_productoGeneratorHelper.class.php';
  */
 class tipo_productoActions extends autoTipo_productoActions
 {
+  public function executeDesactivar()
+  {
+    if ($this->getRoute()->getObject()->puedenBorrarme())
+    {
+      $this->getRoute()->getObject()->setEsActivo(false);
+      $this->getRoute()->getObject()->save();
+
+      $this->getUser()->setFlash('notice', 'El Tipo de Producto fue desactivado con éxito.');
+    }
+    else
+    {      
+      $this->getUser()->setFlash('error', 'El Tipo de Producto tiene Productos o Características asociados.');
+    }
+
+    $this->redirect('@tipo_producto');
+  }
 }

@@ -13,4 +13,20 @@ require_once dirname(__FILE__).'/../lib/categoriaGeneratorHelper.class.php';
  */
 class categoriaActions extends autoCategoriaActions
 {
+  public function executeDesactivar()
+  {
+    if ($this->getRoute()->getObject()->puedenBorrarme())
+    {
+      $this->getRoute()->getObject()->setEsActivo(false);
+      $this->getRoute()->getObject()->save();
+
+      $this->getUser()->setFlash('notice', 'La Categoría fue desactivada con éxito.');
+    }
+    else
+    {      
+      $this->getUser()->setFlash('error', 'La Categoría tiene Tipos de Producto asociados.');
+    }
+
+    $this->redirect('@categoria');
+  }
 }

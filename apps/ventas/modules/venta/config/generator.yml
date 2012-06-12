@@ -19,6 +19,8 @@ generator:
         display: [cliente, medio_pago, es_finalizado, es_activo]
 
         object_actions:
+          ver_factura:
+            action: verFactura
           reabrir_venta:
             condition: esFinalizada
             action: reabrirVenta
@@ -29,6 +31,7 @@ generator:
             condition:
               functionName: tieneVenta
               invert: false
+            credentials: [iniciarVenta]
 
       filter:
         display: [cliente_id, medio_pago_id, es_activo]

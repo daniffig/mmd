@@ -13,6 +13,11 @@ class ProductoForm extends BaseProductoForm
   {
     $this->setWidget('categoria_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Categoria', 'add_empty' => false)));
 
+    if ($this->getObject()->getId())
+    {
+      $this->setDefault('categoria_id', $this->getObject()->getTipoProducto()->getCategoriaId());
+    }
+
     $tipo_id = new dcWidgetFormChosenChoice(array('choices' => array()));
 
     $this->setWidget('tipo_producto_id', new dcWidgetFormJQueryDependence(array(

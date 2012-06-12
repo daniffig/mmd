@@ -7,7 +7,9 @@ sfGuardPermission:
   administrarPermisos:
     name: administrarPermisos
 
-  # Sprint 01
+  # Sprint 01 (Producto)
+  agregarProducto:
+    name: agregarProducto
   administrarMarcas:
     name: administrarMarcas
   administrarTiposProducto:
@@ -15,6 +17,12 @@ sfGuardPermission:
   administrarCaracteristicas:
     name: administrarCaracteristicas
 
-  # Sprint 02
+  # Sprint 02 (Venta)
+  verMisVentas:
+    name: verMisVentas
+  verVentas:
+    name: verVentas
   gestionarVentas:
     name: gestionarVentas
+
+  # Sprint 03 (Cliente)
