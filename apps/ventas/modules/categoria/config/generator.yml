@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Categoria
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              Categoria
@@ -16,21 +16,30 @@ generator:
         _new:
           label: Agregar Categoría
 
-      fields:  ~
+      fields:
+        cantidad_tipos_producto_activos:
+          label: '# Tipos de Producto Activos'
+        cantidad_productos_activos:
+          label: '# Productos Activos'
+
       list:
         title: Listado de Categorías
-        display: [nombre, es_activo]
+        display: [nombre, cantidad_tipos_producto_activos, cantidad_productos_activos, es_activo]
 
         object_actions:
           _edit:
+          activar:
+            action: activar
+            show_when: puedoActivar
           desactivar:
             action: desactivar
+            show_when: puedoDesactivar
 
         batch_actions: {}
 
       filter:  ~
       form:
-        display: [nombre]
+        #display: [nombre]
 
       edit:
         title: Editar Categoría :: %%nombre%%

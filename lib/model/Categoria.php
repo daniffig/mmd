@@ -18,19 +18,58 @@
  */
 class Categoria extends BaseCategoria {
 
-	/**
-	 * Initializes internal state of Categoria object.
-	 * @see        parent::__construct()
-	 */
-	public function __construct()
-	{
-		// Make sure that parent constructor is always invoked, since that
-		// is where any default values for this object are set.
-		parent::__construct();
-	}
-
   public function __toString()
   {
     return $this->getNombre();
+  }
+
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
+  }
+
+  public function getCantidadTiposProductoActivos()
+  {
+    $criteria = new Criteria();
+    $criteria->add(TipoProductoPeer::ES_ACTIVO, true);
+
+    return $this->countTipoProductos($criteria);
+  }
+
+  public function getCantidadProductosActivos()
+  {
+    $criteria = new Criteria();
+    $criteria->add(TipoProductoPeer::ES_ACTIVO, true);
+
+    $cantidad_productos_activos = 0;
+
+    foreach ($this->getTipoProductos($criteria) as $tipo_producto)
+    {
+      $cantidad_productos_activos += $tipo_producto->getCantidadProductosActivos();
+    }
+
+    return $cantidad_productos_activos;
+  }
+
+  public function puedenDesactivarme()
+  {
+    return $this->getCantidadTiposProductoActivos() == 0;
   }
 } // Categoria

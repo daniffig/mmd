@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           TipoProducto
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              TipoProducto
@@ -21,21 +21,27 @@ generator:
           label: Categoría
         categoria_id:
           label: Categoría
+        cantidad_productos_activos:
+          label: '# Productos Activos'
 
       list:
         title: Listado de Tipos de Producto
-        display: [categoria, nombre, es_activo]
+        display: [categoria, nombre, cantidad_productos_activos, es_activo]
 
         object_actions:
           _edit:
+          activar:
+            action: activar
+            show_when: puedoActivar
           desactivar:
             action: desactivar
+            show_when: puedoDesactivar
 
         batch_actions: {}
 
       filter:  ~
       form:
-        display: [categoria_id, nombre]
+        #display: [categoria_id, nombre]
 
       edit:
         title: Editar Tipo de Producto :: %%categoria%% - %%nombre%%

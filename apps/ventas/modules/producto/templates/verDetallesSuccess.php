@@ -1,22 +1,20 @@
-<?php use_helper('Text') ?>
-<?php slot(
-  'title',
-   sprintf('%s %s %s',$producto->getTipoProducto(),$producto->getMarca(),$producto->getModelo()))
-?> 
-<div id="informacion-basica">
-	<h1><?php echo $producto->getTipoProducto()." ".$producto->getMarca()." ".$producto->getModelo();?></h1>
-	<br/>
-        <h2><?php echo $producto->getPrecio().' $'; ?> </h2>
-	<br/>
-        <h2 id="caja-stock" style="<?php echo ($producto->getStock() < 20) ? '#F00' : '#00a200' ?>">Stock: <?php echo $producto->getStock()?></h2>
-</div>
+<?php use_helper('I18N', 'Date') ?>
+<?php include_partial('venta/assets') ?>
 
-<div id="imagen">
-	<?php echo get_slot() ?>
-</div>        
-<div style="clear:both"></div>  
-<div>
-	<h4>Descripci&ograve;n</h4>
-        <p><?php echo $producto->getDescripcion(); ?></p>
-</div>
+<div id="sf_admin_container">
+  <h1><?php echo __('Detalles del Producto :: ' . $Producto->getMarca() . ' ' . $Producto->getModelo(), array(), 'messages') ?></h1>
+ 
+  <?php include_partial('venta/flashes') ?>
 
+  <div id="sf_admin_header">
+    <?php // include_partial('venta/list_header', array('pager' => $pager)) ?>
+  </div>
+
+  <div id="sf_admin_content">
+    <?php include_partial('producto/detalles', array('producto' => $Producto)) ?>
+  </div>
+
+  <div id="sf_admin_footer">
+      <?php include_partial('producto/ver_detalles_actions', array('helper' => $helper)) ?>
+  </div>
+</div>

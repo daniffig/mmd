@@ -14,7 +14,10 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
+      list:
+        title: Listado de Stock
+        display: [producto, sucursal, cantidad]
+
       filter:  ~
       form:    ~
       edit:    ~

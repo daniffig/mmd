@@ -19,6 +19,12 @@
               <?php endif; ?>
               <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
               <li class="divider"></li>
+              <li class="nav-header">Stock</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Stock"), '@stock_producto_sucursal'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Stock"), '@stock_producto_sucursal_new'); ?></li>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
+              <li class="divider"></li>
               <li class="nav-header">Marcas</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Marcas"), '@marca'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Marca"), '@marca_new'); ?></li>
@@ -48,10 +54,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="nav-header">Ventas</li>
+              <?php /* ?>
               <?php if ($sf_user->hasCredential('verMisVentas')): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Mis Ventas"), 'venta/verMisVentas'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Mis Ventas Activas"), 'venta/verMisVentasActivas'); ?></li>
               <?php endif; ?>
+              <?php */ ?>
               <?php if ($sf_user->hasCredential('verVentas')): ?>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Ventas"), '@venta'); ?></li>
               <?php endif; ?>
@@ -61,7 +69,7 @@
               <?php if (!$sf_user->tieneVenta()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
               <?php else: ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), '@producto_venta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), 'producto_venta/verVentaActiva'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
               <?php endif; ?>

@@ -38,7 +38,33 @@ class ProductoForm extends BaseProductoForm
       "no_value_text" => 'Seleccione un Tipo de Producto.'
     )));
 
-    $this->setValidator('caracteristica', new sfValidatorPropelChoice(array('model' => 'Caracteristica', 'multiple' => true, 'required' => false)));
+    $this->setValidator('caracteristica_id', new sfValidatorPass());
+
+    $this->setWidget('imagen', new sfWidgetFormInputFileEditable(
+          array (
+            /*'template' => '<div>%file%<br />%input%<br />%delete% %delete_label%</div>',*/
+            'file_src' => $this->getObject()->getImagenThumb(),
+            'is_image' => true,
+            'delete_label' => 'Seleccione para eliminar la imagen actual.')
+          )
+        );
+
+        $this->setValidator('imagen', new sfValidatorFile(
+          array (
+            'required' => false,
+            'max_size' => '2097152',
+            'mime_types' => array ('image/jpeg', 'image/jpg', 'image/png', 'image/gif')),
+          array ( 
+            'invalid' => 'Archivo inválido.',
+            'required' => 'Seleccione un archivo para subir.',
+            'max_size' => 'El tamaño máximo es 2MB',
+            'mime_types' => 'El archivo debe ser formato JPG, PNG o GIF.')
+          )
+        );
+
+        $this->getWidgetSchema()->setHelp('imagen', "2MB máximo, archivos permitidos (jpeg, jpg, png, gif)");
+
+        $this->setValidator('imagen_delete', new sfValidatorBoolean());
 
     $this->validatorSchema->setOption('allow_extra_fields', true);
   }

@@ -14,5 +14,9 @@ class ProductoVentaForm extends BaseProductoVentaForm
     $this->setWidget('producto_id', new sfWidgetFormInputHidden());
     $this->setWidget('venta_id', new sfWidgetFormInputHidden());
     $this->setWidget('precio_unitario', new sfWidgetFormInputHidden());
+
+    //$stock_disponible = 'Stock disponible: ' . $this->getObject()->getProducto()->getStockEnSucursalActiva(); 
+
+    //$this->getWidgetSchema()->setHelp('cantidad', $stock_disponible);
   }
 }

@@ -23,6 +23,36 @@ class TipoProducto extends BaseTipoProducto {
     return $this->getNombre();
   }
 
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
+  }
+
+  public function getCantidadProductosActivos()
+  {
+    $criteria = new Criteria();
+    $criteria->add(ProductoPeer::ES_ACTIVO, true);
+
+    return $this->countProductos($criteria);
+  }
+
   public function puedenBorrarme()
   {
     $criteria_producto = new Criteria();

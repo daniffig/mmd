@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Producto
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              Producto
@@ -16,12 +16,12 @@ generator:
       actions:
         _new:
           label: Agregar Producto
-
-      fields:
-        _new:
-          label: Agregar Producto
         _delete:
           label: Eliminar
+
+      fields:
+        imagen_thumb:
+          label:
         categoria:
           label: Categoría
         categoria_id:
@@ -41,15 +41,20 @@ generator:
 
       list:
         title: Listado de Productos
-        display: [marca, modelo, _precio, es_activo]
+        display: [_imagen_thumb, marca, modelo, _precio, es_activo]
 
         object_actions:
           _edit:
+          activar:
+            action: activar
+            show_when: puedoActivar
           desactivar:
             action: desactivar
+            show_when: puedoDesactivar
           agregar_producto_venta:
             action: agregarProductoVenta
             label: Agregar a la Venta Activa
+            show_when: getEsActivo
           ver_detalles:
             action: verDetalles
 
@@ -57,7 +62,7 @@ generator:
 
       filter:  ~
       form:
-        display: [categoria_id, tipo_producto_id, marca_id, caracteristica_id, modelo, precio, descripcion]
+        #display: [categoria_id, tipo_producto_id, marca_id, caracteristica_id, modelo, precio, descripcion, stock_minimo]
 
       edit:
         title: Editar Producto :: %%tipo_producto%% - %%marca%% - %%modelo%%

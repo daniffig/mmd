@@ -17,6 +17,11 @@ class myUser extends sfGuardSecurityUser
     return $this->getVenta();
   }
 
+  public function noTieneVenta()
+  {
+    return !$this->tieneVenta();
+  }
+
   public function iniciarVenta()
   {
     if (!$this->tieneVenta())
@@ -29,6 +34,11 @@ class myUser extends sfGuardSecurityUser
     return false;
   }
 
+  public function agregarProducto(Producto $producto)
+  {
+    $this->getVenta()->agregarProducto($producto);
+  }
+
   public function cerrarVenta()
   {
     $this->setAttribute('venta', null);
@@ -39,5 +49,4 @@ class myUser extends sfGuardSecurityUser
     $this->getVenta()->cancelarVenta();
     $this->setAttribute('venta', null);
   }
-
 }

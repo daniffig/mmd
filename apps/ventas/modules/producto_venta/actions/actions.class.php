@@ -13,6 +13,33 @@ require_once dirname(__FILE__).'/../lib/producto_ventaGeneratorHelper.class.php'
  */
 class producto_ventaActions extends autoProducto_ventaActions
 {
+  public function executeAgregarCantidadProducto(sfWebRequest $request)
+  {
+    $this->ProductoVenta = $this->getUser()->getVenta()->getProducto(ProductoPeer::retrieveByPk($request->getParameter('producto_id')));
+    $this->form = new ProductoVentaActivaForm();
+  }
+
+  public function executeVerVentaActiva(sfWebRequest $request)
+  {
+    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort')))
+    {
+      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
+    }
+
+    // pager
+    if ($request->getParameter('page'))
+    {
+      $this->setPage($request->getParameter('page'));
+    }
+
+    $this->pager = $this->getPager();
+    $this->sort = $this->getSort();
+
+    $this->ProductoVentas = $this->getUser()->getVenta()->getProductos();
+
+    $this->setTemplate('index');
+  }
+  
   public function executeAgregarProducto()
   {
     $this->redirect('@producto');

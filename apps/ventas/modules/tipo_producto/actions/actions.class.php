@@ -13,12 +13,20 @@ require_once dirname(__FILE__).'/../lib/tipo_productoGeneratorHelper.class.php';
  */
 class tipo_productoActions extends autoTipo_productoActions
 {
+  public function executeActivar()
+  {
+    $this->getRoute()->getObject()->activar();
+    
+    $this->getUser()->setFlash('notice', 'El Tipo de Producto fue activado con éxito.');
+
+    $this->redirect('@tipo_producto');
+  }
+
   public function executeDesactivar()
   {
     if ($this->getRoute()->getObject()->puedenBorrarme())
     {
-      $this->getRoute()->getObject()->setEsActivo(false);
-      $this->getRoute()->getObject()->save();
+      $this->getRoute()->getObject()->desactivar();
 
       $this->getUser()->setFlash('notice', 'El Tipo de Producto fue desactivado con éxito.');
     }

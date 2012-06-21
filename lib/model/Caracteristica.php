@@ -34,4 +34,15 @@ class Caracteristica extends BaseCaracteristica {
           return $this->getNombre();
         }
 
+  public function puedenBorrarme()
+  {
+    $criteria = new Criteria();
+    $criteria->addJoin(ProductoPeer::ID, CaracteristicaProductoPeer::PRODUCTO_ID, Criteria::INNER_JOIN);
+    $criteria->addJoin(CaracteristicaProductoPeer::CARACTERISTICA_ID, CaracteristicaPeer::ID, Criteria::INNER_JOIN);
+    $criteria->add(ProductoPeer::ES_ACTIVO, 1);
+    $criteria->addAnd(CaracteristicaPeer::ID, $this->getId());
+
+    return (CaracteristicaPeer::doCount($criteria) == 0);
+  }
+
 } // Caracteristica

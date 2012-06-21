@@ -32,6 +32,12 @@ propel:
       type: varchar(255)
     email:
       type: varchar(255)
+    sucursal_id:
+      type: integer
+      foreignClass: Sucursal
+      foreignReference: id
+      required: true
+      onDelete: restrict
 
 # Sprint 01
 
@@ -101,6 +107,10 @@ propel:
     _attributes:
       phpName: Producto
     id: ~
+    es_activo:
+      type: boolean
+      required: true
+      default: true
     tipo_producto_id:
       type: integer
       foreignClass: TipoProducto
@@ -121,10 +131,12 @@ propel:
       required: true
     descripcion:
       type: clob
-    es_activo:
-      type: boolean
+    stock_minimo:
+      type: integer
       required: true
-      default: true
+      default: 0
+    imagen:
+      type: varchar(255)
   
   caracteristica_producto:
     _attributes:
@@ -156,8 +168,7 @@ propel:
       foreignClass: Producto
       foreignReference: id
       required: true
-      primaryKey: true
-      onDelete: cascade
+      onDelete: restrict
     sucursal_id:
       type: integer
       foreignClass: Sucursal
@@ -166,6 +177,8 @@ propel:
     cantidad:
       type: integer
       required: true
+    _uniques:
+      producto_sucursal_unique_index: [producto_id, sucursal_id]
   
   sucursal:
     _attributes:

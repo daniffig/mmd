@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Venta
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              Venta
@@ -21,20 +21,22 @@ generator:
         object_actions:
           ver_factura:
             action: verFactura
-          reabrir_venta:
-            condition: esFinalizada
-            action: reabrirVenta
+            show_when: puedoVerFactura
+          recuperar_venta:
+            action: recuperarVenta
+            show_when: puedoRecuperarVenta
+          #reabrir_venta:
+            #condition: esFinalizada
+            #action: reabrirVenta
 
         actions:
           iniciar_venta:
             action: iniciarVenta
-            condition:
-              functionName: tieneVenta
-              invert: false
+            show_when: noTieneVenta
             credentials: [iniciarVenta]
 
       filter:
-        display: [cliente_id, medio_pago_id, es_activo]
+        #display: [cliente_id, medio_pago_id, es_activo]
 
       form:    ~
       edit:    ~

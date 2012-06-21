@@ -14,44 +14,28 @@ require_once dirname(__FILE__).'/../lib/marcaGeneratorHelper.class.php';
  */
 class marcaActions extends autoMarcaActions
 {
-  public function executeDelete(sfWebRequest $request)
+  public function executeActivar()
   {
-    $request->checkCSRFProtection();
+    $this->getRoute()->getObject()->activar();
+    
+    $this->getUser()->setFlash('notice', 'La Marca fue activada con éxito.');
 
-    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
+    $this->redirect('@marca');
+  }
 
-    if ($this->getRoute()->getObject()->puedenBorrarme())
+  public function executeDesactivar()
+  {
+    if ($this->getRoute()->getObject()->puedenDesactivarme())
     {
-      $this->getRoute()->getObject()->setEsActivo(false);
-      $this->getRoute()->getObject()->save();
+      $this->getRoute()->getObject()->desactivar();
 
-      $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
+      $this->getUser()->setFlash('notice', 'La Marca fue desactivada con éxito.');
     }
     else
-    {
+    {      
       $this->getUser()->setFlash('error', 'La Marca tiene Productos asociados.');
     }
 
     $this->redirect('@marca');
-  }
-  
-  public function executeUpdate(sfWebRequest $request)
-  {
-
-    $this->Marca = $this->getRoute()->getObject();
-    $this->form = $this->configuration->getForm($this->Marca);
-    $arregloParametros = $request->getParameter('marca');
-	
-    if((!isset($arregloParametros['es_activo']) && $this->Marca->getEsActivo() && $this->Marca->puedenBorrarme()) || !$this->Marca->getEsActivo() || isset($arregloParametros['es_activo']))
-    {
-      $this->processForm($request, $this->form);
-    }
-    else
-    {
-      $this->getUser()->setFlash('error', 'La Marca tiene Productos asociados.');
-      $this->redirect(array('sf_route' => 'marca_edit', 'sf_subject' => $this->Marca));
-    }
-    $this->setTemplate('edit');
-  }
-  
+  }  
 }

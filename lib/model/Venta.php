@@ -20,20 +20,45 @@ class Venta extends BaseVenta {
 
   private $productos = array();
 
-	/**
-	 * Initializes internal state of Venta object.
-	 * @see        parent::__construct()
-	 */
-	public function __construct()
-	{
-		// Make sure that parent constructor is always invoked, since that
-		// is where any default values for this object are set.
-		parent::__construct();
-	}
-
   public function __toString()
   {
     return $this->getCliente();
+  }
+
+  public function puedoVerFactura()
+  {
+    return $this->getEsFinalizado(); 
+  }
+
+  public function puedoRecuperarVenta()
+  {
+    return !$this->getEsFinalizado();
+  }
+
+  public function agregarProducto(Producto $producto)
+  {
+    $producto_venta = new ProductoVenta();
+    $producto_venta->setProducto($producto);
+    $producto_venta->setPrecioUnitario($producto->getPrecio());
+    $producto_venta->setCantidad(0);
+
+    $this->addProductoVenta($producto_venta);
+  }
+
+  public function getProductos()
+  {
+    return $this->getProductoVentas();
+  }
+
+  public function getProducto(Producto $producto)
+  {
+    $criteria = new Criteria();
+    $criteria->add(ProductoVentaPeer::PRODUCTO_ID, $producto->getId());
+
+    if ($producto_venta = $this->getProductoVentas($criteria))
+    {
+      return $producto_venta[0];
+    }    
   }
 
   public static function nuevaVentaActiva()

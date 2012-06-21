@@ -15,17 +15,21 @@ abstract class BaseStockProductoSucursalForm extends BaseFormPropel
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
-      'producto_id' => new sfWidgetFormInputHidden(),
+      'producto_id' => new sfWidgetFormPropelChoice(array('model' => 'Producto', 'add_empty' => false)),
       'sucursal_id' => new sfWidgetFormPropelChoice(array('model' => 'Sucursal', 'add_empty' => false)),
       'cantidad'    => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
-      'producto_id' => new sfValidatorPropelChoice(array('model' => 'Producto', 'column' => 'id', 'required' => false)),
+      'producto_id' => new sfValidatorPropelChoice(array('model' => 'Producto', 'column' => 'id')),
       'sucursal_id' => new sfValidatorPropelChoice(array('model' => 'Sucursal', 'column' => 'id')),
       'cantidad'    => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorPropelUnique(array('model' => 'StockProductoSucursal', 'column' => array('producto_id', 'sucursal_id')))
+    );
 
     $this->widgetSchema->setNameFormat('stock_producto_sucursal[%s]');
 

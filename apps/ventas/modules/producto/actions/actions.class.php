@@ -13,10 +13,18 @@ require_once dirname(__FILE__).'/../lib/productoGeneratorHelper.class.php';
  */
 class productoActions extends autoProductoActions
 {
+  public function executeActivar()
+  {
+    $this->getRoute()->getObject()->activar();
+    
+    $this->getUser()->setFlash('notice', 'El Producto fue activado con éxito.');
+
+    $this->redirect('@producto');
+  }
+
   public function executeDesactivar()
   {
-    $this->getRoute()->getObject()->setEsActivo(false);
-    $this->getRoute()->getObject()->save();
+    $this->getRoute()->getObject()->desactivar();
     
     $this->getUser()->setFlash('notice', 'El Producto fue desactivado con éxito.');
 
@@ -25,18 +33,15 @@ class productoActions extends autoProductoActions
 
   public function executeVerDetalles(sfWebRequest $request)
   {
-    $this->producto = $this->getRoute()->getObject();
+    $this->Producto = $this->getRoute()->getObject();
   }
 
   public function executeAgregarProductoVenta(sfWebRequest $request)
   {
-    if (!$this->getRoute()->getObject()->getEsActivo())
-    {
-      $this->getUser()->setFlash('error', 'El Producto está desactivado.');
-    }
-
     if ($this->getUser()->tieneVenta())
     {
+      $this->getUser()->agregarProducto($this->getRoute()->getObject());
+
       $this->redirect($this->generateUrl('agregar_producto_venta', array('producto_id' => $this->getRoute()->getObject()->getId())));
     }
     else
@@ -47,44 +52,58 @@ class productoActions extends autoProductoActions
     $this->redirect('@producto');
   }
 
-  public function executeDelete(sfWebRequest $request)
-  {
-    $request->checkCSRFProtection();
-
-    $this->dispatcher->notify(new sfEvent($this, 'admin.delete_object', array('object' => $this->getRoute()->getObject())));
-
-    $this->getRoute()->getObject()->setEsActivo(false);
-    $this->getRoute()->getObject()->save();
-
-    $this->getUser()->setFlash('notice', 'The item was deleted successfully.');
-
-    $this->redirect('@producto');
-  }
-
-  protected function processForm(sfWebRequest $request, sfForm $form)
+ protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
-      $Producto = $form->save();
-
-      $caracteristica_id = $form->getValue('caracteristica_id');
-
-      print_r($form->getValues());
-
-      foreach ($form->getValue('caracteristica_id') as $caracteristica_id)
+      if ($file = $this->form->getValue('imagen'))
       {
-        $caracteristica_producto = new CaracteristicaProducto();
+        $filename = md5($form->getObject()->getId());
+        $extension = $file->getOriginalExtension();
 
-        $caracteristica_producto->setProducto($Producto);
-        $caracteristica_producto->setCaracteristicaId($caracteristica_id);
+        $save_path = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'productos' . DIRECTORY_SEPARATOR;
 
-        $caracteristica_producto->save();
+        // Tenemos que guardar la imagen en el servidor, sino el plugin no funciona.
+        $file->save($save_path . $filename . $extension);
 
-        print_r($caracteristica_producto);  
+        // Creamos una nueva instancia de sfImage con la imagen que cargamos.
+        $img = new sfImage($file->getSavedName(), $file->getType());
+
+        // Como sólo queremos conservar las imágenes limitadas a una dimensión máxima de 640x480px, vamos a verificar si la imagen es más ancha o más alta, para realizar la transformación conservando la relación de aspecto.
+
+        if ($img->getWidth() > 640 || $img->getHeight() > 480)
+        {
+          if ($img->getWidth() > $img->getHeight())
+          {
+            $height = (640 / $img->getWidth()) * $img->getHeight();
+            $img->resize(640, $height);
+          }
+          else
+          {
+            $width = (480 / $img->getHeight()) * $img->getWidth();
+            $img->resize($width, 480);
+          }
+
+          $img->save();
+        }
+
+        // Por último, en base a la imagen transformada, creamos un thumbnail para mostrar en los listados
+        $img->thumbnail(80, 80);
+        $img->saveAs($save_path . $filename . "_thumb" . $extension);
       }
+
+      if($form->getValue('foto_delete'))
+      {
+        if (file_exists($form->getObject()->getFoto()))
+        {
+          unlink($form->getObject()->getFoto());
+        }
+      }
+
+      $Producto = $form->save();
 
       $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $Producto)));
 
@@ -93,6 +112,12 @@ class productoActions extends autoProductoActions
         $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
 
         $this->redirect('@producto_new');
+      }
+      else if ($request->hasParameter('_save_and_list'))
+      {
+        $this->getUser()->setFlash('notice', $notice);
+
+        $this->redirect('@producto');
       }
       else
       {

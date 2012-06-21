@@ -13,12 +13,20 @@ require_once dirname(__FILE__).'/../lib/categoriaGeneratorHelper.class.php';
  */
 class categoriaActions extends autoCategoriaActions
 {
+  public function executeActivar()
+  {
+    $this->getRoute()->getObject()->activar();
+    
+    $this->getUser()->setFlash('notice', 'La Categoría fue activada con éxito.');
+
+    $this->redirect('@categoria');
+  }
+
   public function executeDesactivar()
   {
-    if ($this->getRoute()->getObject()->puedenBorrarme())
+    if ($this->getRoute()->getObject()->puedenDesactivarme())
     {
-      $this->getRoute()->getObject()->setEsActivo(false);
-      $this->getRoute()->getObject()->save();
+      $this->getRoute()->getObject()->desactivar();
 
       $this->getUser()->setFlash('notice', 'La Categoría fue desactivada con éxito.');
     }

@@ -20,7 +20,29 @@ class Producto extends BaseProducto {
 
   public function __toString()
   {
-    return $this->getMarca() . " :: " . $this->getModelo();
+    return $this->getMarca() . " - " . $this->getModelo();
+  }
+
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
   }
 
   public function getStock()
@@ -28,9 +50,63 @@ class Producto extends BaseProducto {
     return true;
   }
 
+  public function getStockEnSucursalActiva()
+  {
+    $criteria = new Criteria();
+    $criteria->add(StockProductoSucursalPeer::SUCURSAL_ID, sfContext::getInstance()->getUser()->getGuardUser()->getProfile()->getSucursalId());
+
+    if ($stock = $this->getStockProductoSucursals($criteria))
+    {
+      return $stock[0]->getCantidad();
+    }
+    else
+    {
+      return 0;
+    }
+  }
+
   public function algo()
   {
     return sfContext::getInstance()->getUser()->tieneVenta();
+  }
+
+  // (15/01/2012) Se agrega una función para obtener el nombre de un archivo, para la foto.
+  public function getFilename($file)
+  {
+    $filename = substr($file, strrpos($file,'/')+1,strlen($file)-strrpos($file,'/'));
+  
+    return $filename;
+  }
+
+  public function getImagenCompleta()
+  {
+    $root= '/uploads/productos/';
+    $img = pathinfo($this->getImagen());
+
+    if (!file_exists($this->getImagen()))
+    {
+      return $root . 'default.png';
+    }
+    else
+    {
+      return $root . $img['basename'];
+    }
+  }
+
+  // (10/01/2012) Se agrega una función para obtener el thumbnail de la foto con link a la foto almacenada.
+  public function getImagenThumb()
+  {
+    $root= '/uploads/productos/';
+    $img = pathinfo($this->getImagen());
+
+    if (!file_exists($this->getImagen()))
+    {
+      return $root . 'default_thumb.png';
+    }
+    else
+    {
+      return $root . $img['filename'] . '_thumb.' . $img['extension'];
+    }
   }
 
 } // Producto

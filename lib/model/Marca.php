@@ -23,14 +23,39 @@ class Marca extends BaseMarca {
     return $this->getNombre();
   }
 
-  public function puedenBorrarme()
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
+  }
+
+  public function getCantidadProductosActivos()
   {
     $criteria = new Criteria();
-    $criteria->addJoin(ProductoPeer::MARCA_ID, MarcaPeer::ID, Criteria::INNER_JOIN);
-    $criteria->add(ProductoPeer::ES_ACTIVO, 1);
-    $criteria->addAnd(MarcaPeer::ID, $this->getId());
+    $criteria->add(ProductoPeer::ES_ACTIVO, true);
 
-    return (MarcaPeer::doCount($criteria) == 0);
+    return $this->countProductos($criteria);
+  }
+
+  public function puedenDesactivarme()
+  {
+    return $this->getCantidadProductosActivos() == 0;
   }
 
 } // Marca
