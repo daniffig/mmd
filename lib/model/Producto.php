@@ -65,19 +65,6 @@ class Producto extends BaseProducto {
     }
   }
 
-  public function algo()
-  {
-    return sfContext::getInstance()->getUser()->tieneVenta();
-  }
-
-  // (15/01/2012) Se agrega una función para obtener el nombre de un archivo, para la foto.
-  public function getFilename($file)
-  {
-    $filename = substr($file, strrpos($file,'/')+1,strlen($file)-strrpos($file,'/'));
-  
-    return $filename;
-  }
-
   public function getImagenCompleta()
   {
     $root= '/uploads/productos/';
@@ -93,7 +80,6 @@ class Producto extends BaseProducto {
     }
   }
 
-  // (10/01/2012) Se agrega una función para obtener el thumbnail de la foto con link a la foto almacenada.
   public function getImagenThumb()
   {
     $root= '/uploads/productos/';
@@ -107,6 +93,16 @@ class Producto extends BaseProducto {
     {
       return $root . $img['filename'] . '_thumb.' . $img['extension'];
     }
+  }
+
+  public function getStockEnSucursal(Sucursal $sucursal)
+  {
+    $criteria = new Criteria();
+    $criteria->add(StockProductoSucursalPeer::SUCURSAL_ID, $sucursal->getId());
+
+    $stock_producto_sucursal = $this->getStockProductoSucursals($criteria);
+
+    return $stock_producto_sucursal[0];
   }
 
 } // Producto

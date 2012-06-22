@@ -76,10 +76,18 @@ class ventaActions extends autoVentaActions
   {
     if ($this->getUser()->tieneVenta())
     {
-      $this->Venta = $this->getUser()->getVenta();
-      $this->form = new VentaCerrarVentaForm($this->Venta);
+      if ($this->getUser()->getVenta()->tieneProductos())
+      {
+        $this->Venta = $this->getUser()->getVenta();
+        $this->form = new VentaCerrarVentaForm($this->Venta);
 
-      $this->setTemplate('cerrarVenta');
+        $this->setTemplate('cerrarVenta');
+      }
+      else
+      {
+        $this->getUser()->setFlash('error', "Debe agregar Productos a la Venta antes de poder cerrarla.");
+        $this->redirect('@producto');
+      }
     }
     else
     {
@@ -141,8 +149,6 @@ class ventaActions extends autoVentaActions
         $this->getUser()->setFlash('notice', $notice);
 
         $this->redirect('@venta');
-        // Esta línea que sigue puede ser MUY importante para mejorar el código.
-        // $this->redirect(array('sf_route' => 'venta_edit', 'sf_subject' => $Venta));
       }
     }
     else

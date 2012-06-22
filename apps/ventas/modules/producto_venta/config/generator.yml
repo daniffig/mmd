@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           ProductoVenta
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              ProductoVenta
@@ -21,7 +21,7 @@ generator:
 
       list:
         title: Productos de la Venta
-        display: [producto, cantidad, precio_unitario_formateado, precio_total_formateado]
+        display: [venta_id, producto, cantidad, precio_unitario_formateado, precio_total_formateado]
         peer_method: doSelectByVenta
         peer_count_method: doCountByVenta
 
@@ -38,10 +38,15 @@ generator:
   
       filter: ~
       form:
-        display: [producto_id, venta_id, cantidad]
+        #display: [venta, producto_id, venta_id, cantidad]
 
       edit:
         title: Editar Producto de la Venta :: %%producto%%
 
       new:
         title: Agregar Producto a la Venta :: %%producto%%
+
+        actions:
+          _list:
+          _save:
+

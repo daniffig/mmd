@@ -35,6 +35,11 @@ class Venta extends BaseVenta {
     return !$this->getEsFinalizado();
   }
 
+  public function tieneProductos()
+  {
+    return ($this->countProductoVentas() != 0);
+  }
+
   public function agregarProducto(Producto $producto)
   {
     $producto_venta = new ProductoVenta();
@@ -50,22 +55,40 @@ class Venta extends BaseVenta {
     return $this->getProductoVentas();
   }
 
-  public function getProducto(Producto $producto)
+  public function getProductoVenta(Producto $producto, Venta $venta)
   {
     $criteria = new Criteria();
+    
     $criteria->add(ProductoVentaPeer::PRODUCTO_ID, $producto->getId());
+    $criteria->add(ProductoVentaPeer::VENTA_ID, $venta->getId());
 
-    if ($producto_venta = $this->getProductoVentas($criteria))
+    return ProductoVentaPeer::doSelectOne($criteria);
+  }
+
+  public function getInstanciaProductoVenta(Producto $producto)
+  {
+    $venta = sfContext::getInstance()->getUser()->getVenta();
+
+    if (!$producto_venta = $this->getProductoVenta($producto, $venta))
     {
-      return $producto_venta[0];
-    }    
+      $producto_venta = new ProductoVenta();
+
+      $producto_venta->setProducto($producto);
+      $producto_venta->setVentaId(sfContext::getInstance()->getUser()->getVenta()->getId());
+      $producto_venta->setPrecioUnitario($producto->getPrecio());
+    }
+
+    return $producto_venta;
   }
 
   public static function nuevaVentaActiva()
   {
+    $usuario = sfContext::getInstance()->getUser()->getGuardUser();
+
     $venta = new Venta();
-    $venta->setCreatedBy(sfContext::getInstance()->getUser()->getGuardUser());
+    $venta->setCreatedBy($usuario);
     $venta->setClienteId(sfConfig::get('app_cliente_sin_seleccionar'));
+    $venta->setSucursal($usuario->getProfile()->getSucursal());
     $venta->setMedioPagoId(sfConfig::get('app_medio_pago_sin_seleccionar'));
 
     $venta->save();
@@ -73,18 +96,23 @@ class Venta extends BaseVenta {
     return $venta;
   }
 
-  public function getProductoVenta(ProductoVenta $producto_venta)
-  {
-    $criteria = new Criteria();
-    
-    $criteria->add(ProductoVentaPeer::PRODUCTO_ID, $producto_venta->getProductoId());
-    $criteria->add(ProductoVentaPeer::VENTA_ID, $producto_venta->getVentaId());
-
-    return ProductoVentaPeer::doSelectOne($criteria);
-  }
-
   public function cancelarVenta()
   {
+    $productos_venta = $this->getProductoVentas();
+
+    foreach ($productos_venta as $producto_venta)
+    {
+      $producto = $producto_venta->getProducto();
+      $venta = $producto_venta->getVenta();
+      $sucursal = $venta->getSucursal();
+
+      $stock_producto_sucursal = $producto->getStockEnSucursal($sucursal);
+
+      $stock_producto_sucursal->setCantidad($stock_producto_sucursal->getCantidad() + $producto_venta->getCantidad());
+
+      $stock_producto_sucursal->save();      
+    }
+
     $this->delete();
   }
 

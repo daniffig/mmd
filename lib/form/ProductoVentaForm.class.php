@@ -15,8 +15,10 @@ class ProductoVentaForm extends BaseProductoVentaForm
     $this->setWidget('venta_id', new sfWidgetFormInputHidden());
     $this->setWidget('precio_unitario', new sfWidgetFormInputHidden());
 
-    //$stock_disponible = 'Stock disponible: ' . $this->getObject()->getProducto()->getStockEnSucursalActiva(); 
+    //$stock_disponible = $this->getObject()->getProducto()->getStockEnSucursalActiva();
 
-    //$this->getWidgetSchema()->setHelp('cantidad', $stock_disponible);
+    //$this->getWidgetSchema()->setHelp('cantidad', 'Stock disponible: ' . $stock_disponible);
+
+    $this->setValidator('cantidad', new sfValidatorInteger(array('min' => 1, 'max' => '10'), array('min' => 'Debe agregar como mínimo una unidad.', 'max' => 'No hay stock suficiente.')));
   }
 }

@@ -16,11 +16,11 @@ preferencia:
     column:               id
     with_wildcard_routes: true
 
-agregar_producto_venta:
+producto_venta_agregar:
   url: /producto_venta/:producto_id/agregarProducto
   params:
     module: producto_venta
-    action: new
+    action: agregarProductoVenta
   requirements:
     producto_id: \d+
 

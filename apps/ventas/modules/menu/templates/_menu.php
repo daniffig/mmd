@@ -70,7 +70,9 @@
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
               <?php else: ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), 'producto_venta/verVentaActiva'); ?></li>
+              <?php if ($sf_user->getVenta()->tieneProductos()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
+              <?php endif; ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
               <?php endif; ?>
               <?php endif; ?>
@@ -135,6 +137,7 @@
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <li><?php  echo link_to(__("<i class='icon-off'></i> Mi Perfil"), '@sf_guard_user'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-off'></i> Salir"), '@sf_guard_signout'); ?></li>
             </ul>
           </li>

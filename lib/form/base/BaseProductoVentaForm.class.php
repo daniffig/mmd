@@ -19,7 +19,6 @@ abstract class BaseProductoVentaForm extends BaseFormPropel
       'venta_id'        => new sfWidgetFormPropelChoice(array('model' => 'Venta', 'add_empty' => false)),
       'precio_unitario' => new sfWidgetFormInputText(),
       'cantidad'        => new sfWidgetFormInputText(),
-      'es_activo'       => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
@@ -28,7 +27,6 @@ abstract class BaseProductoVentaForm extends BaseFormPropel
       'venta_id'        => new sfValidatorPropelChoice(array('model' => 'Venta', 'column' => 'id')),
       'precio_unitario' => new sfValidatorNumber(),
       'cantidad'        => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
-      'es_activo'       => new sfValidatorBoolean(),
     ));
 
     $this->widgetSchema->setNameFormat('producto_venta[%s]');

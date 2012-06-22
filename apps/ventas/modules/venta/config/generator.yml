@@ -13,10 +13,13 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
+      fields:
+        created_at:
+          label: Fecha y Hora
+
       list:
         title: Listado de Ventas
-        display: [cliente, medio_pago, es_finalizado, es_activo]
+        display: [created_at, cliente, medio_pago, es_finalizado, es_activo]
 
         object_actions:
           ver_factura:
@@ -25,15 +28,10 @@ generator:
           recuperar_venta:
             action: recuperarVenta
             show_when: puedoRecuperarVenta
-          #reabrir_venta:
-            #condition: esFinalizada
-            #action: reabrirVenta
 
-        actions:
-          iniciar_venta:
-            action: iniciarVenta
-            show_when: noTieneVenta
-            credentials: [iniciarVenta]
+        batch_actions: {}
+
+        actions: {}
 
       filter:
         #display: [cliente_id, medio_pago_id, es_activo]

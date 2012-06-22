@@ -274,12 +274,6 @@ propel:
     cantidad:
       type: integer
       required: true
-    es_activo:
-     type: boolean
-     required: true
-     default: true
-
-  #falta idCliente ,idEmpleado
 
 # Sprint 03
 

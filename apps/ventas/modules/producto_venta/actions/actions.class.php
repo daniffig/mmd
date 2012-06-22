@@ -13,10 +13,16 @@ require_once dirname(__FILE__).'/../lib/producto_ventaGeneratorHelper.class.php'
  */
 class producto_ventaActions extends autoProducto_ventaActions
 {
-  public function executeAgregarCantidadProducto(sfWebRequest $request)
+  public function executeAgregarProductoVenta(sfWebRequest $request)
   {
-    $this->ProductoVenta = $this->getUser()->getVenta()->getProducto(ProductoPeer::retrieveByPk($request->getParameter('producto_id')));
-    $this->form = new ProductoVentaActivaForm();
+    $producto = ProductoPeer::retrieveByPk($request->getParameter('producto_id'));
+    
+    $ProductoVenta = $this->getUser()->getVenta()->getInstanciaProductoVenta($producto);
+
+    $this->ProductoVenta = $ProductoVenta;
+    $this->form = new ProductoVentaForm($ProductoVenta);
+
+    $this->setTemplate('new');
   }
 
   public function executeVerVentaActiva(sfWebRequest $request)
@@ -45,34 +51,6 @@ class producto_ventaActions extends autoProducto_ventaActions
     $this->redirect('@producto');
   }
 
-  public function executeNew(sfWebRequest $request)
-  {
-    $producto = ProductoPeer::retrieveByPk($request->getParameter('producto_id'));
-
-    if ($this->ProductoVenta)
-    {
-      $this->ProductoVenta = $this->form->getObject();
-    }
-    else
-    {
-      $this->ProductoVenta = new ProductoVenta();
-    }
-
-    $this->ProductoVenta->setProducto($producto);
-    $this->ProductoVenta->setVentaId($this->getUser()->getVenta()->getId());
-    $this->ProductoVenta->setPrecioUnitario($producto->getPrecio());
-
-
-    if ($this->form)
-    {
-      $this->form = $this->configuration->getForm();
-    }
-    else
-    {
-      $this->form = new ProductoVentaForm($this->ProductoVenta);
-    }    
-  }
-
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -81,17 +59,6 @@ class producto_ventaActions extends autoProducto_ventaActions
       $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
       $ProductoVenta = $form->save();
-
-      $venta = $ProductoVenta->getVenta();
-
-      if (($producto_venta_anterior = $venta->getProductoVenta($ProductoVenta)) && $producto_venta_anterior != $ProductoVenta)
-      {
-        $ProductoVenta->setCantidad($ProductoVenta->getCantidad() + $producto_venta_anterior->getCantidad());
-
-        $producto_venta_anterior->delete();
-      }
-      
-      $ProductoVenta->save();
 
       $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $ProductoVenta)));
 
@@ -106,8 +73,6 @@ class producto_ventaActions extends autoProducto_ventaActions
         $this->getUser()->setFlash('notice', $notice);
 
         $this->redirect('@producto_venta');
-
-        // $this->redirect(array('sf_route' => 'producto_venta_edit', 'sf_subject' => $ProductoVenta));
       }
     }
     else

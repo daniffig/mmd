@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Cliente
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              Cliente
@@ -27,7 +27,7 @@ generator:
 
       filter:  ~
       form:
-        display: [tipo_documento_id, nro_documento, apellido, nombre, telefono, direccion, cuit]
+        #display: [tipo_documento_id, nro_documento, apellido, nombre, telefono, direccion, cuit]
 
       edit:
         title: Editar Cliente :: %%apellido%%, %%nombre%% (%%tipo_documento%% %%nro_documento%%)

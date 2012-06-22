@@ -31,23 +31,14 @@ class productoActions extends autoProductoActions
     $this->redirect('@producto');
   }
 
-  public function executeVerDetalles(sfWebRequest $request)
-  {
-    $this->Producto = $this->getRoute()->getObject();
-  }
-
   public function executeAgregarProductoVenta(sfWebRequest $request)
   {
     if ($this->getUser()->tieneVenta())
     {
-      $this->getUser()->agregarProducto($this->getRoute()->getObject());
+      $this->redirect($this->generateUrl('producto_venta_agregar', array('producto_id' => $this->getRoute()->getObject()->getId())));
+    }
 
-      $this->redirect($this->generateUrl('agregar_producto_venta', array('producto_id' => $this->getRoute()->getObject()->getId())));
-    }
-    else
-    {
-      $this->getUser()->setFlash('error', 'Ud. no tiene ninguna Venta Activa.');
-    }
+    $this->getUser()->setFlash('error', 'Ud. no tiene ninguna Venta Activa.');
 
     $this->redirect('@producto');
   }
