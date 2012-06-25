@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           StockProductoSucursal
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              StockProductoSucursal
@@ -12,13 +12,30 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _new:
+          label: Agregar Producto
+
       fields:  ~
       list:
         title: Listado de Stock
         display: [producto, sucursal, cantidad]
 
+        object_actions:
+          agregar_stock:
+            action: agregarStockProducto
+            label: Agregar Stock a Producto
+          _edit:
+
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Stock de Producto en Sucursal (%%producto%% - Sucursal %%sucursal%%)
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Agregar Stock a Producto en Sucursal
+

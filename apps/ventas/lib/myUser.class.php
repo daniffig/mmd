@@ -41,6 +41,7 @@ class myUser extends sfGuardSecurityUser
 
   public function cerrarVenta()
   {
+    //$this->setFlash('notice', 'Venta finalizada con éxito.');
     $this->setAttribute('venta', null);
   }
 

@@ -13,16 +13,24 @@ require_once dirname(__FILE__).'/../lib/producto_ventaGeneratorHelper.class.php'
  */
 class producto_ventaActions extends autoProducto_ventaActions
 {
-  public function executeAgregarProductoVenta(sfWebRequest $request)
+  public function executeNew(sfWebRequest $request)
   {
     $producto = ProductoPeer::retrieveByPk($request->getParameter('producto_id'));
-    
+
+    $this->getUser()->setAttribute('tmp_producto_id', $producto->getId());
+
     $ProductoVenta = $this->getUser()->getVenta()->getInstanciaProductoVenta($producto);
 
     $this->ProductoVenta = $ProductoVenta;
-    $this->form = new ProductoVentaForm($ProductoVenta);
 
-    $this->setTemplate('new');
+    if (!$this->form = $this->getUser()->getAttribute('form'))
+    {
+      $this->form = new ProductoVentaForm($ProductoVenta);
+    }
+    else
+    {
+      $this->getUser()->setAttribute('form', null);
+    }   
   }
 
   public function executeVerVentaActiva(sfWebRequest $request)
@@ -77,7 +85,13 @@ class producto_ventaActions extends autoProducto_ventaActions
     }
     else
     {
-      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+      //$this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', true);
+
+      $this->getUser()->setFlash('error', 'Debe ingresar un valor válido.');
+
+      $this->getUser()->setAttribute('tmp_producto_form', $form);
+
+      $this->redirect($this->generateUrl('producto_venta_agregar', array('producto_id' => $this->getUser()->getAttribute('tmp_producto_id'))));
     }
   }
 }

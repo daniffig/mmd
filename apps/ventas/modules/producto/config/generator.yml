@@ -57,9 +57,12 @@ generator:
           agregar_producto_venta:
             action: agregarProductoVenta
             label: Agregar a la Venta Activa
-            show_when: getEsActivo
+            show_when: puedoAgregarProductoVenta
 
         batch_actions: {}
+
+      show:
+        display: [categoria, tipo_producto, marca, modelo, precio, descripcion, imagen]
 
       filter:  ~
       form:

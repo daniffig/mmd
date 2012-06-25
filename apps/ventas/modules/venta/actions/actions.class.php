@@ -66,7 +66,8 @@ class ventaActions extends autoVentaActions
     else
     {
       $this->getUser()->iniciarVenta();
-      $this->getUser()->setFlash('notice', "Venta iniciada con éxito. Agregue Productos.");
+      //$this->getUser()->setFlash('notice', "Venta iniciada con éxito. Agregue Productos.");
+      $this->getUser()->setFlash('notice_detail', array('algo' => 'otro'));
     }
 
     $this->redirect('producto/index');
@@ -79,9 +80,12 @@ class ventaActions extends autoVentaActions
       if ($this->getUser()->getVenta()->tieneProductos())
       {
         $this->Venta = $this->getUser()->getVenta();
-        $this->form = new VentaCerrarVentaForm($this->Venta);
+        $this->form = new VentaForm($this->Venta);//new VentaCerrarVentaForm($this->Venta);
 
         $this->setTemplate('cerrarVenta');
+        //$this->configuration->form = new VentaForm($this->getUser()->getVenta());
+        //$this->Venta = $this->getUser()->getVenta();
+        //$this->redirect($this->generateUrl('venta_new', array('sf_subject' => $this->getUser()->getVenta())));
       }
       else
       {
@@ -116,9 +120,6 @@ class ventaActions extends autoVentaActions
     $this->Venta = $this->getRoute()->getObject();
     $this->ProductoVentas = $this->Venta->getProductoVentas();
     $this->Cliente = $this->Venta->getCliente();
-    
-    //print_r($this->ProductoVentas);
-    //$this->setTemplate('edit');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -126,29 +127,38 @@ class ventaActions extends autoVentaActions
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
-      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
-
-      // Esto hay que hacerlo de otra forma, pero no me voy a poner al eer toda la interface de sfForm ahora...
-      $Venta = $form->save();
-      $Venta->setEsFinalizado(true);
-      $Venta->save();
-      // Fin del código feo.
-
-      $this->getUser()->cerrarVenta();
-
-      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $Venta)));
-
-      if ($request->hasParameter('_save_and_add'))
+      if ($errores = $form->getObject()->cerrarVenta())
       {
-        $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
+        $this->getUser()->setFlash('error_detail', array('algo', 'algo2'));//$errores);
 
-        $this->redirect('@venta_new');
+        $this->redirect('@venta');
       }
       else
       {
-        $this->getUser()->setFlash('notice', $notice);
+        $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
 
-        $this->redirect('@venta');
+        // Esto hay que hacerlo de otra forma, pero no me voy a poner al leer toda la interface de sfForm ahora...
+        $Venta = $form->save();
+        $Venta->setEsFinalizado(true);
+        $Venta->save();
+        // Fin del código feo.
+
+        $this->getUser()->cerrarVenta();
+
+        $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $Venta)));
+
+        if ($request->hasParameter('_save_and_add'))
+        {
+          $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
+
+          $this->redirect('@venta_new');
+        }
+        else
+        {
+          $this->getUser()->setFlash('notice', $notice);
+
+          $this->redirect('@venta');
+        }
       }
     }
     else

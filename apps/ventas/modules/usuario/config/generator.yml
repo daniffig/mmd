@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           sfGuardUser
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              sfGuardUser
@@ -19,7 +19,7 @@ generator:
         display: [username, is_active]
 
       filter:
-        display: [username, is_active, is_super_admin]
+        #display: [username, is_active, is_super_admin]
       form:    ~
       edit:    ~
       new:     ~

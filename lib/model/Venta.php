@@ -98,22 +98,46 @@ class Venta extends BaseVenta {
 
   public function cancelarVenta()
   {
-    $productos_venta = $this->getProductoVentas();
+    $this->delete();
+  }
+
+  public function cerrarVenta()
+  {
+    $productos_venta = $this->getProductos();
+
+    $index = 0;
 
     foreach ($productos_venta as $producto_venta)
     {
-      $producto = $producto_venta->getProducto();
-      $venta = $producto_venta->getVenta();
-      $sucursal = $venta->getSucursal();
+      $datos[$index]['producto'] = $producto_venta->getProducto();
+      $datos[$index]['venta']  = $producto_venta->getVenta();
+      $datos[$index]['sucursal']  = $datos[$index]['venta']->getSucursal();
+      $datos[$index]['stock'] = $datos[$index]['producto']->getStockEnSucursal($datos[$index]['sucursal']);
+      $datos[$index]['cantidad'] = $producto_venta->getCantidad();
 
-      $stock_producto_sucursal = $producto->getStockEnSucursal($sucursal);
+      if ($datos[$index]['stock']->getCantidad() < $datos[$index]['cantidad'])
+      {
+        $errores[] = $datos[$index]['producto'];
+      }
 
-      $stock_producto_sucursal->setCantidad($stock_producto_sucursal->getCantidad() + $producto_venta->getCantidad());
-
-      $stock_producto_sucursal->save();      
+      $index++;
     }
 
-    $this->delete();
+    if (count($errores) == 0)
+    {
+      foreach ($datos as $dato)
+      {
+        $dato['stock']->setCantidad($dato['stock']->getCantidad() - $dato['cantidad']);
+        $dato['stock']->save();
+      }
+    }
+
+    return $errores;    
+  }
+
+  public function getPrecioFormateado()
+  {
+    return "$ " . number_format($this->getPrecio(), 2, ",", ".");     
   }
 
   public function getTotal()

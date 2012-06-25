@@ -1,0 +1,27 @@
+
+div#sf_admin_container h1,p,h3{
+  font-family:sans-serif,Loma,"Liberation Serif";
+}
+div#sf_admin_container{
+  margin:0px auto;
+  width:900px;
+}
+div#datos{
+  float:left;
+}
+
+p.resaltado{
+  font-size:20px;
+}
+div#imagen{
+  float:right;
+  border:4px solid green;
+}
+
+p#pocoStock{
+  color:red;
+}
+
+p#Stock{
+  color:green;
+}

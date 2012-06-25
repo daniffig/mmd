@@ -15,7 +15,7 @@ abstract class BaseProductoFormFilter extends BaseFormFilterPropel
       'es_activo'        => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
       'tipo_producto_id' => new sfWidgetFormPropelChoice(array('model' => 'TipoProducto', 'add_empty' => true)),
       'marca_id'         => new sfWidgetFormPropelChoice(array('model' => 'Marca', 'add_empty' => true)),
-      'modelo'           => new sfWidgetFormFilterInput(),
+      'modelo'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'precio'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'descripcion'      => new sfWidgetFormFilterInput(),
       'stock_minimo'     => new sfWidgetFormFilterInput(array('with_empty' => false)),

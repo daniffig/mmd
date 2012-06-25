@@ -36,7 +36,24 @@ class Producto extends BaseProducto {
 
   public function puedoDesactivar()
   {
-    return !$this->puedoActivar();
+    $criteria = new Criteria();
+    $criteria->add(VentaPeer::ES_ACTIVO, true);
+
+    $producto_ventas = $this->getProductoVentas();
+
+    $ventas_activas = 0;
+
+    foreach ($producto_ventas as $producto_venta)
+    {
+      if (!$producto_venta->getVenta()->getEsFinalizado())
+      {
+        $ventas_activas++;
+      }
+    }
+
+    $ventas_activas = $ventas_activas > 0;
+
+    return !$this->puedoActivar() && !$ventas_activas;
   }
 
   public function desactivar()
@@ -45,15 +62,29 @@ class Producto extends BaseProducto {
     $this->save();
   }
 
+  public function puedoAgregarProductoVenta()
+  {
+    $usuario = sfContext::getInstance()->getUser();
+
+    return ($this->getEsActivo() && $usuario->tieneVenta() && ($this->getStockEnSucursalActiva() > 0));
+  }
+
   public function getStock()
   {
     return true;
   }
 
+  public function getCategoria()
+  {
+    $this->getTipoProducto()->getCategoria();
+  }
+
   public function getStockEnSucursalActiva()
   {
+    $usuario = sfContext::getInstance()->getUser();
+
     $criteria = new Criteria();
-    $criteria->add(StockProductoSucursalPeer::SUCURSAL_ID, sfContext::getInstance()->getUser()->getGuardUser()->getProfile()->getSucursalId());
+    $criteria->add(StockProductoSucursalPeer::SUCURSAL_ID, $usuario->getGuardUser()->getProfile()->getSucursalId());
 
     if ($stock = $this->getStockProductoSucursals($criteria))
     {

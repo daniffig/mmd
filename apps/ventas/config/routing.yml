@@ -20,7 +20,7 @@ producto_venta_agregar:
   url: /producto_venta/:producto_id/agregarProducto
   params:
     module: producto_venta
-    action: agregarProductoVenta
+    action: new
   requirements:
     producto_id: \d+
 

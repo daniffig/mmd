@@ -12,14 +12,17 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _save:
+          label: Cerrar Venta
+
       fields:
         created_at:
           label: Fecha y Hora
 
       list:
         title: Listado de Ventas
-        display: [created_at, cliente, medio_pago, es_finalizado, es_activo]
+        display: [id, created_at, cliente, medio_pago, es_finalizado, es_activo]
 
         object_actions:
           ver_factura:
@@ -38,4 +41,8 @@ generator:
 
       form:    ~
       edit:    ~
-      new:     ~
+      new:
+        title: Cerrar Venta
+
+        actions:
+          _save:

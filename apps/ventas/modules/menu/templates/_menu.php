@@ -41,12 +41,6 @@
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos de Producto"), '@tipo_producto'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo de Producto"), '@tipo_producto_new'); ?></li>
               <?php endif; ?>
-              <?php if ($sf_user->hasCredential('administrarCaracteristicas')): ?>
-              <li class="divider"></li>
-              <li class="nav-header">Características</li>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Características"), '@caracteristica'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Característica"), '@caracteristica_new'); ?></li>
-              <?php endif; ?>
             </ul>
           </li>
          

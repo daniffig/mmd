@@ -18,6 +18,20 @@
  */
 class ClientePeer extends BaseClientePeer {
 
+	public static function doSelect(Criteria $criteria, PropelPDO $con = null)
+  {
+    $criteria->add(self::ID, sfConfig::get('app_cliente_sin_seleccionar'), Criteria::NOT_EQUAL);
+
+    return parent::doSelect($criteria, $con);    
+  }
+
+	public static function doCount(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    $criteria->add(self::ID, sfConfig::get('app_cliente_sin_seleccionar'));
+
+    return parent::doCount($criteria, $distinct, $con);     
+  }
+
 	public static function doSelectValidos(Criteria $criteria, PropelPDO $con = null)
   {
     if ($criteria == null)

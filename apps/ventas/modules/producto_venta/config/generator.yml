@@ -37,9 +37,7 @@ generator:
             label: Cerrar Venta
   
       filter: ~
-      form:
-        #display: [venta, producto_id, venta_id, cantidad]
-
+      form:   ~
       edit:
         title: Editar Producto de la Venta :: %%producto%%
 

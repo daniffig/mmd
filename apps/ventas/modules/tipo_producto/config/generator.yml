@@ -27,6 +27,7 @@ generator:
       list:
         title: Listado de Tipos de Producto
         display: [categoria, nombre, cantidad_productos_activos, es_activo]
+        max_per_page: 10
 
         object_actions:
           _edit:

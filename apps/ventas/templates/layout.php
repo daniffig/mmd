@@ -20,6 +20,22 @@
     <div id="footer">
     	<hr class="divider-footer"/>
      	<?php echo image_tag('dvorak_icon.png'); ?>
-    </div>	
+    </div>
+    <form>
+      <input class='numeric' type='text' />
+    </form>
+    <script type="text/javascript">
+	    $(".numeric").numeric();
+	    $(".integer").numeric(false, function() { alert("Integers only"); this.value = ""; this.focus(); });
+	    $(".positive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
+	    $(".positive-integer").numeric({ decimal: false, negative: false }, function() { alert("Positive integers only"); this.value = ""; this.focus(); });
+	    $("#remove").click(
+		    function(e)
+		    {
+			    e.preventDefault();
+			    $(".numeric,.integer,.positive").removeNumeric();
+		    }
+	    );
+	  </script>
   </body>
 </html>

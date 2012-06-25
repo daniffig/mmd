@@ -14,11 +14,19 @@ class ProductoVentaForm extends BaseProductoVentaForm
     $this->setWidget('producto_id', new sfWidgetFormInputHidden());
     $this->setWidget('venta_id', new sfWidgetFormInputHidden());
     $this->setWidget('precio_unitario', new sfWidgetFormInputHidden());
+    
+    $usuario = sfContext::getInstance()->getUser();
+    if (!$producto = $this->getObject()->getProducto())
+    {
+      $producto = ProductoPeer::retrieveByPk($usuario->getAttribute('tmp_producto_id'));
+    }
 
-    //$stock_disponible = $this->getObject()->getProducto()->getStockEnSucursalActiva();
+    $stock_disponible = $producto->getStockEnSucursalActiva();
 
-    //$this->getWidgetSchema()->setHelp('cantidad', 'Stock disponible: ' . $stock_disponible);
+    $this->getWidget('cantidad')->setAttribute('class', 'numeric');
 
-    $this->setValidator('cantidad', new sfValidatorInteger(array('min' => 1, 'max' => '10'), array('min' => 'Debe agregar como mínimo una unidad.', 'max' => 'No hay stock suficiente.')));
+    $this->getWidgetSchema()->setHelp('cantidad', 'Stock disponible: ' . $stock_disponible);
+
+    $this->setValidator('cantidad', new sfValidatorInteger(array('min' => 1, 'max' => $stock_disponible), array('min' => 'Debe agregar como mínimo una unidad.', 'max' => 'No hay stock suficiente.')));
   }
 }

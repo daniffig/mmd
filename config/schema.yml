@@ -109,13 +109,12 @@ propel:
     id: ~
     es_activo:
       type: boolean
-      required: true
       default: true
     tipo_producto_id:
       type: integer
       foreignClass: TipoProducto
       foreignReference: id
-      required: false
+      required: true
       onDelete: restrict
     marca_id:
       type: integer
@@ -125,7 +124,7 @@ propel:
       onDelete: restrict
     modelo:
       type: varchar(255)
-      index: unique
+      required: true
     precio:
       type: float
       required: true
@@ -137,6 +136,9 @@ propel:
       default: 0
     imagen:
       type: varchar(255)
+    _uniques:
+      marca_modelo_unique_index: [marca_id, modelo]
+      
   
   caracteristica_producto:
     _attributes:
@@ -163,6 +165,19 @@ propel:
     _attributes:
       phpName: StockProductoSucursal
     id: ~
+    created_at: ~
+    created_by:
+      type: integer
+      foreignClass: sfGuardUser
+      foreignReference: id
+      required: true
+      onDelete: restrict
+    updated_at: ~
+    updated_by:
+      type: integer
+      foreignClass: sfGuardUser
+      foreignReference: id
+      onDelete: restrict
     producto_id:
       type: integer
       foreignClass: Producto
