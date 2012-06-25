@@ -20,28 +20,39 @@ class MedioPagoPeer extends BaseMedioPagoPeer {
 
 	public static function doSelect(Criteria $criteria, PropelPDO $con = null)
   {
-    $criteria->add(self::ID, sfConfig::get('app_medio_pago_sin_seleccionar'), Criteria::NOT_EQUAL);
+    $criteria->addAnd(self::ID, sfConfig::get('app_medio_pago_sin_seleccionar'), Criteria::NOT_EQUAL);
 
     return parent::doSelect($criteria, $con);    
   }
 
 	public static function doCount(Criteria $criteria, $distinct = false, PropelPDO $con = null)
   {
-    $criteria->add(self::ID, sfConfig::get('app_medio_pago_sin_seleccionar'));
+    $criteria->addAnd(self::ID, sfConfig::get('app_medio_pago_sin_seleccionar'), Criteria::NOT_EQUAL);
 
     return parent::doCount($criteria, $distinct, $con);     
   }
 
-	public static function doSelectValidos(Criteria $criteria, PropelPDO $con = null)
+	public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
   {
-    if ($criteria == null)
+    if ($criteria === null)
     {
       $criteria = new Criteria();
     }
 
-    $criteria->add(self::ID, 1, Criteria::NOT_EQUAL);
+    $criteria->add(self::ES_ACTIVO, true);
 
-    return self::doSelect($criteria);
+    return self::doSelect($criteria, $con);    
   }
 
+	public static function doCountActivos(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doCount($criteria, $distinct, $con);     
+  }
 } // MedioPagoPeer

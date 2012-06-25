@@ -28,6 +28,9 @@ generator:
           ver_factura:
             action: verFactura
             show_when: puedoVerFactura
+          ver_productos:
+            action: verProductos
+            show_when: puedoVerProductos
           recuperar_venta:
             action: recuperarVenta
             show_when: puedoRecuperarVenta
@@ -36,13 +39,10 @@ generator:
 
         actions: {}
 
-      filter:
-        #display: [cliente_id, medio_pago_id, es_activo]
-
+      filter:  ~
       form:    ~
-      edit:    ~
-      new:
-        title: Cerrar Venta
+      edit:
+        title: Editar Venta (%%created_at%%)
 
-        actions:
-          _save:
+      new:     ~
+

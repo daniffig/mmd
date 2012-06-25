@@ -12,7 +12,24 @@ require_once dirname(__FILE__).'/../lib/producto_ventaGeneratorHelper.class.php'
  * @version    SVN: $Id: actions.class.php 12474 2008-10-31 10:41:27Z fabien $
  */
 class producto_ventaActions extends autoProducto_ventaActions
-{
+{  
+  public function executeAgregarProducto()
+  {
+    $this->getUser()->setFlash('notice', "Agregue Productos.");
+
+    $this->redirect('@producto');
+  }
+
+  public function executeCerrarVenta(sfWebRequest $request)
+  {
+    $this->redirect('venta/cerrarVenta');
+  }
+
+  public function executeCancelarVenta(sfWebRequest $request)
+  {
+    $this->redirect('venta/cancelarVenta');
+  }
+  
   public function executeNew(sfWebRequest $request)
   {
     $producto = ProductoPeer::retrieveByPk($request->getParameter('producto_id'));
@@ -33,30 +50,25 @@ class producto_ventaActions extends autoProducto_ventaActions
     }   
   }
 
-  public function executeVerVentaActiva(sfWebRequest $request)
+  public function executeIndex(sfWebRequest $request)
   {
-    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort')))
+    $usuario = $this->getUser();
+
+    if (!$venta = VentaPeer::retrieveByPk($request->getParameter('venta_id')))
     {
-      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
+      $venta = $usuario->getVenta();
     }
 
-    // pager
-    if ($request->getParameter('page'))
+    if (!$venta)
     {
-      $this->setPage($request->getParameter('page'));
+      $usuario->setFlash('error', 'No ha seleccionado ninguna Venta.');
+
+      $this->redirect('@venta');
     }
+        
+    $this->getUser()->setAttribute('producto_venta.filters', array('venta_id' => $venta->getId()), 'admin_module');
 
-    $this->pager = $this->getPager();
-    $this->sort = $this->getSort();
-
-    $this->ProductoVentas = $this->getUser()->getVenta()->getProductos();
-
-    $this->setTemplate('index');
-  }
-  
-  public function executeAgregarProducto()
-  {
-    $this->redirect('@producto');
+    parent::executeIndex($request);
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

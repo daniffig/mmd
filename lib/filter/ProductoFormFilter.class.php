@@ -15,8 +15,12 @@ class ProductoFormFilter extends BaseProductoFormFilter
 
     $this->setWidget('marca_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Marca', 'add_empty' => true, 'peer_method' => 'doSelectActivos', 'order_by' => array('Nombre', 'asc'))));
 
+    $this->setWidget('precio', new pmWidgetFormInputRange(array('from_input' => new sfWidgetFormInputText(), 'to_input' => new sfWidgetFormInputText(), 'template' => 'desde %from_input% hasta %to_input%')));
+
     $this->getWidget('modelo')->setOption('with_empty', false);
     $this->getWidget('descripcion')->setOption('with_empty', false);
+
+    $this->getWidget('stock_minimo')->setAttribute('class', 'numeric');
 
     $this->setWidget('imagen', new sfWidgetFormInputHidden());
   }

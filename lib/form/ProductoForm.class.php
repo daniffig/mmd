@@ -11,7 +11,7 @@ class ProductoForm extends BaseProductoForm
 {
   public function configure()
   {
-    $this->setWidget('categoria_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Categoria', 'add_empty' => false)));
+    $this->setWidget('categoria_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Categoria', 'peer_method' => 'doSelectActivos', 'add_empty' => false)));
 
     if ($this->getObject()->getId())
     {
@@ -27,16 +27,9 @@ class ProductoForm extends BaseProductoForm
       "no_value_text" => 'Seleccione una Categoría.'
     )));
 
-    $this->setWidget('marca_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Marca', 'add_empty' => false)));
+    $this->setWidget('marca_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Marca', 'peer_method' => 'doSelectActivos', 'add_empty' => false)));
 
-    $this->setWidget('imagen', new sfWidgetFormInputFileEditable(
-          array (
-            /*'template' => '<div>%file%<br />%input%<br />%delete% %delete_label%</div>',*/
-            'file_src' => $this->getObject()->getImagenThumb(),
-            'is_image' => true,
-            'delete_label' => 'Seleccione para eliminar la imagen actual.')
-          )
-        );
+    $this->setWidget('imagen', new sfWidgetFormInputFileEditable(array('file_src' => $this->getObject()->getImagenThumb(), 'is_image' => true, 'delete_label' => 'Seleccione para eliminar la imagen actual.')));
 
     $this->setValidator('imagen', new sfValidatorFile(
           array (
@@ -51,14 +44,16 @@ class ProductoForm extends BaseProductoForm
           )
         );
 
+    $this->setWidget('es_activo', new sfWidgetFormInputHidden());
+
     $this->getWidgetSchema()->setHelp('imagen', "2MB máximo, archivos permitidos (jpeg, jpg, png, gif)");
 
     $this->setValidator('imagen_delete', new sfValidatorBoolean());
 
     // Validaciones
-
+    $this->setValidator('tipo_producto_id', new sfValidatorPropelChoice(array('model' => 'TipoProducto'), array('required' => 'Requerido.', 'invalid' => 'Valor inválido.')));
     $this->setValidator('modelo', new sfValidatorString(array(), array('required' => 'Requerido.')));
-    $this->setValidator('precio', new sfValidatorNumber(array('min' => '0.01'), array('required' => 'Requerido.', 'invalid' => 'Valor inválido.', 'min' => 'Debe especificar un valor mayor a cero.')));
+    $this->setValidator('precio', new sfValidatorNumber(array('min' => '0.001'), array('required' => 'Requerido.', 'invalid' => 'Valor inválido.', 'min' => 'Debe especificar un valor mayor a cero.')));
     $this->setValidator('stock_minimo', new sfValidatorInteger(array('min' => '0'), array('required' => 'Requerido.', 'invalid' => 'Valor inválido.', 'min' => 'Debe especificar un valor mayor o igual a cero.')));
     
 
@@ -67,6 +62,10 @@ class ProductoForm extends BaseProductoForm
     // Ayudas
 
     $this->getWidgetSchema()->setHelp('precio', 'Formato: 199.00');
+
+    // Restricciones
+    $this->getWidget('precio')->setAttribute('class', 'positive');
+    $this->getWidget('stock_minimo')->setAttribute('class', 'positive-integer');
   }
 
   public static function updateTipoProductoWidgetCriteria($widget, $values)
@@ -87,11 +86,11 @@ class ProductoForm extends BaseProductoForm
 
   public function getNewFieldsets()
   {
-    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen'));
+    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen', 'es_activo'));
   }
 
   public function getEditFieldsets()
   {
-    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen'));
+    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen', 'es_activo'));
   }
 }

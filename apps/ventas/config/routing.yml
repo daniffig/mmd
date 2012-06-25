@@ -16,6 +16,14 @@ preferencia:
     column:               id
     with_wildcard_routes: true
 
+producto_venta_ver_productos:
+  url: /producto_venta/:venta_id/verProductos
+  params:
+    module: producto_venta
+    action: index
+  requirements:
+    venta_id: \d+
+
 producto_venta_agregar:
   url: /producto_venta/:producto_id/agregarProducto
   params:
@@ -32,6 +40,14 @@ producto_venta:
     prefix_path:          /producto_venta
     column:               id
     with_wildcard_routes: true
+
+venta_ver_factura:
+  url: /venta/:venta_id/verFactura
+  params:
+    module: venta
+    action: verFactura
+  requirements:
+    venta_id: \d+
 
 venta:
   class: sfPropelRouteCollection

@@ -11,7 +11,8 @@ class TipoProductoForm extends BaseTipoProductoForm
 {
   public function configure()
   {
-    $this->setWidget('categoria_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Categoria')));
+    $this->setWidget('categoria_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Categoria', 'peer_method' => 'doSelectActivos')));
+
     $this->setWidget('es_activo', new sfWidgetFormInputHidden());
 
     // Validaciones

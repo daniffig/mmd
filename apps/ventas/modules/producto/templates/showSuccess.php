@@ -1,5 +1,4 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('venta/assets') ?>
 <?php use_stylesheet('mostrarProducto.css') ?>
 
 <div id="sf_admin_container">

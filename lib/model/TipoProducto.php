@@ -53,7 +53,7 @@ class TipoProducto extends BaseTipoProducto {
     return $this->countProductos($criteria);
   }
 
-  public function puedenBorrarme()
+  public function puedenDesactivarme()
   {
     $criteria_producto = new Criteria();
     $criteria_producto->add(ProductoPeer::TIPO_PRODUCTO_ID, $this->getId());

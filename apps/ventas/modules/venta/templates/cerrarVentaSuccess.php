@@ -11,7 +11,7 @@
   </div>
 
   <div id="sf_admin_content">
-    <?php include_partial('venta/form', array('Venta' => $Venta, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper)) ?>
+    <?php include_partial('venta/cerrar_venta_form'.(method_exists($form, 'getNewLayout') ? '_'.$form->getNewLayout() : ''), array('Venta' => $Venta, 'form' => $form, 'configuration' => $configuration, 'helper' => $helper, 'action' => 'New')) ?>
   </div>
 
   <div id="sf_admin_footer">

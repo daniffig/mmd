@@ -22,8 +22,10 @@ generator:
       list:
         title: Productos de la Venta
         display: [venta_id, producto, cantidad, precio_unitario_formateado, precio_total_formateado]
-        peer_method: doSelectByVenta
-        peer_count_method: doCountByVenta
+
+        object_actions:
+          _edit:
+          _delete:
 
         actions:
           agregar_producto:

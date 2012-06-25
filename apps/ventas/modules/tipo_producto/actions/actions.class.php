@@ -15,24 +15,35 @@ class tipo_productoActions extends autoTipo_productoActions
 {
   public function executeActivar()
   {
-    $this->getRoute()->getObject()->activar();
-    
-    $this->getUser()->setFlash('notice', 'El Tipo de Producto fue activado con éxito.');
+    $tipo_producto = $this->getRoute()->getObject();
+
+    if ($tipo_producto->getCategoria()->getEsActivo())
+    {
+      $this->getRoute()->getObject()->activar();
+      
+      $this->getUser()->setFlash('notice', 'El Tipo de Producto fue activado con éxito.');
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'La Categoría del Tipo de Producto está desactivada.');
+    }
 
     $this->redirect('@tipo_producto');
   }
 
   public function executeDesactivar()
   {
-    if ($this->getRoute()->getObject()->puedenBorrarme())
+    $tipo_producto = $this->getRoute()->getObject();
+
+    if ($tipo_producto->puedenDesactivarme())
     {
-      $this->getRoute()->getObject()->desactivar();
+      $tipo_producto->desactivar();
 
       $this->getUser()->setFlash('notice', 'El Tipo de Producto fue desactivado con éxito.');
     }
     else
     {      
-      $this->getUser()->setFlash('error', 'El Tipo de Producto tiene Productos o Características asociados.');
+      $this->getUser()->setFlash('error', 'El Tipo de Producto tiene Productos asociados.');
     }
 
     $this->redirect('@tipo_producto');

@@ -22,8 +22,6 @@ generator:
       list:
         title: Listado de Clientes
         display: [tipo_documento, nro_documento, apellido, nombre]
-        peer_method: doSelectValidos
-        peer_count_method: doCountValidos
 
       filter:  ~
       form:

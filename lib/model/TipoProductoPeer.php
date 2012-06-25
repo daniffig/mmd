@@ -18,20 +18,35 @@
  */
 class TipoProductoPeer extends BaseTipoProductoPeer {
 
-  public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
+	public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
   {
-    if ($criteria == null){
+    if ($criteria === null)
+    {
       $criteria = new Criteria();
     }
 
     $criteria->add(self::ES_ACTIVO, true);
 
-    return self::doSelect($criteria, $con);
+    return self::doSelect($criteria, $con);    
+  }
+
+	public static function doCountActivos(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doCount($criteria, $distinct, $con);     
   }
 
   public static function doSelectChoices(Criteria $criteria, PropelPDO $con = null)
   {
     $collection = self::doSelectActivos($criteria, $con);
+
+    $choices = array();
 
     foreach ($collection as $object)
     {

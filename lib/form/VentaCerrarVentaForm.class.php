@@ -28,13 +28,26 @@ class VentaCerrarVentaForm extends BaseVentaForm
       $this->setDefault('updated_by', sfContext::getInstance()->getUser()->getGuardUser()->getId());
     }
 
-    $this->setWidget('cliente_id', new pmWidgetFormPropelChoiceOrCreate(array('model' => 'Cliente', 'url' => 
+    $this->setWidget('cliente_id', new pmWidgetFormPropelChoiceOrCreate(array('model' => 'Cliente', 'peer_method' => 'doSelectActivos', 'url' => 
 'cliente/new', 'new_label' => 'Agregar Cliente')));
 
     $this->setWidget('sucursal_id', new sfWidgetFormInputHidden());
-    $this->setWidget('medio_pago_id', new dcWidgetFormPropelChosenChoice(array('model' => 'MedioPago')));
+
+    $this->setWidget('medio_pago_id', new dcWidgetFormPropelChosenChoice(array('model' => 'MedioPago', 'peer_method' => 'doSelectActivos')));
 
     $this->setWidget('es_finalizado', new sfWidgetFormInputHidden());
+    $this->setDefault('es_finalizado', true);
+
     $this->setWidget('es_activo', new sfWidgetFormInputHidden());
+  }  
+
+  public function getNewActions()
+  {
+    return array('_save' => NULL);
+  }
+
+  public function getEditActions()
+  {
+    return $this->getNewActions();
   }
 }

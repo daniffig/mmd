@@ -63,7 +63,7 @@
               <?php if (!$sf_user->tieneVenta()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
               <?php else: ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), 'producto_venta/verVentaActiva'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), '@producto_venta'); ?></li>
               <?php if ($sf_user->getVenta()->tieneProductos()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
               <?php endif; ?>

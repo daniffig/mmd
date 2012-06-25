@@ -14,7 +14,9 @@ default:
 
   stylesheets:    [main.css, bootstrap.min.css, factura.css]
 
-  javascripts:    [jquery-1.7.2.min.js, jquery-ui-1.8.6.custom.min.js, prototype-1.7.0.js, bootstrap.min.js, jquery.numeric.js]
+  javascripts:    [jquery-1.7.2.min.js, bootstrap.min.js, jquery-ui-1.8.6.custom.min.js, jquery.numeric.js]
+
+  algo: prototype-1.7.0.js,
 
   has_layout:     true
   layout:         layout

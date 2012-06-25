@@ -13,50 +13,11 @@ require_once dirname(__FILE__).'/../lib/ventaGeneratorHelper.class.php';
  */
 class ventaActions extends autoVentaActions
 {
-  public function executeVerMisVentas(sfWebRequest $request)
+  public function executeVerProductos(sfWebRequest $request)
   {
-    // sorting
-    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort')))
-    {
-      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
-    }
-
-    // pager
-    if ($request->getParameter('page'))
-    {
-      $this->setPage($request->getParameter('page'));
-    }
-
-    $this->pager = $this->getPager();
-    $this->sort = $this->getSort();
-
-    $this->Venta = VentaPeer::doSelectFinalizadasByUsuario();
-
-    $this->setTemplate('index');
+    $this->redirect($this->generateUrl('producto_venta_ver_productos', array('venta_id' => $this->getRoute()->getObject()->getId())));
   }
-
-  public function executeVerMisVentasActivas(sfWebRequest $request)
-  {
-    // sorting
-    if ($request->getParameter('sort') && $this->isValidSortColumn($request->getParameter('sort')))
-    {
-      $this->setSort(array($request->getParameter('sort'), $request->getParameter('sort_type')));
-    }
-
-    // pager
-    if ($request->getParameter('page'))
-    {
-      $this->setPage($request->getParameter('page'));
-    }
-
-    $this->pager = $this->getPager();
-    $this->sort = $this->getSort();
-
-    $this->Venta = VentaPeer::doSelectActivasByUsuario();
-
-    $this->setTemplate('index');
-  }
-
+  
   public function executeIniciarVenta()
   {
     if ($this->getUser()->tieneVenta())
@@ -66,8 +27,7 @@ class ventaActions extends autoVentaActions
     else
     {
       $this->getUser()->iniciarVenta();
-      //$this->getUser()->setFlash('notice', "Venta iniciada con éxito. Agregue Productos.");
-      $this->getUser()->setFlash('notice_detail', array('algo' => 'otro'));
+      $this->getUser()->setFlash('notice', "Venta iniciada con éxito. Agregue Productos.");
     }
 
     $this->redirect('producto/index');
@@ -80,12 +40,7 @@ class ventaActions extends autoVentaActions
       if ($this->getUser()->getVenta()->tieneProductos())
       {
         $this->Venta = $this->getUser()->getVenta();
-        $this->form = new VentaForm($this->Venta);//new VentaCerrarVentaForm($this->Venta);
-
-        $this->setTemplate('cerrarVenta');
-        //$this->configuration->form = new VentaForm($this->getUser()->getVenta());
-        //$this->Venta = $this->getUser()->getVenta();
-        //$this->redirect($this->generateUrl('venta_new', array('sf_subject' => $this->getUser()->getVenta())));
+        $this->form = new VentaCerrarVentaForm($this->Venta);
       }
       else
       {
@@ -117,7 +72,11 @@ class ventaActions extends autoVentaActions
 
   public function executeVerFactura(sfWebRequest $request)
   {
-    $this->Venta = $this->getRoute()->getObject();
+    if (!$this->Venta = VentaPeer::retrieveByPk($request->getParameter('venta_id')))
+    {
+      $this->Venta = $this->getRoute()->getObject();
+    }
+
     $this->ProductoVentas = $this->Venta->getProductoVentas();
     $this->Cliente = $this->Venta->getCliente();
   }
@@ -157,7 +116,7 @@ class ventaActions extends autoVentaActions
         {
           $this->getUser()->setFlash('notice', $notice);
 
-          $this->redirect('@venta');
+          $this->redirect($this->generateUrl('venta_ver_factura', array('venta_id' => $Venta->getId())));
         }
       }
     }

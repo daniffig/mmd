@@ -49,11 +49,10 @@ class productoActions extends autoProductoActions
   {
     if ($this->getUser()->hasGroup('Empleados'))
     {
-      $this->getUser()->setAttribute('producto.filters', array('es_activo' => true), 'admin_module' );
+      $this->getUser()->setAttribute('producto.filters', array('es_activo' => true), 'admin_module');
     }
 
     parent::executeIndex($request);
-    //$this->redirect('@producto');
   }
 
  protected function processForm(sfWebRequest $request, sfForm $form)

@@ -21,10 +21,7 @@
     	<hr class="divider-footer"/>
      	<?php echo image_tag('dvorak_icon.png'); ?>
     </div>
-    <form>
-      <input class='numeric' type='text' />
-    </form>
-    <script type="text/javascript">
+	  <script type="text/javascript">
 	    $(".numeric").numeric();
 	    $(".integer").numeric(false, function() { alert("Integers only"); this.value = ""; this.focus(); });
 	    $(".positive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });

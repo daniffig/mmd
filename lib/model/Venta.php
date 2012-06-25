@@ -28,6 +28,11 @@ class Venta extends BaseVenta {
   public function puedoVerFactura()
   {
     return $this->getEsFinalizado(); 
+  }  
+
+  public function puedoVerProductos()
+  {
+    return !$this->getEsFinalizado(); 
   }
 
   public function puedoRecuperarVenta()
