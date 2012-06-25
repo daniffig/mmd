@@ -18,6 +18,30 @@
  */
 class VentaPeer extends BaseVentaPeer {
 
+	public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doSelect($criteria, $con);    
+  }
+
+	public static function doCountActivos(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doCount($criteria, $distinct, $con);     
+  }
+
 	public static function doSelectByUsuario(Criteria $criteria = null, PropelPDO $con = null)
   {
     if ($criteria === null)
@@ -29,5 +53,18 @@ class VentaPeer extends BaseVentaPeer {
     $criteria->add(self::ES_ACTIVO, true);
 
     return self::doSelect($criteria, $con);    
+  }
+
+  public static function doCountByUsuario(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::CREATED_BY, sfContext::getInstance()->getUser()->getGuardUser()->getId());
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doCount($criteria, $distinct, $con);    
   }
 } // VentaPeer

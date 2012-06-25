@@ -1,0 +1,8 @@
+TipoFactura:
+  TipoFactura_A:
+    nombre: A
+  TipoFactura_B:
+    nombre: B
+  TipoFactura_C:
+    nombre: C
+

@@ -1,0 +1,11 @@
+SituacionImpositiva:
+  SituacionImpositiva_ConsumidorFinal:
+    nombre: Consumidor Final
+  SituacionImpositiva_Exento:
+    nombre: Exento
+  SituacionImpositiva_ResponsableInscripto:
+    nombre: Responsable Inscripto
+  SituacionImpositiva_Monotributista:
+    nombre: Monotributista
+
+  

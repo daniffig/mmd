@@ -1,3 +1,30 @@
+factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                Factura
+    module:               factura
+    prefix_path:          /factura
+    column:               id
+    with_wildcard_routes: true
+
+situacion_impositiva:
+  class: sfPropelRouteCollection
+  options:
+    model:                SituacionImpositiva
+    module:               situacion_impositiva
+    prefix_path:          /situacion_impositiva
+    column:               id
+    with_wildcard_routes: true
+
+tipo_factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                TipoFactura
+    module:               tipo_factura
+    prefix_path:          /tipo_factura
+    column:               id
+    with_wildcard_routes: true
+
 sf_guard_user:
   class: sfPropelRouteCollection
   options:

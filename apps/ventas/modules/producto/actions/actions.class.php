@@ -126,7 +126,7 @@ class productoActions extends autoProductoActions
       {
         $this->getUser()->setFlash('notice', $notice);
 
-        $this->redirect(array('sf_route' => 'producto_edit', 'sf_subject' => $Producto));
+        $this->redirect('@producto');
       }
     }
     else

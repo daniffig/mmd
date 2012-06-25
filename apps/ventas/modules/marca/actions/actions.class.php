@@ -37,5 +37,41 @@ class marcaActions extends autoMarcaActions
     }
 
     $this->redirect('@marca');
-  }  
+  }
+
+  protected function processForm(sfWebRequest $request, sfForm $form)
+  {
+    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    if ($form->isValid())
+    {
+      $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+
+      $Marca = $form->save();
+
+      $this->dispatcher->notify(new sfEvent($this, 'admin.save_object', array('object' => $Marca)));
+
+      if ($request->hasParameter('_save_and_add'))
+      {
+        $this->getUser()->setFlash('notice', $notice.' You can add another one below.');
+
+        $this->redirect('@marca_new');
+      }
+      else if ($request->hasParameter('_save_and_list'))
+      {
+        $this->getUser()->setFlash('notice', $notice);
+
+        $this->redirect('@marca');
+      }
+      else
+      {
+        $this->getUser()->setFlash('notice', $notice);
+
+        $this->redirect('@marca');
+      }
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', false);
+    }
+  }
 }

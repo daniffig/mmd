@@ -290,6 +290,58 @@ propel:
       type: integer
       required: true
 
+  tipo_factura:
+    _attributes:
+       phpName: TipoFactura
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+  situaction_impositiva:
+    _attributes:
+       phpName: SituacionImpositiva
+    id: ~
+    nombre:
+      type: varchar(255)
+      required: true
+      index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
+
+  
+  factura:
+    _attributes:
+      phpName: Factura
+    id: ~
+    venta_id:
+      type: integer
+      foreignClass: Venta
+      foreignReference: id
+      required: true
+      onDelete: cascade
+    tipo_factura_id:
+      type: integer
+      foreignClass: TipoFactura
+      foreignReference: id
+      required: true
+      onDelete: restrict
+      required: true
+    situacion_impositiva_id:
+      type: integer
+      foreignClass: SituacionImpositiva
+      foreignReference: id
+      required: true
+      onDelete: restrict
+      required: true
+
 # Sprint 03
 
 # Del cliente se guarda todos los datos necesarios para realizar una venta: nombre, apellido, direccion, dni o cuit.

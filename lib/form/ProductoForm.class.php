@@ -66,6 +66,7 @@ class ProductoForm extends BaseProductoForm
     // Restricciones
     $this->getWidget('precio')->setAttribute('class', 'positive');
     $this->getWidget('stock_minimo')->setAttribute('class', 'positive-integer');
+  }
 
   public function getNewFieldsets()
   {

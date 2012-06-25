@@ -41,5 +41,4 @@ class TipoDocumentoPeer extends BaseTipoDocumentoPeer {
 
     return self::doCount($criteria, $distinct, $con);     
   }
-
 } // TipoDocumentoPeer

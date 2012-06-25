@@ -22,6 +22,7 @@
               <li class="nav-header">Stock</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Stock"), '@stock_producto_sucursal'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Stock"), '@stock_producto_sucursal_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-file'></i> Reportar Stock Mínimo"), 'stock_producto_sucursal/reportarStockMinimo'); ?></li>
               <?php endif; ?>
               <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
               <li class="divider"></li>
@@ -48,12 +49,6 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="nav-header">Ventas</li>
-              <?php /* ?>
-              <?php if ($sf_user->hasCredential('verMisVentas')): ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Mis Ventas"), 'venta/verMisVentas'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Mis Ventas Activas"), 'venta/verMisVentasActivas'); ?></li>
-              <?php endif; ?>
-              <?php */ ?>
               <?php if ($sf_user->hasCredential('verVentas')): ?>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Ventas"), '@venta'); ?></li>
               <?php endif; ?>
@@ -63,12 +58,29 @@
               <?php if (!$sf_user->tieneVenta()): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Iniciar Venta"), 'venta/iniciarVenta'); ?></li>
               <?php else: ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Ver Venta Activa"), '@producto_venta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-shopping-cart'></i> Ver Venta Activa"), '@producto_venta'); ?></li>
               <?php if ($sf_user->getVenta()->tieneProductos()): ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-check'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
               <?php endif; ?>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-remove'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
               <?php endif; ?>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('administrarFacturas')): ?>
+              <li class="divider"></li>
+              <li class="nav-header">Factura</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Facturas"), '@factura'); ?></li>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('administrarTiposFactura')): ?>
+              <li class="divider"></li>
+              <li class="nav-header">Tipo de Factura</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos de Factura"), '@tipo_factura'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo de Factura"), '@tipo_factura_new'); ?></li>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('administrarSituacionesImpositivas')): ?>
+              <li class="divider"></li>
+              <li class="nav-header">Situación Impositiva</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Situaciones Impositivas"), '@situacion_impositiva'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Situación Impositiva"), '@situacion_impositiva_new'); ?></li>
               <?php endif; ?>
             </ul>
           </li>
@@ -92,6 +104,9 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
             <ul class="dropdown-menu">
+              <li class="nav-header">Empleados</li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Empleados"), '@sf_guard_user'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
               <li class="nav-header">Usuarios</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Usuarios"), '@sf_guard_user'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
@@ -131,7 +146,7 @@
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><?php  echo link_to(__("<i class='icon-off'></i> Mi Perfil"), '@sf_guard_user'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-user'></i> Mi Perfil"), 'sf_guard_user_edit', array('id' => $sf_user->getGuardUser()->getId())); ?></li>
               <li><?php  echo link_to(__("<i class='icon-off'></i> Salir"), '@sf_guard_signout'); ?></li>
             </ul>
           </li>

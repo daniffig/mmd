@@ -1,0 +1,29 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           Factura
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Factura
+    plural:                Facturas
+    route_prefix:          factura
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Facturas
+
+        object_actions: 
+
+        batch_actions: {}
+
+        actions: {}
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

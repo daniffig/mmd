@@ -45,6 +45,7 @@ class ventaActions extends autoVentaActions
       else
       {
         $this->getUser()->setFlash('error', "Debe agregar Productos a la Venta antes de poder cerrarla.");
+
         $this->redirect('@producto');
       }
     }

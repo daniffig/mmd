@@ -39,6 +39,28 @@ class VentaCerrarVentaForm extends BaseVentaForm
     $this->setDefault('es_finalizado', true);
 
     $this->setWidget('es_activo', new sfWidgetFormInputHidden());
+
+    // Formulario de la Factura
+    $factura = new Factura();
+    $factura->setVentaId($this->getObject()->getId());
+
+//    throw new Exception ();
+
+    //$factura->setVenta($this->getObject());
+    $factura_form = new FacturaForm($factura);
+
+    //$factura_form->getWidget('venta_id')setValue('venta_id', $this->getObject()->getId());
+
+    //$factura->setWidget('venta_id', new sfWidgetFormInputHidden());
+    
+    $this->embedForm('factura', $factura_form);
+
+    $this->getEmbeddedForm('factura')->setDefault('venta_id', $this->getObject()->getId());
+
+    // Validaciones
+   // $this->setValidator('factura', new sfValidatorPass());
+
+    $this->validatorSchema->setOption('allow_extra_fields', true);
   }  
 
   public function getNewActions()

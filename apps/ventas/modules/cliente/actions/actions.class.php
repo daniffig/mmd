@@ -33,5 +33,5 @@ class clienteActions extends autoClienteActions
     $this->getUser()->setFlash('notice', 'El Cliente fue desactivado con éxito.');
 
     $this->redirect('@cliente');
-  }  
+  }
 }
