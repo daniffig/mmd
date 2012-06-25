@@ -12,14 +12,22 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
+      actions:
+        _new:
+          label: Agregar Usuario
+
+      fields:
+        is_active:
+          label: Activo
+
       list:
         title: Listado de Usuarios
-        display: [username, is_active]
+        display: [username, sucursal, is_active]
 
-      filter:
-        #display: [username, is_active, is_super_admin]
+      filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Usuario :: %%username%%
+
+      new:
+        title: Agregar Usuario

@@ -16,8 +16,8 @@ abstract class BaseClienteFormFilter extends BaseFormFilterPropel
       'nro_documento'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'apellido'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'nombre'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'telefono'          => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'direccion'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'telefono'          => new sfWidgetFormFilterInput(),
+      'direccion'         => new sfWidgetFormFilterInput(),
       'cuit'              => new sfWidgetFormFilterInput(),
       'es_activo'         => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
@@ -29,7 +29,7 @@ abstract class BaseClienteFormFilter extends BaseFormFilterPropel
       'nombre'            => new sfValidatorPass(array('required' => false)),
       'telefono'          => new sfValidatorPass(array('required' => false)),
       'direccion'         => new sfValidatorPass(array('required' => false)),
-      'cuit'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'cuit'              => new sfValidatorPass(array('required' => false)),
       'es_activo'         => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
@@ -55,7 +55,7 @@ abstract class BaseClienteFormFilter extends BaseFormFilterPropel
       'nombre'            => 'Text',
       'telefono'          => 'Text',
       'direccion'         => 'Text',
-      'cuit'              => 'Number',
+      'cuit'              => 'Text',
       'es_activo'         => 'Boolean',
     );
   }

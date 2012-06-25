@@ -13,4 +13,32 @@ require_once dirname(__FILE__).'/../lib/sucursalGeneratorHelper.class.php';
  */
 class sucursalActions extends autoSucursalActions
 {
+  public function executeActivar()
+  {
+    $sucursal = $this->getRoute()->getObject();
+
+    $sucursal->activar();
+    
+    $this->getUser()->setFlash('notice', 'La Sucursal fue activada con éxito.');
+
+    $this->redirect('@sucursal');
+  }
+
+  public function executeDesactivar()
+  {
+    $sucursal = $this->getRoute()->getObject();
+
+    if ($sucursal->puedenDesactivarme())
+    {
+      $sucursal->desactivar();
+
+      $this->getUser()->setFlash('notice', 'La Sucursal fue desactivada con éxito.');
+    }
+    else
+    {      
+      $this->getUser()->setFlash('error', 'La Sucursal tiene Usuarios o Stock asociados.');
+    }
+
+    $this->redirect('@sucursal');
+  }  
 }

@@ -10,4 +10,8 @@
  */
 class usuarioGeneratorConfiguration extends BaseUsuarioGeneratorConfiguration
 {
+  public function getNewFieldsets()
+  {
+    return array('NONE' => array('sf_guard_group_id'));
+  }
 }

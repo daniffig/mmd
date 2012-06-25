@@ -11,5 +11,7 @@ class SucursalForm extends BaseSucursalForm
 {
   public function configure()
   {
+    // Widgets
+    $this->setWidget('es_activo', new sfWidgetFormInputHidden());
   }
-}
+ }

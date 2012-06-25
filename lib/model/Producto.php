@@ -66,7 +66,7 @@ class Producto extends BaseProducto {
   {
     $usuario = sfContext::getInstance()->getUser();
 
-    return ($this->getEsActivo() && $usuario->tieneVenta() && ($this->getStockEnSucursalActiva() > 0));
+    return ($this->getEsActivo() && $usuario->tieneVenta() && ($this->getCantidadStockEnSucursalActiva() > 0));
   }
 
   public function getStock()
@@ -88,11 +88,23 @@ class Producto extends BaseProducto {
 
     if ($stock = $this->getStockProductoSucursals($criteria))
     {
-      return $stock[0]->getCantidad();
+      return $stock[0];
     }
     else
     {
-      return 0;
+      return false;
+    }
+  }
+
+  public function getCantidadStockEnSucursalActiva()
+  {
+    if ($stock = $this->getStockEnSucursalActiva())
+    {
+      return $stock->getCantidad();
+    }
+    else
+    {
+      return 0; 
     }
   }
 

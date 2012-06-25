@@ -22,10 +22,8 @@ generator:
         display: [producto, sucursal, cantidad]
 
         object_actions:
-          agregar_stock:
-            action: agregarStockProducto
-            label: Agregar Stock a Producto
           _edit:
+          _delete:
 
       filter:  ~
       form:    ~

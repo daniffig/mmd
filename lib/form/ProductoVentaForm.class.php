@@ -21,7 +21,7 @@ class ProductoVentaForm extends BaseProductoVentaForm
       $producto = ProductoPeer::retrieveByPk($usuario->getAttribute('tmp_producto_id'));
     }
 
-    $stock_disponible = $producto->getStockEnSucursalActiva();
+    $stock_disponible = $producto->getStockEnSucursalActiva()->getCantidad();
 
     $this->getWidget('cantidad')->setAttribute('class', 'numeric');
 

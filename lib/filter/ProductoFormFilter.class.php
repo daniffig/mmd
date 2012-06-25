@@ -23,5 +23,8 @@ class ProductoFormFilter extends BaseProductoFormFilter
     $this->getWidget('stock_minimo')->setAttribute('class', 'numeric');
 
     $this->setWidget('imagen', new sfWidgetFormInputHidden());
+
+    // Validaciones
+    $this->setValidator('precio', new pmValidatorInputRange(array('from_validator' => new sfValidatorNumber(), 'to_validator' => new sfValidatorNumber())));
   }
 }

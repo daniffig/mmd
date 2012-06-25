@@ -28,11 +28,11 @@ class StockProductoSucursalForm extends BaseStockProductoSucursalForm
       $this->setDefault('updated_by', $usuario->getId());
     }
 
-    $this->setWidget('producto_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Producto')));
+    $this->setWidget('producto_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Producto', 'peer_method' => 'doSelectActivos')));
 
     if ($usuario->hasGroup('Administradores'))
     {
-      $this->setWidget('sucursal_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Sucursal')));
+      $this->setWidget('sucursal_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Sucursal', 'peer_method' => 'doSelectActivos')));
     }
     else
     {
@@ -42,6 +42,10 @@ class StockProductoSucursalForm extends BaseStockProductoSucursalForm
     $this->setDefault('cantidad', 0);
     $this->getWidgetSchema()->setHelp('cantidad', 'Debe especificar un valor mayor o igual a cero.');
 
+    // Restricciones
+    $this->getWidget('cantidad')->setAttribute('class', 'positive-integer');
+
+    // Validaciones
     $this->setValidator('cantidad', new sfValidatorInteger(array('min' => 0), array('required' => 'Requerido.', 'invalid' => 'Valor inválido.', 'min' => 'Debe especificar un valor mayor o igual a cero.')));
   }
 }

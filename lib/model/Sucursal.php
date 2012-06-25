@@ -22,4 +22,39 @@ class Sucursal extends BaseSucursal {
   {
     return $this->getNombre(); 
   }
+
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
+  }
+
+  public function puedenDesactivarme()
+  {
+    /*$criteria_stock_producto_sucursal = new Criteria();
+    $criteria_stock_producto_sucursal->add(StockProductoSucursalPeer::SUCURSAL_ID, $this->getId());*/
+
+    $criteria_perfiles = new Criteria();
+    $criteria_perfiles->add(BasesfGuardUserProfilePeer::SUCURSAL_ID, $this->getId());
+
+    //return ((ProductoPeer::doCount($criteria_producto) == 0) && (CaracteristicaPeer::doCount($criteria_caracteristica) == 0));
+
+    return ($this->countStockProductoSucursals() && BasesfGuardUserProfilePeer::doCount($criteria_perfiles) == 0);
+  }
 } // Sucursal

@@ -40,7 +40,7 @@ class producto_ventaActions extends autoProducto_ventaActions
 
     $this->ProductoVenta = $ProductoVenta;
 
-    if (!$this->form = $this->getUser()->getAttribute('form'))
+    if (!$this->form = $this->getUser()->getAttribute('tmp_producto_venta_form'))
     {
       $this->form = new ProductoVentaForm($ProductoVenta);
     }
@@ -92,16 +92,16 @@ class producto_ventaActions extends autoProducto_ventaActions
       {
         $this->getUser()->setFlash('notice', $notice);
 
-        $this->redirect('@producto_venta');
+        $this->redirect($this->generateUrl('producto_venta', array('venta_id' => $ProductoVenta->getVenta()->getId())));
       }
     }
     else
     {
       //$this->getUser()->setFlash('error', 'The item has not been saved due to some errors.', true);
 
-      $this->getUser()->setFlash('error', 'Debe ingresar un valor válido.');
+      $this->getUser()->setFlash('error', 'Debe ingresar un valor válido.', true);
 
-      $this->getUser()->setAttribute('tmp_producto_form', $form);
+      $this->getUser()->setAttribute('tmp_producto_venta_form', $form);
 
       $this->redirect($this->generateUrl('producto_venta_agregar', array('producto_id' => $this->getUser()->getAttribute('tmp_producto_id'))));
     }

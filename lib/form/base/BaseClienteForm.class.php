@@ -31,17 +31,14 @@ abstract class BaseClienteForm extends BaseFormPropel
       'nro_documento'     => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
       'apellido'          => new sfValidatorString(array('max_length' => 255)),
       'nombre'            => new sfValidatorString(array('max_length' => 255)),
-      'telefono'          => new sfValidatorString(array('max_length' => 255)),
-      'direccion'         => new sfValidatorString(array('max_length' => 255)),
-      'cuit'              => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
+      'telefono'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'direccion'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'cuit'              => new sfValidatorString(array('max_length' => 13, 'required' => false)),
       'es_activo'         => new sfValidatorBoolean(),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorAnd(array(
-        new sfValidatorPropelUnique(array('model' => 'Cliente', 'column' => array('nro_documento'))),
-        new sfValidatorPropelUnique(array('model' => 'Cliente', 'column' => array('cuit'))),
-      ))
+      new sfValidatorPropelUnique(array('model' => 'Cliente', 'column' => array('nro_documento')))
     );
 
     $this->widgetSchema->setNameFormat('cliente[%s]');

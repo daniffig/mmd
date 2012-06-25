@@ -66,6 +66,15 @@ class ProductoForm extends BaseProductoForm
     // Restricciones
     $this->getWidget('precio')->setAttribute('class', 'positive');
     $this->getWidget('stock_minimo')->setAttribute('class', 'positive-integer');
+
+  public function getNewFieldsets()
+  {
+    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen', 'es_activo'));
+  }
+
+  public function getEditFieldsets()
+  {
+    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen', 'es_activo'));
   }
 
   public static function updateTipoProductoWidgetCriteria($widget, $values)
@@ -82,15 +91,5 @@ class ProductoForm extends BaseProductoForm
     {
       $widget->getOption("widget")->setAttribute("hidden", true);
     }
-  }
-
-  public function getNewFieldsets()
-  {
-    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen', 'es_activo'));
-  }
-
-  public function getEditFieldsets()
-  {
-    return array('NONE' => array('categoria_id', 'tipo_producto_id', 'marca_id', 'modelo', 'precio', 'descripcion', 'stock_minimo', 'imagen', 'es_activo'));
   }
 }

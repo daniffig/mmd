@@ -7,7 +7,6 @@ Cliente:
     nombre: S/D
     telefono: S/D
     direccion: S/D
-    cuit: 0
 
   # Clientes de Prueba
   MatiasArrech:

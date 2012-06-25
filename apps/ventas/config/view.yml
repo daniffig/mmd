@@ -12,9 +12,9 @@ default:
     language:     es
     #robots:       index, follow
 
-  stylesheets:    [main.css, bootstrap.min.css, factura.css]
+  stylesheets:    [main.css, bootstrap.min.css, /dcReloadedFormExtraPlugin/css/alTimepicker/jquery.ui.timepicker.css, /dcReloadedFormExtraPlugin/css/alTimepicker/reset-tables.css, factura.css]
 
-  javascripts:    [jquery-1.7.2.min.js, bootstrap.min.js, jquery-ui-1.8.6.custom.min.js, jquery.numeric.js]
+  javascripts:    [jquery-1.7.2.min.js, bootstrap.min.js, jquery-ui-1.8.6.custom.min.js, jquery.numeric.js ]
 
   algo: prototype-1.7.0.js,
 

@@ -22,4 +22,26 @@ class TipoDocumento extends BaseTipoDocumento {
   {
     return $this->getNombre();
   }
+
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
+  }
 } // TipoDocumento

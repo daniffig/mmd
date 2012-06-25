@@ -13,4 +13,25 @@ require_once dirname(__FILE__).'/../lib/tipo_documentoGeneratorHelper.class.php'
  */
 class tipo_documentoActions extends autoTipo_documentoActions
 {
+  public function executeActivar()
+  {
+    $tipo_documento = $this->getRoute()->getObject();
+
+    $tipo_documento->activar();
+
+    $this->getUser()->setFlash('notice', 'El Tipo de Producto fue activado con éxito.');
+
+    $this->redirect('@tipo_documento');
+  }
+
+  public function executeDesactivar()
+  {
+    $tipo_documento = $this->getRoute()->getObject();
+
+    $tipo_documento->desactivar();
+
+    $this->getUser()->setFlash('notice', 'El Tipo de Producto fue desaactivado con éxito.');
+
+    $this->redirect('@tipo_documento');
+  }
 }

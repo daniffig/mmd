@@ -18,4 +18,28 @@
  */
 class TipoDocumentoPeer extends BaseTipoDocumentoPeer {
 
+	public static function doSelectActivos(Criteria $criteria, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doSelect($criteria, $con);    
+  }
+
+	public static function doCountActivos(Criteria $criteria, $distinct = false, PropelPDO $con = null)
+  {
+    if ($criteria === null)
+    {
+      $criteria = new Criteria();
+    }
+
+    $criteria->add(self::ES_ACTIVO, true);
+
+    return self::doCount($criteria, $distinct, $con);     
+  }
+
 } // TipoDocumentoPeer

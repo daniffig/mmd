@@ -303,6 +303,10 @@ propel:
       type: varchar(255)
       required: true
       index: unique
+    es_activo:
+      type: boolean
+      required: true
+      default: true
   
   cliente:
     _attributes:
@@ -325,13 +329,10 @@ propel:
       required: true
     telefono:
       type: varchar(255)
-      required: true
     direccion:
       type: varchar(255)
-      required: true
     cuit:
-      type: integer
-      index: unique
+      type: varchar(13)
     es_activo:
       type: boolean
       required: true

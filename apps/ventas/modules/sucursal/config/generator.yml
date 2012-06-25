@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Sucursal
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              Sucursal
@@ -12,10 +12,36 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
-      list:    ~
+      actions:
+        _new:
+          label: Agregar Sucursal
+
+      fields:
+        es_activo:
+          label: Activo
+
+      list:
+        title: Listado de Sucursales
+        display: [nombre, es_activo]
+
+        object_actions:
+          _edit:
+          activar:
+            action: activar
+            label: Activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            label: Desactivar
+            show_when: puedoDesactivar
+
+        batch_actions: {}
+
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Sucursal :: %%nombre%%
+
+      new:
+        title: Agregar Sucursal
+

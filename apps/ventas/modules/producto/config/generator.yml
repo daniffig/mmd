@@ -35,14 +35,14 @@ generator:
           label: Características
         descripcion:
           label: Descripción
-        stock_en_sucursal_activa:
+        cantidad_stock_en_sucursal_activa:
           label: Stock
         es_activo:
           label: Activo
 
       list:
         title: Listado de Productos
-        display: [_imagen_thumb, marca, modelo, _precio, stock_en_sucursal_activa, es_activo]
+        display: [_imagen_thumb, marca, modelo, _precio, cantidad_stock_en_sucursal_activa, es_activo]
         max_per_page: 10
 
         object_actions:
@@ -65,9 +65,7 @@ generator:
         display: [categoria, tipo_producto, marca, modelo, precio, descripcion, imagen]
 
       filter:  ~
-      form:
-        #display: [categoria_id, tipo_producto_id, marca_id, caracteristica_id, modelo, precio, descripcion, stock_minimo]
-
+      form:    ~
       edit:
         title: Editar Producto :: %%tipo_producto%% - %%marca%% - %%modelo%%
 

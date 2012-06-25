@@ -12,7 +12,10 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
+      actions:
+        _new:
+          label: Agregar Cliente
+
       fields:
         tipo_documento:
           label: Tipo
@@ -21,16 +24,38 @@ generator:
 
       list:
         title: Listado de Clientes
-        display: [tipo_documento, nro_documento, apellido, nombre]
+        display: [tipo_documento, nro_documento, apellido, nombre, es_activo]
+
+        object_actions:
+          _edit:
+          _show:
+          activar:
+            action: activar
+            label: Activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            label: Desactivar
+            show_when: puedoDesactivar
+
+        batch_actions: {}
+
+      show:
+        title: Ver Cliente :: %%apellido%%, %%nombre%% (%%tipo_documento%% %%nro_documento%%)
+        display: [tipo_documento, nro_documento, apellido, nombre, telefono, direccion, cuit]
+
+        actions:
+          _list:
 
       filter:  ~
-      form:
-        #display: [tipo_documento_id, nro_documento, apellido, nombre, telefono, direccion, cuit]
-
+      form:    ~
       edit:
         title: Editar Cliente :: %%apellido%%, %%nombre%% (%%tipo_documento%% %%nro_documento%%)
 
+        actions:
+          _list:
+          _save:
+
       new:
         title: Agregar Cliente
-
 

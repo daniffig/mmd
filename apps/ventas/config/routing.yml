@@ -94,6 +94,14 @@ tipo_producto:
     column:               id
     with_wildcard_routes: true
 
+stock_producto_sucursal_agregar:
+  url: /stock_producto_sucursal/:producto_id/agregarStock
+  params:
+    module: stock_producto_sucursal
+    action: agregarStock
+  requirements:
+    producto_id: \d+
+
 stock_producto_sucursal:
   class: sfPropelRouteCollection
   options:
@@ -180,7 +188,7 @@ homepage:
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
-  url:   /:module
+  url:   /producto
   param: { action: index }
 
 default:

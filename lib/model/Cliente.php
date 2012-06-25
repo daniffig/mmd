@@ -23,6 +23,28 @@ class Cliente extends BaseCliente {
     return $this->getApellidoYNombre() . ' (' . $this->getTipoDocumento() . ' ' . $this->getNroDocumento() . ')';
   }
 
+  public function puedoActivar()
+  {
+    return !$this->getEsActivo();
+  }
+
+  public function activar()
+  {
+    $this->setEsActivo(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setEsActivo(false);
+    $this->save();
+  }
+
   public function getApellidoYNombre()
   {
     return $this->getApellido() . ', ' . $this->getNombre();
