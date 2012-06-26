@@ -40,9 +40,27 @@ class Venta extends BaseVenta {
     return !$this->getEsFinalizado();
   }
 
+  public function puedoAnularVenta()
+  {
+    return $this->getEsActivo() && $this->getEsFinalizado();
+  }
+
+  public function puedoGenerarFactura()
+  {
+    return $this->getEsFinalizado() && !$this->getFactura();
+  }
+
   public function tieneProductos()
   {
     return ($this->countProductoVentas() != 0);
+  }
+
+  public function getFactura()
+  {
+    if ($facturas = $this->getFacturas())
+    {
+      return $facturas[0];
+    }
   }
 
   public function agregarProducto(Producto $producto)
@@ -53,6 +71,13 @@ class Venta extends BaseVenta {
     $producto_venta->setCantidad(0);
 
     $this->addProductoVenta($producto_venta);
+  }
+
+  public function getFecha()
+  {
+    $fecha = explode(' ', $this->getCreatedAt());
+
+    return $fecha[0];
   }
 
   public function getProductos()
@@ -91,7 +116,7 @@ class Venta extends BaseVenta {
     $usuario = sfContext::getInstance()->getUser()->getGuardUser();
 
     $venta = new Venta();
-    $venta->setCreatedBy($usuario);
+    $venta->setCreatedBy($usuario->getId());
     $venta->setClienteId(sfConfig::get('app_cliente_sin_seleccionar'));
     $venta->setSucursal($usuario->getProfile()->getSucursal());
     $venta->setMedioPagoId(sfConfig::get('app_medio_pago_sin_seleccionar'));
@@ -111,6 +136,7 @@ class Venta extends BaseVenta {
     $productos_venta = $this->getProductos();
 
     $index = 0;
+    $errores = array();
 
     foreach ($productos_venta as $producto_venta)
     {
@@ -135,6 +161,57 @@ class Venta extends BaseVenta {
         $dato['stock']->setCantidad($dato['stock']->getCantidad() - $dato['cantidad']);
         $dato['stock']->save();
       }
+
+      $this->setCreatedBy(sfContext::getInstance()->getUser()->getGuardUser());
+      $this->setEsFinalizado(true);
+
+      $this->save();
+
+      return false;
+    }
+
+    return $errores;    
+  }
+
+  public function anular()
+  {
+    $productos_venta = $this->getProductos();
+
+    $index = 0;
+    $errores = array();
+
+    foreach ($productos_venta as $producto_venta)
+    {
+      $datos[$index]['producto'] = $producto_venta->getProducto();
+      $datos[$index]['venta']  = $producto_venta->getVenta();
+      $datos[$index]['sucursal']  = $datos[$index]['venta']->getSucursal();
+      if (!$datos[$index]['stock'] = $datos[$index]['producto']->getStockEnSucursal($datos[$index]['sucursal']))
+      {
+        $datos[$index]['stock'] = new StockProductoSucursal();
+        $datos[$index]['stock']->setCreatedBy(sfContext::getInstance()->getUser()->getGuardUser());
+        $datos[$index]['stock']->setProducto($datos[$index]['producto']);
+        $datos[$index]['stock']->setSucursal($datos[$index]['sucursal']);
+        $datos[$index]['stock']->setProducto($datos[$index]['producto']);
+        $datos[$index]['stock']->setCantidad(0);
+      }
+
+      $datos[$index]['cantidad'] = $producto_venta->getCantidad();
+
+      $index++;
+    }
+
+    if (count($errores) == 0)
+    {
+      foreach ($datos as $dato)
+      {
+        $dato['stock']->setCantidad($dato['stock']->getCantidad() + $dato['cantidad']);
+        $dato['stock']->save();
+      }
+
+      $this->setEsActivo(false);
+      $this->save();
+
+      return false;
     }
 
     return $errores;    

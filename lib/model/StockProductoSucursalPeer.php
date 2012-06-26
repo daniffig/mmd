@@ -17,5 +17,4 @@
  * @package    lib.model
  */
 class StockProductoSucursalPeer extends BaseStockProductoSucursalPeer {
-
 } // StockProductoSucursalPeer

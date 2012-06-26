@@ -6,7 +6,6 @@
       <div class="nav-collapse">
         <?php echo image_tag('electrohogar_icon.png','style=float:left;margin:0px 10px 2px'); ?>
         <?php  echo link_to(__('MMD'), '@producto', array('class' => 'brand')); ?>
-        
         <ul class="nav">
          
           <li class="dropdown">
@@ -22,7 +21,7 @@
               <li class="nav-header">Stock</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Stock"), '@stock_producto_sucursal'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Stock"), '@stock_producto_sucursal_new'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-file'></i> Reportar Stock Mínimo"), 'stock_producto_sucursal/reportarStockMinimo'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-file'></i> Reportar Stock Mínimo"), 'stock_producto_sucursal_reportar_stock_minimo', array('sf_format' => 'pdf') ); ?></li>
               <?php endif; ?>
               <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
               <li class="divider"></li>
@@ -62,14 +61,14 @@
               <?php if ($sf_user->getVenta()->tieneProductos()): ?>
               <li><?php  echo link_to(__("<i class='icon-check'></i> Cerrar Venta"), 'venta/cerrarVenta'); ?></li>
               <?php endif; ?>
-              <li><?php  echo link_to(__("<i class='icon-remove'></i> Cancelar Venta"), 'venta/cancelarVenta'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-remove'></i> Cancelar Venta"), 'venta/cancelarVenta', array('confirm' => '¿Está seguro que desea cancelar la Venta Activa?')); ?></li>
               <?php endif; ?>
               <?php endif; ?>
-              <?php if ($sf_user->hasCredential('administrarFacturas')): ?>
+              <?php /* if ($sf_user->hasCredential('administrarFacturas')): ?>
               <li class="divider"></li>
               <li class="nav-header">Factura</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Facturas"), '@factura'); ?></li>
-              <?php endif; ?>
+              <?php endif;*/ ?>
               <?php if ($sf_user->hasCredential('administrarTiposFactura')): ?>
               <li class="divider"></li>
               <li class="nav-header">Tipo de Factura</li>
@@ -105,8 +104,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="nav-header">Empleados</li>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Empleados"), '@sf_guard_user'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Empleados"), 'usuario/verEmpleados'); ?></li>
               <li class="nav-header">Usuarios</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Usuarios"), '@sf_guard_user'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
@@ -147,7 +145,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><?php  echo link_to(__("<i class='icon-user'></i> Mi Perfil"), 'sf_guard_user_edit', array('id' => $sf_user->getGuardUser()->getId())); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-off'></i> Salir"), '@sf_guard_signout'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-off'></i> Salir"), '@sf_guard_signout', array('confirm' => '¿Salir del sistema?' )); ?></li>
             </ul>
           </li>
         </ul>

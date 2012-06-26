@@ -22,9 +22,12 @@ generator:
 
       list:
         title: Listado de Ventas
-        display: [id, created_at, cliente, medio_pago, es_finalizado, es_activo]
+        display: [created_at, cliente, medio_pago, es_finalizado, es_activo]
 
         object_actions:
+          generar_factura:
+            action: generarFactura
+            show_when: puedoGenerarFactura
           ver_factura:
             action: verFactura
             show_when: puedoVerFactura
@@ -34,10 +37,21 @@ generator:
           recuperar_venta:
             action: recuperarVenta
             show_when: puedoRecuperarVenta
+            credentials: gestionarVentas
+          anular_venta:
+            action: anularVenta
+            show_when: puedoAnularVenta
+            credentials: anularVenta
+            params:
+              confirm='¿Anular Venta? Esta operación no puede deshacerse.'
 
         batch_actions: {}
 
-        actions: {}
+        actions:
+          imprimirReporte:
+            action: imprimirReporte
+            label: Imprimir Reporte
+            credentials: administrarVentas
 
       filter:  ~
       form:    ~

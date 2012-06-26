@@ -22,12 +22,37 @@ generator:
 
       list:
         title: Listado de Usuarios
-        display: [username, sucursal, is_active]
+        display: [username, grupo, sucursal, is_active]
+
+        object_actions:
+          _edit:
+          activar:
+            action: activar
+            label: Activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            label: Desactivar
+            show_when: puedoDesactivar
+          ver_ventas:
+            action: verVentas
+            label: Ver Ventas
+            show_when: puedoVerVentas
+          reportar_ventas:
+            action: reportarVentas
+            
+
+        batch_actions: {}
 
       filter:  ~
       form:    ~
       edit:
         title: Editar Usuario :: %%username%%
 
+        actions:
+          _list:
+          _save:
+
       new:
         title: Agregar Usuario
+

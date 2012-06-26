@@ -13,4 +13,13 @@ require_once dirname(__FILE__).'/../lib/facturaGeneratorHelper.class.php';
  */
 class facturaActions extends autoFacturaActions
 {
+  public function executeGenerarFactura(sfWebRequest $request)
+  {
+    $this->Factura = new Factura();
+    $this->Factura->setVenta(VentaPeer::retrieveByPk($request->getParameter('venta_id')));
+
+    $this->form = new FacturaForm($this->Factura);
+
+    $this->setTemplate('new');
+  }
 }

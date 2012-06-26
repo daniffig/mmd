@@ -79,7 +79,7 @@ class Producto extends BaseProducto {
     $this->getTipoProducto()->getCategoria();
   }
 
-  public function getStockEnSucursalActiva()
+  public function getStockEnMiSucursal()
   {
     $usuario = sfContext::getInstance()->getUser();
 
@@ -96,9 +96,24 @@ class Producto extends BaseProducto {
     }
   }
 
-  public function getCantidadStockEnSucursalActiva()
+  public function getStockEnSucursalActiva()
   {
-    if ($stock = $this->getStockEnSucursalActiva())
+    return $this->getStockEnMiSucursal();
+  }
+
+  public function getStockEnOtrasSucursales()
+  {
+    $usuario = sfContext::getInstance()->getUser();
+
+    $criteria = new Criteria();
+    $criteria->add(StockProductoSucursalPeer::SUCURSAL_ID, $usuario->getGuardUser()->getProfile()->getSucursalId(), Criteria::NOT_EQUAL);
+
+    return $this->getStockProductoSucursals($criteria);
+  }
+
+  public function getCantidadStockEnMiSucursal()
+  {
+    if ($stock = $this->getStockEnMiSucursal())
     {
       return $stock->getCantidad();
     }
@@ -106,6 +121,11 @@ class Producto extends BaseProducto {
     {
       return 0; 
     }
+  }
+
+  public function getCantidadStockEnSucursalActiva()
+  {
+    return $this->getCantidadStockEnMiSucursal();
   }
 
   public function getImagenCompleta()
@@ -136,6 +156,11 @@ class Producto extends BaseProducto {
     {
       return $root . $img['filename'] . '_thumb.' . $img['extension'];
     }
+  }
+
+  public function getPrecioFormateado()
+  {
+    return "$ " . number_format($this->getPrecio(), 2, ",", ".");     
   }
 
   public function getStockEnSucursal(Sucursal $sucursal)

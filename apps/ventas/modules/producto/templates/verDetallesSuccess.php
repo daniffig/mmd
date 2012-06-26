@@ -1,20 +1,31 @@
 <?php use_helper('I18N', 'Date') ?>
-<?php include_partial('venta/assets') ?>
+<?php use_stylesheet('mostrarProducto.css') ?>
 
 <div id="sf_admin_container">
-  <h1><?php echo __('Detalles del Producto :: ' . $Producto->getMarca() . ' ' . $Producto->getModelo(), array(), 'messages') ?></h1>
- 
-  <?php include_partial('venta/flashes') ?>
-
-  <div id="sf_admin_header">
-    <?php // include_partial('venta/list_header', array('pager' => $pager)) ?>
+  <h1><?php echo $Producto . ' (' . $Producto->getTipoProducto() . ')'; ?></h1>
+  
+  <div id="datos">
+    <br/>
+    <p class="resaltado"><strong>Precio: </strong><?php echo $Producto->getPrecioFormateado(); ?></p>
+    <br/>
+    <p class="resaltado"><strong>Stock: </strong><?php echo $Producto->getCantidadStockEnMiSucursal(); ?></p>
+    <br/>
+    <p><strong>Diponibilidad en otras sucursales:</strong></p>
+    <?php if (count($StockProductoOtrasSucursales) > 0): ?>
+    <?php foreach ($StockProductoOtrasSucursales as $StockProductoSucursal): ?>
+       <p>&nbsp;&nbsp;<?php echo $StockProductoSucursal->getSucursal(); ?>: <?php echo $StockProductoSucursal->getCantidad(); ?></p>
+    <?php endforeach; ?>
+    <?php else: ?>
+       <p>&nbsp;&nbsp;Sin disponibilidad.</p>
+    <?php endif; ?>
   </div>
 
-  <div id="sf_admin_content">
-    <?php include_partial('producto/detalles', array('producto' => $Producto)) ?>
+  <div id="imagen">
+    <img src="<?php echo $Producto->getImagenCompleta(); ?>" width="320" height="240" />
   </div>
-
-  <div id="sf_admin_footer">
-      <?php include_partial('producto/ver_detalles_actions', array('helper' => $helper)) ?>
-  </div>
+  <div style="clear:both"></div>
+  <h3>Descripci&oacute;n</h3>
+  <p><?php echo $Producto->getDescripcion(); ?></p>
+  
 </div>
+

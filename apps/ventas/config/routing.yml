@@ -1,3 +1,11 @@
+factura_generar_factura:
+  url: /factura/:venta_id/generarFactura
+  params:
+    module: factura
+    action: generarFactura
+  requirements:
+    venta_id: \d+
+
 factura:
   class: sfPropelRouteCollection
   options:
@@ -68,6 +76,21 @@ producto_venta:
     column:               id
     with_wildcard_routes: true
 
+venta_reportar:
+  url: /venta/reportarVentas.:sf_format/*
+  param:
+    module: venta
+    action: imprimirReporte
+    sf_format: pdf
+
+venta_ver_ventas_por_empleado:
+  url: /venta/:usuario_id/verVentas
+  params:
+    module: venta
+    action: index
+  requirements:
+    usuario_id: \d+
+
 venta_ver_factura:
   url: /venta/:venta_id/verFactura
   params:
@@ -121,13 +144,12 @@ tipo_producto:
     column:               id
     with_wildcard_routes: true
 
-stock_producto_sucursal_agregar:
-  url: /stock_producto_sucursal/:producto_id/agregarStock
-  params:
+stock_producto_sucursal_reportar_stock_minimo:
+  url: /stock_producto_sucursal/reportarStockMinimo.:sf_format/*
+  param:
     module: stock_producto_sucursal
-    action: agregarStock
-  requirements:
-    producto_id: \d+
+    action: imprimirReporteStockMinimo
+    sf_format: html
 
 stock_producto_sucursal:
   class: sfPropelRouteCollection
@@ -136,15 +158,6 @@ stock_producto_sucursal:
     module:               stock_producto_sucursal
     prefix_path:          /stock_producto_sucursal
     column:               id
-    with_wildcard_routes: true
-
-caracteristica_producto:
-  class: sfPropelRouteCollection
-  options:
-    model:                CaracteristicaProducto
-    module:               caracteristica_producto
-    prefix_path:          /caracteristica_producto
-    column:               producto_id
     with_wildcard_routes: true
 
 producto:
@@ -171,24 +184,6 @@ marca:
     model:                Marca
     module:               marca
     prefix_path:          /marca
-    column:               id
-    with_wildcard_routes: true
-
-caracteristica:
-  class: sfPropelRouteCollection
-  options:
-    model:                Caracteristica
-    module:               caracteristica
-    prefix_path:          /caracteristica
-    column:               id
-    with_wildcard_routes: true
-
-tipo:
-  class: sfPropelRouteCollection
-  options:
-    model:                Tipo
-    module:               tipo
-    prefix_path:          /tipo
     column:               id
     with_wildcard_routes: true
 
@@ -220,3 +215,11 @@ default_index:
 
 default:
   url:   /:module/:action/*
+
+#default_index:
+#  url:   /:module.:sf_format
+#  param: { action: index, sf_format: html }
+ 
+#default:
+#  url:   /:module/:action.:sf_format/*
+#  param: { sf_format: html }

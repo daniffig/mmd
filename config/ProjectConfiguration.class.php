@@ -13,5 +13,6 @@ class ProjectConfiguration extends sfProjectConfiguration
     $this->enablePlugins('sfGuardPlugin');
     $this->enablePlugins('pmPropelGeneratorPlugin');
     $this->enablePlugins('sfImageTransformPlugin');
+    $this->enablePlugins('pmPDFKitPlugin');
   }
 }

@@ -56,6 +56,11 @@ class ventaActions extends autoVentaActions
     }
   }
 
+  public function executeRecuperarVenta()
+  {
+    
+  }
+
   public function executeCancelarVenta()
   {
     if ($this->getUser()->tieneVenta())
@@ -71,6 +76,22 @@ class ventaActions extends autoVentaActions
     $this->redirect('@producto');
   }
 
+  public function executeAnularVenta(sfWebRequest $request)
+  {
+    $venta = $this->getRoute()->getObject();
+
+    if ($errores = $venta->anular())
+    {
+      $this->getUser()->setFlash('error', 'Ocurrió un error al anular la Venta.');      
+    }
+    else
+    {
+      $this->getUser()->setFlash('notice', 'Venta anulada con éxito.');
+    }
+
+    $this->redirect('@venta');
+  }
+
   public function executeVerFactura(sfWebRequest $request)
   {
     if (!$this->Venta = VentaPeer::retrieveByPk($request->getParameter('venta_id')))
@@ -82,6 +103,58 @@ class ventaActions extends autoVentaActions
     $this->Cliente = $this->Venta->getCliente();
   }
 
+  public function executeImprimirReporte(sfWebRequest $request)
+  {
+    $this->filters = $this->configuration->getFilterForm($this->getFilters());
+
+    $this->filters->bind($request->getParameter($this->filters->getName()));
+    if ($this->filters->isValid())
+    {
+      $this->setFilters($this->filters->getValues());
+    }
+    
+    $criteria = $this->buildCriteria();
+    $criteria->addAscendingOrderByColumn(VentaPeer::CREATED_AT);
+
+    $this->Ventas = VentaPeer::doSelect($criteria);
+    $this->fecha_inicial = $this->Ventas[0]->getFecha();
+    $this->fecha_final = $this->Ventas[sizeof($this->Ventas) - 1]->getFecha();
+
+    $this->setLayout(false);
+  }
+
+  public function executeIndex(sfWebRequest $request)
+  {
+    $usuario = $this->getUser()->getGuardUser();
+
+    $filtros = array();
+
+    if ($this->getUser()->hasGroup('Empleados'))
+    {
+      $filtros['created_by'] = $usuario->getId();
+      $filtros['es_activo'] = true;
+    }
+
+    if ($usuario = sfGuardUserPeer::retrieveByPk($request->getParameter('usuario_id')))
+    {
+      $filtros['created_by'] = $usuario->getId();
+    }
+
+    $this->getUser()->setAttribute('venta.filters', $filtros, 'admin_module');
+
+    parent::executeIndex($request);
+  }
+
+  public function executeGenerarFactura(sfWebRequest $request, Venta $venta = null)
+  {
+    if (!$venta)
+    {
+      $venta = $this->getRoute()->getObject();
+    }    
+
+    $this->redirect('factura_generar_factura', array('venta_id' => $venta->getId()));
+  }
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
@@ -89,19 +162,30 @@ class ventaActions extends autoVentaActions
     {
       if ($errores = $form->getObject()->cerrarVenta())
       {
-        $this->getUser()->setFlash('error_detail', array('algo', 'algo2'));//$errores);
+        $mensaje_error = 'No hay stock suficiente de los siguientes productos:';
+
+        foreach ($errores as $error)
+        {
+          $mensaje_error .= ' ' . $errores;
+        }
+
+        $mensaje_error .= '. La Venta no puede ser cerrada.';
+
+        $this->getUser()->setFlash('error', $mensaje_error);//$errores);
 
         $this->redirect('@venta');
       }
       else
       {
-        $notice = $form->getObject()->isNew() ? 'The item was created successfully.' : 'The item was updated successfully.';
+        $notice = $form->getObject()->isNew() ? 'La Venta fue cerrada con éxito.' : 'The item was updated successfully.';
 
         // Esto hay que hacerlo de otra forma, pero no me voy a poner al leer toda la interface de sfForm ahora...
         $Venta = $form->save();
         $Venta->setEsFinalizado(true);
         $Venta->save();
         // Fin del código feo.
+
+        $Venta = $form->getObject();
 
         $this->getUser()->cerrarVenta();
 
@@ -117,7 +201,8 @@ class ventaActions extends autoVentaActions
         {
           $this->getUser()->setFlash('notice', $notice);
 
-          $this->redirect($this->generateUrl('venta_ver_factura', array('venta_id' => $Venta->getId())));
+          $this->executeGenerarFactura($Venta, $request);
+          //$this->redirect($this->generateUrl('venta_ver_factura', array('venta_id' => $Venta->getId())));
         }
       }
     }

@@ -50,4 +50,9 @@ class myUser extends sfGuardSecurityUser
     $this->getVenta()->cancelarVenta();
     $this->setAttribute('venta', null);
   }
+
+  public function recuperarVenta(Venta $venta)
+  {
+    $this->setVenta($venta);
+  }
 }

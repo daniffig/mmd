@@ -31,6 +31,12 @@ class productoActions extends autoProductoActions
     $this->redirect('@producto');
   }
 
+  public function executeVerDetalles()
+  {
+    $this->Producto = $this->getRoute()->getObject();
+    $this->StockProductoOtrasSucursales = $this->Producto->getStockEnOtrasSucursales();    
+  }
+
   public function executeAgregarProductoVenta(sfWebRequest $request)
   {
     if ($this->getUser()->tieneVenta())

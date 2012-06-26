@@ -17,4 +17,53 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+  public function puedoActivar()
+  {
+    return !$this->getIsActive();
+  }
+
+  public function activar()
+  {
+    $this->setIsActive(true);
+    $this->save();
+  }
+
+  public function puedoDesactivar()
+  {
+    return !$this->puedoActivar();
+  }
+
+  public function desactivar()
+  {
+    $this->setIsActive(false);
+    $this->save();
+  }
+
+  public function puedoVerVentas()
+  {
+    return $this->hasGroup('Empleados');
+  }
+
+  public function getSucursal()
+  {
+    return $this->getProfile()->getSucursal();
+  }
+
+  public function getGrupo()
+  {
+    if ($this->hasGroup('Empleados'))
+    {
+      return 'Empleados';
+    }
+
+    if ($this->hasGroup('Supervisores'))
+    {
+      return 'Supervisores';
+    }
+
+    if ($this->hasGroup('Administradores'))
+    {
+      return 'Administradores';
+    }
+  }
 }

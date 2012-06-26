@@ -25,5 +25,16 @@ generator:
 
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Factura
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Generar Factura
+
+        actions:
+          _save:
+            label: Generar Factura

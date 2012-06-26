@@ -1,5 +1,11 @@
 # Constantes
+all:
+
+# Grupos
+  grupo_empleados: 1
+  grupo_supervisores: 2
+  grupo_administradores: 3
 
 # Sin seleccionar
-cliente_sin_seleccionar: 1
-medio_pago_sin_seleccionar: 1
+  cliente_sin_seleccionar: 1
+  medio_pago_sin_seleccionar: 1

@@ -1,0 +1,29 @@
+div#container{
+  width:640px;
+}
+hr.divider-footer{
+	margin: 20px 0 18px;
+  	border: 0;
+  	border-bottom: 2px solid #CCC;
+	}
+h2,p,td,th{
+  font-family:sans-serif,Loma,"Liberation Serif";
+  font-size:15px;
+}
+table{
+  border-collapse:collapse;
+}
+table.datosProductos{
+  margin-left:30px;
+  border:1px solid black;
+}
+table.datosVenta ,table.datosProductos , td{
+  padding:2px 10px;
+}
+th{
+  background-color:#e7eef6;
+}
+table.datosProductos td{
+  border-bottom:1px solid grey;
+}
+

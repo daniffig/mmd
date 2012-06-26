@@ -13,6 +13,9 @@ class sfGuardUserForm extends sfGuardUserAdminForm
   {
     parent::configure();
 
+    $this->setWidget('sf_guard_user_group_list', new dcWidgetFormPropelChosenChoice(array('model' => 'sfGuardGroup')));
+    $this->setWidget('sucursal_id', new dcWidgetFormPropelChosenChoice(array('model' => 'Sucursal')));
+
     unset(
       $this['last_login'],
       $this['created_at'],
@@ -20,7 +23,7 @@ class sfGuardUserForm extends sfGuardUserAdminForm
       $this['algorithm'],
       $this['is_active'],
       $this['is_super_admin'],
-      $this['sf_guard_user_group_list'],
+      //$this['sf_guard_user_group_list'],
       $this['sf_guard_user_permission_list']
     );
   }

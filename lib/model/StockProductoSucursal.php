@@ -18,4 +18,8 @@
  */
 class StockProductoSucursal extends BaseStockProductoSucursal {
 
+  public function canEdit()
+  {
+    return $this->getProducto()->getEsActivo();
+  }
 } // StockProductoSucursal

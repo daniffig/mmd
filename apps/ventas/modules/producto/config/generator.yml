@@ -46,8 +46,10 @@ generator:
         max_per_page: 10
 
         object_actions:
+          ver_detalles:
+            action: verDetalles
+            label: +info
           _edit:
-          _show:
           activar:
             action: activar
             show_when: puedoActivar
@@ -60,9 +62,6 @@ generator:
             show_when: puedoAgregarProductoVenta
 
         batch_actions: {}
-
-      show:
-        display: [categoria, tipo_producto, marca, modelo, precio, descripcion, imagen]
 
       filter:  ~
       form:    ~
