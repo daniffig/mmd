@@ -7,7 +7,7 @@
  *
  * @package    mmd
  * @subpackage form
- * @author     Your name here
+ * @author     dvorak
  */
 abstract class BaseMedioPagoForm extends BaseFormPropel
 {

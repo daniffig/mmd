@@ -94,13 +94,12 @@ class ventaActions extends autoVentaActions
 
   public function executeVerFactura(sfWebRequest $request)
   {
-    if (!$this->Venta = VentaPeer::retrieveByPk($request->getParameter('venta_id')))
-    {
-      $this->Venta = $this->getRoute()->getObject();
-    }
+    $this->Venta = $this->getRoute()->getObject();
 
-    $this->ProductoVentas = $this->Venta->getProductoVentas();
-    $this->Cliente = $this->Venta->getCliente();
+    $this->redirect($this->generateUrl('factura_show', array('sf_subject' => $this->Venta->getFactura())));
+
+    //$this->ProductoVentas = $this->Venta->getProductoVentas();
+    //$this->Cliente = $this->Venta->getCliente();
   }
 
   public function executeImprimirReporte(sfWebRequest $request)
@@ -201,7 +200,7 @@ class ventaActions extends autoVentaActions
         {
           $this->getUser()->setFlash('notice', $notice);
 
-          $this->executeGenerarFactura($Venta, $request);
+          $this->executeGenerarFactura($request, $Venta);
           //$this->redirect($this->generateUrl('venta_ver_factura', array('venta_id' => $Venta->getId())));
         }
       }

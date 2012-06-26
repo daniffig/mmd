@@ -162,7 +162,6 @@ class Venta extends BaseVenta {
         $dato['stock']->save();
       }
 
-      $this->setCreatedBy(sfContext::getInstance()->getUser()->getGuardUser());
       $this->setEsFinalizado(true);
 
       $this->save();

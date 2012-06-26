@@ -5,7 +5,7 @@
  *
  * @package    mmd
  * @subpackage filter
- * @author     Your name here
+ * @author     dvorak
  */
 abstract class BaseSucursalFormFilter extends BaseFormFilterPropel
 {
@@ -13,11 +13,15 @@ abstract class BaseSucursalFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'nombre'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'domicilio' => new sfWidgetFormFilterInput(),
+      'telefono'  => new sfWidgetFormFilterInput(),
       'es_activo' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
       'nombre'    => new sfValidatorPass(array('required' => false)),
+      'domicilio' => new sfValidatorPass(array('required' => false)),
+      'telefono'  => new sfValidatorPass(array('required' => false)),
       'es_activo' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
@@ -38,6 +42,8 @@ abstract class BaseSucursalFormFilter extends BaseFormFilterPropel
     return array(
       'id'        => 'Number',
       'nombre'    => 'Text',
+      'domicilio' => 'Text',
+      'telefono'  => 'Text',
       'es_activo' => 'Boolean',
     );
   }

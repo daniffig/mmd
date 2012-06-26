@@ -203,6 +203,10 @@ propel:
       type: varchar(255)
       required: true
       index: unique
+    domicilio:
+      type: varchar(255)
+    telefono:
+      type: varchar(255)
     es_activo:
       type: boolean
       required: true
@@ -334,6 +338,8 @@ propel:
       required: true
       onDelete: restrict
       required: true
+    nro_factura:
+      type: integer
     situacion_impositiva_id:
       type: integer
       foreignClass: SituacionImpositiva
@@ -341,6 +347,8 @@ propel:
       required: true
       onDelete: restrict
       required: true
+    _uniques:
+      tipo_nro_factura_unique_index: [tipo_factura_id, nro_factura]
 
 # Sprint 03
 

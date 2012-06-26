@@ -5,7 +5,7 @@
  *
  * @package    mmd
  * @subpackage filter
- * @author     Your name here
+ * @author     dvorak
  */
 abstract class BaseTipoFacturaFormFilter extends BaseFormFilterPropel
 {

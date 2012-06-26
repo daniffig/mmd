@@ -18,4 +18,22 @@
  */
 class Preferencia extends BasePreferencia {
 
+  public function __toString()
+  {
+    return $this->getValor();
+  }
+
+  public static function get($preferencia)
+  {
+    $criteria = new Criteria();
+
+    $criteria->add(PreferenciaPeer::NOMBRE, $preferencia);
+
+    if (!$resultado = PreferenciaPeer::doSelectOne($criteria))
+    {
+      throw new Exception('No existe la Preferencia: ' . $preferencia);
+    }
+
+    return $resultado->getValor();
+  }
 } // Preferencia

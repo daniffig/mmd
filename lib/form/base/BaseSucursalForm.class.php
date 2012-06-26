@@ -7,7 +7,7 @@
  *
  * @package    mmd
  * @subpackage form
- * @author     Your name here
+ * @author     dvorak
  */
 abstract class BaseSucursalForm extends BaseFormPropel
 {
@@ -16,12 +16,16 @@ abstract class BaseSucursalForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'        => new sfWidgetFormInputHidden(),
       'nombre'    => new sfWidgetFormInputText(),
+      'domicilio' => new sfWidgetFormInputText(),
+      'telefono'  => new sfWidgetFormInputText(),
       'es_activo' => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
       'id'        => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'nombre'    => new sfValidatorString(array('max_length' => 255)),
+      'domicilio' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'telefono'  => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'es_activo' => new sfValidatorBoolean(),
     ));
 

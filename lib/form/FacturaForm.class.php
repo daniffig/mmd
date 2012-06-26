@@ -16,6 +16,8 @@ class FacturaForm extends BaseFacturaForm
 
     $this->setWidget('tipo_factura_id', new dcWidgetFormPropelChosenChoice(array('model' => 'TipoFactura', 'peer_method' => 'doSelectActivos')));
 
+    $this->setWidget('nro_factura', new sfWidgetFormInputHidden());
+
     $this->setWidget('situacion_impositiva_id', new dcWidgetFormPropelChosenChoice(array('model' => 'SituacionImpositiva', 'peer_method' => 'doSelectActivos')));
   }
 }

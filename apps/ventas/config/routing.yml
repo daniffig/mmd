@@ -1,3 +1,10 @@
+factura_imprimir_factura:
+  url: /factura/:venta_id/imprimirFactura.:sf_format/*
+  param:
+    module: factura
+    action: imprimirFactura
+    sf_format: pdf
+
 factura_generar_factura:
   url: /factura/:venta_id/generarFactura
   params:
@@ -94,7 +101,7 @@ venta_ver_ventas_por_empleado:
 venta_ver_factura:
   url: /venta/:venta_id/verFactura
   params:
-    module: venta
+    module: factura
     action: verFactura
   requirements:
     venta_id: \d+
