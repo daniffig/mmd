@@ -12,12 +12,7 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions:
-        _new:
-          label: Agregar Producto
-        _delete:
-          label: Eliminar
-
+      actions: ~
       fields:
         imagen_thumb:
           label:
@@ -35,27 +30,18 @@ generator:
           label: Características
         descripcion:
           label: Descripción
-        cantidad_stock_en_sucursal_activa:
+        cantidad_stock_en_mi_sucursal:
           label: Stock
-        es_activo:
-          label: Activo
 
       list:
         title: Listado de Productos
-        display: [_imagen_thumb, marca, modelo, _precio, cantidad_stock_en_sucursal_activa, es_activo]
+        display: [_imagen_thumb, marca, modelo, _precio, cantidad_stock_en_mi_sucursal]
         max_per_page: 10
 
         object_actions:
           ver_detalles:
             action: verDetalles
             label: +info
-          _edit:
-          activar:
-            action: activar
-            show_when: puedoActivar
-          desactivar:
-            action: desactivar
-            show_when: puedoDesactivar
           agregar_producto_venta:
             action: agregarProductoVenta
             label: Agregar a la Venta Activa
@@ -63,15 +49,10 @@ generator:
 
         batch_actions: {}
 
+        actions: {}
+
       filter:  ~
       form:    ~
-      edit:
-        title: Editar Producto :: %%tipo_producto%% - %%marca%% - %%modelo%%
-
-        actions:
-          _list:
-          _save:
-
-      new:
-        title: Agregar Producto
+      edit:    ~
+      new:     ~
 

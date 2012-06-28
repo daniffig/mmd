@@ -189,7 +189,7 @@ propel:
       foreignClass: Sucursal
       foreignReference: id
       required: true      
-    cantidad:
+    stock_actual:
       type: integer
       required: true
     _uniques:
@@ -378,7 +378,7 @@ propel:
       foreignReference: id
       required: true
     nro_documento: 
-      type: integer
+      type: double
       required: true
       index: unique
     apellido:

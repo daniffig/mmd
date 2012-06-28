@@ -1,0 +1,77 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           Producto
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Producto
+    plural:                Productos
+    route_prefix:          producto
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:
+          label: Agregar Producto
+        _delete:
+          label: Eliminar
+
+      fields:
+        imagen_thumb:
+          label:
+        categoria:
+          label: Categoría
+        categoria_id:
+          label: Categoría
+        tipo_producto:
+          label: Tipo
+        tipo_producto_id:
+          label: Tipo
+        caracteristica:
+          label: Características
+        caracteristica_id:
+          label: Características
+        descripcion:
+          label: Descripción
+        cantidad_stock_en_sucursal_activa:
+          label: Stock
+        es_activo:
+          label: Activo
+
+      list:
+        title: Listado de Productos
+        display: [_imagen_thumb, marca, modelo, _precio, cantidad_stock_en_sucursal_activa, es_activo]
+        max_per_page: 10
+
+        object_actions:
+          ver_detalles:
+            action: verDetalles
+            label: +info
+          _edit:
+          activar:
+            action: activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            show_when: puedoDesactivar
+          agregar_producto_venta:
+            action: agregarProductoVenta
+            label: Agregar a la Venta Activa
+            show_when: puedoAgregarProductoVenta
+
+        batch_actions: {}
+
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar Producto :: %%tipo_producto%% - %%marca%% - %%modelo%%
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Agregar Producto
+

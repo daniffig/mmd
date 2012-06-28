@@ -1,4 +1,9 @@
 sfGuardUser:
+  admin:
+    username: admin
+    password: admin
+    is_active: 1
+    is_super_admin: 1
   empleado:
     username: empleado
     password: empleado
@@ -14,11 +19,6 @@ sfGuardUser:
     password: administrador
     is_active: 1
     is_super_admin: 0
-  admin:
-    username: admin
-    password: admin
-    is_active: 1
-    is_super_admin: 1
   marrech:
     username: marrech
     password: dvorak
@@ -39,3 +39,22 @@ sfGuardUser:
     password: dvorak
     is_active: 1
     is_super_admin: 1
+
+<?php for($i = 1; $i <= 40; $i++): ?>
+  Empleado_<?php echo $i; ?>:
+    username: empleado.<?php echo $i . "\n"; ?>
+    password: empleado.<?php echo $i . "\n"; ?>
+    is_active: 1
+    is_super_admin: 0
+
+<?php endfor; ?>
+
+<?php for($i = 1; $i <= 8; $i++): ?>
+  Supervisor_<?php echo $i; ?>:
+    username: supervisor.<?php echo $i . "\n"; ?>
+    password: supervisor.<?php echo $i . "\n"; ?>
+    is_active: 1
+    is_super_admin: 0
+
+<?php endfor; ?>
+

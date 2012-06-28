@@ -1,0 +1,51 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           TipoDocumento
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              TipoDocumento
+    plural:                TipoDocumentos
+    route_prefix:          tipo_documento
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:
+          label: Agregar Tipo de Documento
+
+      fields:
+        es_activo:
+          label: Activo
+
+      list:
+        title: Listado de Tipos de Documento
+        display: [nombre, es_activo]
+
+        object_actions:
+          _edit:
+          activar:
+            action: activar
+            label: Activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            label: Desactivar
+            show_when: puedoDesactivar
+
+        batch_actions: {}
+
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar Tipo de Documento :: %%nombre%%
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Agregar Tipo de Documento
+

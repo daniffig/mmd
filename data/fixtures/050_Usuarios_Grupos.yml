@@ -9,3 +9,15 @@ sfGuardUserGroup:
     user_id: admin
     group_id: Administradores
 
+<?php for($i = 1; $i <= 40; $i++): ?>
+  Empleado_Empleados_<?php echo $i; ?>:
+    user_id: Empleado_<?php echo $i . "\n"; ?>
+    group_id: Empleados
+<?php endfor; ?>
+
+<?php for($i = 1; $i <= 8; $i++): ?>
+  Supervisor_Supervisores_<?php echo $i; ?>:
+    user_id: Supervisor_<?php echo $i . "\n"; ?>
+    group_id: Supervisores
+<?php endfor; ?>
+

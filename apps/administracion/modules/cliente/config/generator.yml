@@ -1,0 +1,40 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           Cliente
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Cliente
+    plural:                Clientes
+    route_prefix:          cliente
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _edit:
+          credentials: [editarCliente]
+        _delete:
+          credentials: [borrarCliente]
+        _show:
+          credentials: [verCliente]
+        _new:
+          credentials: [agregarCliente]
+          label: Agregar Cliente
+
+      fields:
+        tipo_documento:
+          label: Tipo
+        tipo_documento_id:
+          label: Tipo
+        nro_documento:
+          label: N° Documento
+
+      list:
+        title: Listado de Clientes
+        display: [tipo_documento, nro_documento, apellido, nombre]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

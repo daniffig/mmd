@@ -1,0 +1,55 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           TipoProducto
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              TipoProducto
+    plural:                TipoProductos
+    route_prefix:          tipo_producto
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:
+          label: Agregar Tipo de Producto
+
+      fields:
+        categoria:
+          label: Categoría
+        categoria_id:
+          label: Categoría
+        cantidad_productos_activos:
+          label: '# Productos Activos'
+
+      list:
+        title: Listado de Tipos de Producto
+        display: [categoria, nombre, cantidad_productos_activos, es_activo]
+        max_per_page: 10
+
+        object_actions:
+          _edit:
+          activar:
+            action: activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            show_when: puedoDesactivar
+
+        batch_actions: {}
+
+      filter:  ~
+      form:
+        #display: [categoria_id, nombre]
+
+      edit:
+        title: Editar Tipo de Producto :: %%categoria%% - %%nombre%%
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Agregar Tipo de Producto

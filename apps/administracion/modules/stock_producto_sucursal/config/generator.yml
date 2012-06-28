@@ -1,0 +1,33 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           StockProductoSucursal
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              StockProductoSucursal
+    plural:                StockProductoSucursals
+    route_prefix:          stock_producto_sucursal
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        title: Listado de Stock
+        display: [producto, sucursal, stock_minimo, stock_actual]
+        hide: [id, created_at, created_by, updated_at, updated_by]
+
+        object_actions:
+          _edit:
+          _delete:
+          ver_producto:
+            action: verProducto
+            label: Ver Producto
+
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

@@ -2,25 +2,40 @@ sfGuardUserProfile:
   admin:
     user_id: admin
     nombre: admin
-    email: admin@dvorak-development.com.ar
-    sucursal_id: Sucursal_Alfa
+    email: admin@electrhogar.com.ar
+    sucursal_id: Sucursal_1
+  empleado:
+    user_id: empleado
+    nombre: empleado
+    email: empleado@electrhogar.com.ar
+    sucursal_id: Sucursal_1
+  supervisor:
+    user_id: supervisor
+    nombre: supervisor
+    email: supervisor@electrhogar.com.ar
+    sucursal_id: Sucursal_1
+  administrador:
+    user_id: administrador
+    nombre: administrador
+    email: administrador@electrhogar.com.ar
+    sucursal_id: Sucursal_1
   marrech:
     user_id: marrech
     nombre: Matías Arrech
     email: marrech@dvorak-development.com.ar
-    sucursal_id: Sucursal_Alfa
+    sucursal_id: Sucursal_1
   acimadamore:
     user_id: acimadamore
     nombre: Andrés Cimadamore
     email: acimadamore@dvorak-development.com.ar
-    sucursal_id: Sucursal_Beta
+    sucursal_id: Sucursal_1
   ldigiacomo:
     user_id: ldigiacomo
     nombre: Lucio Di Giacomo Noack
     email: ldigiacomo@dvorak-development.com.ar
-    sucursal_id: Sucursal_Gamma
+    sucursal_id: Sucursal_1
   dray:
     user_id: dray
     nombre: Duilio Ray
     email: dray@dvorak-development.com.ar
-    sucursal_id: Sucursal_Delta
+    sucursal_id: Sucursal_1

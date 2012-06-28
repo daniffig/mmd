@@ -79,7 +79,7 @@ class Producto extends BaseProducto {
     $this->getTipoProducto()->getCategoria();
   }
 
-  public function getStockEnMiSucursal()
+  /*public function getStockEnMiSucursal()
   {
     $usuario = sfContext::getInstance()->getUser();
 
@@ -94,7 +94,7 @@ class Producto extends BaseProducto {
     {
       return false;
     }
-  }
+  }*/
 
   public function getStockEnSucursalActiva()
   {
@@ -115,7 +115,7 @@ class Producto extends BaseProducto {
   {
     if ($stock = $this->getStockEnMiSucursal())
     {
-      return $stock->getCantidad();
+      return $stock->getStockActual();
     }
     else
     {
@@ -171,6 +171,15 @@ class Producto extends BaseProducto {
     $stock_producto_sucursal = $this->getStockProductoSucursals($criteria);
 
     return $stock_producto_sucursal[0];
+  }
+
+  // Getters
+
+  public function getStockEnMiSucursal()
+  {
+    $usuario = sfContext::getInstance()->getUser()->getGuardUser();
+
+    return $this->getStockEnSucursal($usuario->getSucursal());    
   }
 
 } // Producto

@@ -24,7 +24,7 @@ abstract class BaseClienteFormFilter extends BaseFormFilterPropel
 
     $this->setValidators(array(
       'tipo_documento_id' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'TipoDocumento', 'column' => 'id')),
-      'nro_documento'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'nro_documento'     => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'apellido'          => new sfValidatorPass(array('required' => false)),
       'nombre'            => new sfValidatorPass(array('required' => false)),
       'telefono'          => new sfValidatorPass(array('required' => false)),

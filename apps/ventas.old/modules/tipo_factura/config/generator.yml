@@ -1,0 +1,52 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           TipoFactura
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              TipoFactura
+    plural:                TipoFacturas
+    route_prefix:          tipo_factura
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:
+          label: Agregar Tipo de Factura
+
+      fields:
+        es_activo:
+          label: Activo
+
+      list:
+        title: Listado de Tipos de Factura
+        display: [nombre, es_activo]
+        max_per_page: 10
+
+        object_actions:
+          _edit:
+          activar:
+            action: activar
+            label: Activar
+            show_when: puedoActivar
+          desactivar:
+            action: desactivar
+            label: Desactivar
+            show_when: puedoDesactivar
+
+        batch_actions: {}
+
+      filter:  ~
+      form:    ~
+      edit:
+        title: Editar Tipo de Factura :: %%nombre%%
+
+        actions:
+          _list:
+          _save:
+
+      new:
+        title: Agregar Tipo de Factura
+

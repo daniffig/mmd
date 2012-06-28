@@ -1,0 +1,20 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Sistema de Gestión de Ventas MMD - Administración
+    #description:  symfony project
+    #keywords:     symfony, project
+    language:     es
+    #robots:       index, follow
+
+  stylesheets:    [main.css, bootstrap.min.css]
+
+  javascripts:    [jquery-1.7.2.min.js, bootstrap.min.js, jquery-ui-1.8.6.custom.min.js, jquery.numeric.js]
+
+  has_layout:     true
+  layout:         layout

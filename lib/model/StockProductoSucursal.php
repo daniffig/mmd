@@ -18,6 +18,15 @@
  */
 class StockProductoSucursal extends BaseStockProductoSucursal {
 
+  // Getters
+
+  public function getStockMinimo()
+  {
+    return $this->getProducto()->getStockMinimo();
+  }
+
+  // Credenciales
+
   public function canEdit()
   {
     return $this->getProducto()->getEsActivo();

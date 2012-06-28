@@ -1,12 +1,18 @@
 Sucursal:
-  Sucursal_Alfa:
+  Sucursal_1:
     nombre: Alfa
-  Sucursal_Beta:
+    domicilio: Calle A N°1
+    telefono: (0221) 450-0001
+  Sucursal_2:
     nombre: Beta
-  Sucursal_Gamma:
+    domicilio: Calle B N°2
+    telefono: (0221) 450-0002
+  Sucursal_3:
     nombre: Gamma
-  Sucursal_Delta:
+    domicilio: Calle C N°3
+    telefono: (0221) 450-0003
+  Sucursal_4:
     nombre: Delta
+    domicilio: Calle D N°4
+    telefono: (0221) 450-0004
 
-    
-    

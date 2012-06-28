@@ -1,3 +1,5 @@
+<?php include('data.php'); ?>
+
 Cliente:
   # Clientes de Referencia | NO TOCAR
   SinSeleccionar:
@@ -8,37 +10,15 @@ Cliente:
     telefono: S/D
     direccion: S/D
 
-  # Clientes de Prueba
-  MatiasArrech:
-    tipo_documento_id: DNI
-    nro_documento: 35000000
-    apellido: Arrech
-    nombre: Matías
-    telefono: 4500000
-    direccion: Calle 123 N1234
-    cuit: 1
-  AndresCimadamore:
-    tipo_documento_id: DNI
-    nro_documento: 35000001
-    apellido: Cimadamore
-    nombre: Andrés
-    telefono: 4510000
-    direccion: Calle 1 N234
-    cuit: 2
-  LucioDiGiacomo:
-    tipo_documento_id: DNI
-    nro_documento: 33000000
-    apellido: Di Giacomo
-    nombre: Lucio
-    telefono: 4520000
-    direccion: Calle 23 N123
-    cuit: 3
-  DuilioRay:
-    tipo_documento_id: DNI
-    nro_documento: 35000002
-    apellido: Ray
-    nombre: Duilio
-    telefono: 4530000
-    direccion: Calle 13 N124
-    cuit: 4
+<?php for($i = 1; $i <= 200; $i++): ?>
+<?php $nro_documento = rand(30000000, 38000000); ?>
+  Cliente_<?php echo $i; ?>:
+    tipo_documento_id: <?php echo $tipo_documento[array_rand($tipo_documento)] . "\n"; ?>
+    nro_documento: <?php echo $nro_documento . "\n"; ?>
+    apellido: <?php echo $apellidos[array_rand($apellidos)] . "\n"; ?>
+    nombre: <?php echo $nombres[array_rand($nombres)] . "\n"; ?>
+    telefono: (0221) <?php echo rand(450, 458) . "-" . rand(1000, 9999) . "\n"; ?>
+    direccion: Calle <?php echo rand(1, 100); ?> N°<?php echo rand(1, 9999) . "\n"; ?>
+    cuit: <?php echo array_rand($cuit) . "-" . $nro_documento . "-" . rand(0, 9) . "\n"; ?>
 
+<?php endfor; ?>

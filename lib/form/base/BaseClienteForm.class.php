@@ -28,7 +28,7 @@ abstract class BaseClienteForm extends BaseFormPropel
     $this->setValidators(array(
       'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'tipo_documento_id' => new sfValidatorPropelChoice(array('model' => 'TipoDocumento', 'column' => 'id')),
-      'nro_documento'     => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647)),
+      'nro_documento'     => new sfValidatorNumber(),
       'apellido'          => new sfValidatorString(array('max_length' => 255)),
       'nombre'            => new sfValidatorString(array('max_length' => 255)),
       'telefono'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),

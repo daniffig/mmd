@@ -1,0 +1,41 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           sfGuardUser
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfGuardUser
+    plural:                sfGuardUsers
+    route_prefix:          sf_guard_user
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _edit:
+          credentials: [editarUsuario]
+        _delete:
+          credentials: [borrarUsuario]
+        _show:
+          credentials: [verUsuario]
+        _new:
+          credentials: [agregarUsuario]
+          label: Agregar Usuario
+
+      fields:
+        username:
+          label: Usuario
+        last_login:
+          label: Última sesión
+        is_active:
+          label: Activo
+
+      list:
+        title: Listado de Usuarios
+        display: [username, last_login, is_active]
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

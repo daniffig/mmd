@@ -1,0 +1,232 @@
+factura_imprimir_factura:
+  url: /factura/:venta_id/imprimirFactura.:sf_format/*
+  param:
+    module: factura
+    action: imprimirFactura
+    sf_format: pdf
+
+factura_generar_factura:
+  url: /factura/:venta_id/generarFactura
+  params:
+    module: factura
+    action: generarFactura
+  requirements:
+    venta_id: \d+
+
+factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                Factura
+    module:               factura
+    prefix_path:          /factura
+    column:               id
+    with_wildcard_routes: true
+
+situacion_impositiva:
+  class: sfPropelRouteCollection
+  options:
+    model:                SituacionImpositiva
+    module:               situacion_impositiva
+    prefix_path:          /situacion_impositiva
+    column:               id
+    with_wildcard_routes: true
+
+tipo_factura:
+  class: sfPropelRouteCollection
+  options:
+    model:                TipoFactura
+    module:               tipo_factura
+    prefix_path:          /tipo_factura
+    column:               id
+    with_wildcard_routes: true
+
+sf_guard_user:
+  class: sfPropelRouteCollection
+  options:
+    model:                sfGuardUser
+    module:               usuario
+    prefix_path:          /usuario
+    column:               id
+    with_wildcard_routes: true
+
+preferencia:
+  class: sfPropelRouteCollection
+  options:
+    model:                Preferencia
+    module:               preferencia
+    prefix_path:          /preferencia
+    column:               id
+    with_wildcard_routes: true
+
+producto_venta_ver_productos:
+  url: /producto_venta/:venta_id/verProductos
+  params:
+    module: producto_venta
+    action: index
+  requirements:
+    venta_id: \d+
+
+producto_venta_agregar:
+  url: /producto_venta/:producto_id/agregarProducto
+  params:
+    module: producto_venta
+    action: new
+  requirements:
+    producto_id: \d+
+
+producto_venta:
+  class: sfPropelRouteCollection
+  options:
+    model:                ProductoVenta
+    module:               producto_venta
+    prefix_path:          /producto_venta
+    column:               id
+    with_wildcard_routes: true
+
+venta_reportar:
+  url: /venta/reportarVentas.:sf_format/*
+  param:
+    module: venta
+    action: imprimirReporte
+    sf_format: pdf
+
+venta_ver_ventas_por_empleado:
+  url: /venta/:usuario_id/verVentas
+  params:
+    module: venta
+    action: index
+  requirements:
+    usuario_id: \d+
+
+venta_ver_factura:
+  url: /venta/:venta_id/verFactura
+  params:
+    module: factura
+    action: verFactura
+  requirements:
+    venta_id: \d+
+
+venta:
+  class: sfPropelRouteCollection
+  options:
+    model:                Venta
+    module:               venta
+    prefix_path:          /venta
+    column:               id
+    with_wildcard_routes: true
+
+tipo_documento:
+  class: sfPropelRouteCollection
+  options:
+    model:                TipoDocumento
+    module:               tipo_documento
+    prefix_path:          /tipo_documento
+    column:               id
+    with_wildcard_routes: true
+
+cliente:
+  class: sfPropelRouteCollection
+  options:
+    model:                Cliente
+    module:               cliente
+    prefix_path:          /cliente
+    column:               id
+    with_wildcard_routes: true
+
+categoria:
+  class: sfPropelRouteCollection
+  options:
+    model:                Categoria
+    module:               categoria
+    prefix_path:          /categoria
+    column:               id
+    with_wildcard_routes: true
+
+tipo_producto:
+  class: sfPropelRouteCollection
+  options:
+    model:                TipoProducto
+    module:               tipo_producto
+    prefix_path:          /tipo_producto
+    column:               id
+    with_wildcard_routes: true
+
+stock_producto_sucursal_reportar_stock_minimo:
+  url: /stock_producto_sucursal/reportarStockMinimo.:sf_format/*
+  param:
+    module: stock_producto_sucursal
+    action: imprimirReporteStockMinimo
+    sf_format: html
+
+stock_producto_sucursal:
+  class: sfPropelRouteCollection
+  options:
+    model:                StockProductoSucursal
+    module:               stock_producto_sucursal
+    prefix_path:          /stock_producto_sucursal
+    column:               id
+    with_wildcard_routes: true
+
+producto:
+  class: sfPropelRouteCollection
+  options:
+    model:                Producto
+    module:               producto
+    prefix_path:          /producto
+    column:               id
+    with_wildcard_routes: true
+
+sucursal:
+  class: sfPropelRouteCollection
+  options:
+    model:                Sucursal
+    module:               sucursal
+    prefix_path:          /sucursal
+    column:               id
+    with_wildcard_routes: true
+
+marca:
+  class: sfPropelRouteCollection
+  options:
+    model:                Marca
+    module:               marca
+    prefix_path:          /marca
+    column:               id
+    with_wildcard_routes: true
+
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+ 
+sf_guard_signout:
+  url:   /logout
+  param: { module: sfGuardAuth, action: signout }
+ 
+sf_guard_password:
+  url:   /request_password
+  param: { module: sfGuardAuth, action: password }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: producto, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /producto
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
+
+#default_index:
+#  url:   /:module.:sf_format
+#  param: { action: index, sf_format: html }
+ 
+#default:
+#  url:   /:module/:action.:sf_format/*
+#  param: { sf_format: html }

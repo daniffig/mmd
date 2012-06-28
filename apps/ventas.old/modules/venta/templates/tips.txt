@@ -1,0 +1,12 @@
+Condiciones de venta posibles:
+	-contado
+	-cta. cte.
+Situaciones Impositivas posibles:
+	-responsable inscripto
+	-exento
+	-no responsable
+	-consumidor final
+	-responsable monotributario
+
+
+SUBTOTAL , IVA% y IVA$ van solo si se trata de factura A

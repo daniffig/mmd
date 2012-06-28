@@ -1,0 +1,7 @@
+Preferencia:
+  Preferencia_empresa_cuit:
+    nombre: empresa_cuit
+    valor: 33-12345678-9
+  Preferencia_empresa_telefono:
+    nombre: empresa_telefono
+    valor: (0221) 450-5465 	
