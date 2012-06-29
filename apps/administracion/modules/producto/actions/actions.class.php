@@ -18,7 +18,9 @@ class productoActions extends autoProductoActions
   {
     $producto = $this->getRoute()->getObject();
 
-    $this->redirect('stock_producto_sucursal/verStockPorProducto?producto_id=' . $producto->getId());
+    $request->setParameter('producto_id', $producto->getId());
+
+    $this->forward('stock_producto_sucursal', 'verStockPorProducto');
   }
 
   // Métodos reimplementados

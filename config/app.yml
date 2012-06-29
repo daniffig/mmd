@@ -1,11 +1,5 @@
-<?php $host = $_SERVER['HTTP_HOST'] ? $_SERVER['HTTP_HOST'] : $_SERVER['SERVER_ADDR']; ?>
-
 # Constantes
 all:
-
-# Rutas
-  url_ventas: <?php echo $host . "/ventas.php" . "\n"; ?>
-  url_administracion: <?php echo $host . "/administracion.php" . "\n"; ?>
 
 # Grupos
   grupo_empleados: 1

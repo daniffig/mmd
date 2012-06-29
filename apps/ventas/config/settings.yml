@@ -9,7 +9,7 @@ prod:
 dev:
   .settings:
     error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
-    web_debug:              false
+    web_debug:              true
     cache:                  false
     no_script_name:         false
     etag:                   false
@@ -25,7 +25,7 @@ test:
 all:
   .settings:
     # Form security secret (CSRF protection)
-    # csrf_secret:            454224d7b9198e0c114be38bd73fdc7edaf51654
+    csrf_secret:            454224d7b9198e0c114be38bd73fdc7edaf51654
 
     # Output escaping settings
     escaping_strategy:      true

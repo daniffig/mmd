@@ -18,6 +18,10 @@ class stock_producto_sucursalActions extends autoStock_producto_sucursalActions
   {
     $stock_producto_sucursal = $this->getRoute()->getObject();
 
+    //$request->setParameter('producto', $stock_producto_sucursal->getProducto());
+
+    //$this->forward('producto', 'show');
+
     $this->redirect('producto/show?id=' . $stock_producto_sucursal->getProductoId());
   }
 
