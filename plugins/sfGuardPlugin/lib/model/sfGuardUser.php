@@ -66,4 +66,10 @@ class sfGuardUser extends PluginsfGuardUser
       return 'Administradores';
     }
   }
+
+  // Condiciones
+  public function esEmpleado()
+  {
+    return $this->hasGroup('Empleados');
+  }
 }

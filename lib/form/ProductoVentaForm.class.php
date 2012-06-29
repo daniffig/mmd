@@ -21,11 +21,11 @@ class ProductoVentaForm extends BaseProductoVentaForm
       $producto = ProductoPeer::retrieveByPk($usuario->getAttribute('tmp_producto_id'));
     }
 
-    $stock_disponible = $producto->getStockEnSucursalActiva()->getCantidad();
+    $stock_disponible = $producto->getStockEnSucursalActiva()->getStockActual();
 
     $this->getWidget('cantidad')->setAttribute('class', 'numeric');
 
-    $this->getWidgetSchema()->setHelp('cantidad', 'Stock disponible: ' . $stock_disponible);
+    $this->getWidgetSchema()->setHelp('cantidad', 'Stock actual: ' . $stock_disponible);
 
     $this->setValidator('cantidad', new sfValidatorInteger(array('min' => 1, 'max' => $stock_disponible), array('min' => 'Debe agregar como mínimo una unidad.', 'max' => 'No hay stock suficiente.')));
   }

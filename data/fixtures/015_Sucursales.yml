@@ -1,18 +1,11 @@
-Sucursal:
-  Sucursal_1:
-    nombre: Alfa
-    domicilio: Calle A N°1
-    telefono: (0221) 450-0001
-  Sucursal_2:
-    nombre: Beta
-    domicilio: Calle B N°2
-    telefono: (0221) 450-0002
-  Sucursal_3:
-    nombre: Gamma
-    domicilio: Calle C N°3
-    telefono: (0221) 450-0003
-  Sucursal_4:
-    nombre: Delta
-    domicilio: Calle D N°4
-    telefono: (0221) 450-0004
+<?php include('data.php'); ?>
 
+Sucursal:
+
+<?php for($i = 1; $i <= $cantidad_sucursales; $i++): ?>
+  Sucursal_<?php echo $i; ?>:
+    nombre: Sucursal <?php echo $i . "\n"; ?>
+    domicilio: Calle <?php echo rand(1, 999); ?> N°<?php echo rand(1, 9999) . "\n"; ?>
+    telefono: (0221) <?php echo "4" . rand(50, 58) . "-" . rand(1000, 9999) . "\n"; ?>
+
+<?php endfor; ?>

@@ -51,7 +51,9 @@ generator:
 
         actions: {}
 
-      filter:  ~
+      filter:
+        class: ProductoFormFilterVentas
+
       form:    ~
       edit:    ~
       new:     ~

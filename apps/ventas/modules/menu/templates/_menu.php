@@ -53,12 +53,12 @@
         <ul class="nav pull-right">
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <?php    echo $sf_user->getUsername();  ?>
+                <?php echo $sf_user->getUsername(); ?>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><?php  echo link_to(__("<i class='icon-user'></i> Mi Perfil"), 'sf_guard_user_edit', array('id' => $sf_user->getGuardUser()->getId())); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-off'></i> Salir"), '@sf_guard_signout', array('confirm' => '¿Salir del sistema?' )); ?></li>
+              <li><?php echo link_to(__("<i class='icon-user'></i> Mi Perfil"), '@usuario_ver_mi_perfil'); ?></li>
+              <li><?php echo link_to(__("<i class='icon-off'></i> Salir"), '@sf_guard_signout', array('confirm' => '¿Salir del sistema?' )); ?></li>
             </ul>
           </li>
         </ul>

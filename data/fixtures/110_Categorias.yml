@@ -1,4 +1,7 @@
+<?php include('data.php'); ?>
+
 Categoria:
+
   Categoria_1:
     nombre: TV, Imagen y Sonido
   Categoria_2:

@@ -13,4 +13,32 @@ require_once dirname(__FILE__).'/../lib/usuarioGeneratorHelper.class.php';
  */
 class usuarioActions extends autoUsuarioActions
 {
+  // Acciones
+  public function executeVerVentas(sfWebRequest $request)
+  {
+    $usuario = $this->getRoute()->getObject();
+
+    if ($usuario->esEmpleado())
+    {
+      $this->redirect('venta/verVentasPorEmpleado?usuario_id=' . $usuario->getId());
+    }
+    else
+    {
+      $this->getUser()->setFlash('error', 'El Usuario seleccionado no pertenece al grupo de Empleados.');
+
+      $this->redirect('@sf_guard_user');
+    }
+  }
+
+  // Filtros
+  public function executeVerEmpleados(sfWebRequest $request)
+  {    
+    $filtros = $this->configuration->getFilterDefaults();
+
+    $filtros['sf_guard_group_list'] = sfConfig::get('app_grupo_empleados');
+
+    $this->getUser()->setAttribute('usuario.filters', $filtros, 'admin_module');
+
+    $this->redirect('@sf_guard_user');
+  }
 }

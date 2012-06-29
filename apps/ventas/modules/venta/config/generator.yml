@@ -38,22 +38,14 @@ generator:
             action: recuperarVenta
             show_when: puedoRecuperarVenta
             credentials: gestionarVentas
-          anular_venta:
-            action: anularVenta
-            show_when: puedoAnularVenta
-            credentials: anularVenta
-            params:
-              confirm='¿Anular Venta? Esta operación no puede deshacerse.'
 
         batch_actions: {}
 
-        actions:
-          imprimirReporte:
-            action: imprimirReporte
-            label: Imprimir Reporte
-            credentials: administrarVentas
+        actions: {}
 
-      filter:  ~
+      filter:
+        class: VentaFormFilterVentas
+
       form:    ~
       edit:
         title: Editar Venta (%%created_at%%)

@@ -10,4 +10,16 @@
  */
 class stock_producto_sucursalGeneratorConfiguration extends BaseStock_producto_sucursalGeneratorConfiguration
 {
+  /*public function getFilterDefaults()
+  {
+    $usuario = sfContext::getInstance()->getUser()->getGuardUser();
+
+    $sucursal_id = $usuario->getSucursal()->getId();
+
+    $filtros = array();
+
+    $filtros['sucursal_id'] = $sucursal_id;
+
+    return $filtros;    
+  }*/
 }

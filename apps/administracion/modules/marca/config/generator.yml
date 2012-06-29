@@ -1,8 +1,8 @@
 generator:
-  class: sfPropelGenerator
+  class: pmPropelGenerator
   param:
     model_class:           Marca
-    theme:                 admin
+    theme:                 basic
     non_verbose_templates: true
     with_show:             false
     singular:              Marca
@@ -12,10 +12,36 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions: ~
-      fields:  ~
-      list:    ~
+      actions:
+        _edit:
+          credentials: [editarMarca]
+        _delete:
+          credentials: [borrarMarca]
+        _new:
+          credentials: [agregarMarca]
+          label: Agregar Marca
+
+      fields:
+        es_activo:
+          label: Activo
+
+      list:
+        title: Listado de Marcas
+        display: [nombre, es_activo]
+        max_per_page: 10
+
+        object_actions:
+          _edit:
+          _delete:
+          ver_productos:
+            action: verProductos
+            label: Ver Productos
+
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: Editar Marca (%%nombre%%)
+
+      new:
+        title: Agregar Marca
+

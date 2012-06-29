@@ -75,7 +75,7 @@ EOF;
       $default_text = __($default_text);
     }
     else{
-      $default_text = $this->getOption('multiple')?__("Select Some Options").'...':__("Select an Option").'...';
+      $default_text = $this->getOption('multiple')?__("zz").'...':__("Select an Option").'...';
     }
     $align_right = $this->getOption('align_right', null);
     if($align_right){

@@ -13,6 +13,9 @@ require_once dirname(__FILE__).'/../lib/ventaGeneratorHelper.class.php';
  */
 class ventaActions extends autoVentaActions
 {
+  public function preExecute()
+  {$this->preExecute();
+  }
   public function executeVerProductos(sfWebRequest $request)
   {
     $this->redirect($this->generateUrl('producto_venta_ver_productos', array('venta_id' => $this->getRoute()->getObject()->getId())));

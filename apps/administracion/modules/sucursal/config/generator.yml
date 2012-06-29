@@ -1,0 +1,44 @@
+generator:
+  class: pmPropelGenerator
+  param:
+    model_class:           Sucursal
+    theme:                 basic
+    non_verbose_templates: true
+    with_show:             false
+    singular:              Sucursal
+    plural:                Sucursals
+    route_prefix:          sucursal
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _edit:
+          credentials: [editarSucursal]
+        _delete:
+          credentials: [borrarSucursal]
+        _show:
+          credentials: [verSucursal]
+        _new:
+          credentials: [agregarSucursal]
+          label: Agregar Sucursal
+
+      fields:
+        es_activo:
+          label: Activa
+
+      list:
+        title: Listado de Sucursales
+        display: [nombre, domicilio, telefono, es_activo]
+
+        object_actions:
+          _edit:
+          _delete:
+          ver_stock:
+            action: verStock
+            label: Ver Stock
+
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

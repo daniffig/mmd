@@ -1,3 +1,21 @@
+sucursal:
+  class: sfPropelRouteCollection
+  options:
+    model:                Sucursal
+    module:               sucursal
+    prefix_path:          /sucursal
+    column:               id
+    with_wildcard_routes: true
+
+venta:
+  class: sfPropelRouteCollection
+  options:
+    model:                Venta
+    module:               venta
+    prefix_path:          /venta
+    column:               id
+    with_wildcard_routes: true
+
 sf_guard_user:
   class: sfPropelRouteCollection
   options:

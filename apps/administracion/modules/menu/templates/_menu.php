@@ -21,8 +21,7 @@
               <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
               <li class="divider"></li>
               <li class="nav-header">Stock</li>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Stock"), '@stock_producto_sucursal'); ?></li>
-              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Stock"), '@stock_producto_sucursal_new'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Stock"), 'stock_producto_sucursal/verStock'); ?></li>
               <li><?php  //echo link_to(__("<i class='icon-file'></i> Reportar Stock Mínimo"), 'stock_producto_sucursal_reportar_stock_minimo', array('sf_format' => 'pdf') ); ?></li>
               <?php endif; ?>
               <?php if ($sf_user->hasCredential('administrarMarcas')): ?>
@@ -42,6 +41,17 @@
               <li class="nav-header">Tipos de Producto</li>
               <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Tipos de Producto"), '@tipo_producto'); ?></li>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Tipo de Producto"), '@tipo_producto_new'); ?></li>
+              <?php endif; ?>
+            </ul>
+          </li>
+
+          <!--- Ventas --->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li class="nav-header">Ventas</li>
+              <?php if ($sf_user->hasCredential('verVentas')): ?>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Ventas"), '@venta'); ?></li>
               <?php endif; ?>
             </ul>
           </li>
@@ -66,7 +76,7 @@
             <ul class="dropdown-menu">
               <li class="nav-header">Empleados</li>
               <?php if ($sf_user->hasCredential('verEmpleados')): ?>
-              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Empleados"), '@sf_guard_user'); ?></li>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Empleados"), 'usuario/verEmpleados'); ?></li>
               <?php endif; ?>
               <?php if ($sf_user->hasCredential('agregarEmpleado')): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Empleado"), '@sf_guard_user_new'); ?></li>
@@ -74,9 +84,9 @@
             </ul>
           </li>
 
-          <!--- Usuarios --->
+          <!--- Administración --->
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li class="nav-header">Usuarios</li>
               <?php if ($sf_user->hasCredential('verUsuarios')): ?>
@@ -84,6 +94,14 @@
               <?php endif; ?>
               <?php if ($sf_user->hasCredential('agregarUsuario')): ?>
               <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Usuario"), '@sf_guard_user_new'); ?></li>
+              <?php endif; ?>
+              <li class="divider"></li>
+              <li class="nav-header">Sucursales</li>
+              <?php if ($sf_user->hasCredential('verSucursales')): ?>
+              <li><?php  echo link_to(__("<i class='icon-th-list'></i> Ver Sucursales"), '@sucursal'); ?></li>
+              <?php endif; ?>
+              <?php if ($sf_user->hasCredential('agregarSucursal')): ?>
+              <li><?php  echo link_to(__("<i class='icon-plus-sign'></i> Agregar Sucursal"), '@sucursal_new'); ?></li>
               <?php endif; ?>
             </ul>
           </li>

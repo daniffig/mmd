@@ -26,6 +26,10 @@ generator:
             action: verProducto
             label: Ver Producto
 
+        batch_actions: {}
+
+        actions: {}
+
 
       filter:  ~
       form:    ~

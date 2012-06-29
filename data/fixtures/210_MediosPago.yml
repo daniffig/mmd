@@ -1,10 +1,13 @@
+<?php include('data.php'); ?>
+
 MedioPago:
+  # Medio de Pago de Referencia | NO TOCAR  
   SinSeleccionar:
     nombre: Sin Seleccionar
-  Efectivo:
-    nombre: Efectivo
-  TarjetaCredito:
-    nombre: Tarjeta de Crédito
-  TarjetaDebito:
-    nombre: Tarjeta de Débito
+
+<?php for($i = 1; $i <= $cantidad_medios_pago; $i++): ?>
+  MedioPago_<?php echo $i; ?>:
+    nombre: <?php echo $medios_pago[$i - 1] . "\n"; ?>
+
+<?php endfor; ?>
 

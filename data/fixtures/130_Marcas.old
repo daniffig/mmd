@@ -1,0 +1,63 @@
+Marca:
+# Las marcas se identifican con Marca_(nombre de la marca sin parentesis empezando con mayuscula y luego minusculas)
+  Marca_1:
+    nombre: Gateway
+  Marca_2:
+    nombre: Noblex
+  Marca_3:
+    nombre: Samsung
+  Marca_4:
+    nombre: Philips
+  Marca_5:
+    nombre: LG
+  Marca_6:
+    nombre: Daihatsu
+  Marca_7:
+    nombre: Stromberg
+  Marca_8:
+    nombre: Ranser
+  Marca_9:
+    nombre: Sony
+  Marca_10:
+    nombre: Microboy
+  Marca_11:
+    nombre: Microsoft
+  Marca_12:
+    nombre: Asus
+  Marca_13:
+    nombre: Epson
+  Marca_14:
+    nombre: Kodak
+  Marca_15:
+    nombre: Canon
+  Marca_16:
+    nombre: BlackBerry
+  Marca_17:
+    nombre: Wacom
+  Marca_18:
+    nombre: Commodore
+  Marca_19:
+    nombre: Nokia
+  Marca_20:
+    nombre: Sanyo
+  Marca_21:
+    nombre: JVC
+  Marca_22:
+    nombre: Luxman
+  Marca_23:
+    nombre: Coventry
+  Marca_24:
+    nombre: Orbis
+  Marca_25:
+    nombre: Ultracomb
+  Marca_26:
+    nombre: Domec
+  Marca_27:
+    nombre: Brother
+  Marca_28:
+    nombre: Apple
+  Marca_29:
+    nombre: Coby
+  Marca_30:
+    nombre: HP
+

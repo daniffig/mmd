@@ -1,6 +1,10 @@
 # Constantes
 all:
 
+# Rutas
+  url_ventas: <?php echo $_SERVER['HTTP_HOST'] . "/ventas.php" . "\n"; ?>
+  url_administracion: <?php echo $_SERVER['HTTP_HOST'] . "/administracion.php" . "\n"; ?>
+
 # Grupos
   grupo_empleados: 1
   grupo_supervisores: 2

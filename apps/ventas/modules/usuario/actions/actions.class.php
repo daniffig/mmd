@@ -13,6 +13,24 @@ require_once dirname(__FILE__).'/../lib/usuarioGeneratorHelper.class.php';
  */
 class usuarioActions extends autoUsuarioActions
 {
+  public function executeEditarMiPerfil(sfWebRequest $request)
+  {
+    $usuario = $this->getUser()->getGuardUser();
+
+    $this->redirect('@sf_guard_user_edit', array('sf_subject' => $usuario));
+  }
+
+  /*public function executeVerMiPerfil(sfWebRequest $request)
+  {
+    $usuario = $this->getUser()->getGuardUser();
+
+    $this->redirect('usuario/' . $usuario->getId());
+  }*/
+
+
+
+
+  // Código viejo
   public function executeActivar(sfWebRequest $request)
   {
     $usuario = $this->getRoute()->getObject();

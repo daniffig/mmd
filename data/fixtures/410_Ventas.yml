@@ -1,0 +1,13 @@
+<?php include('data.php'); ?>
+
+Venta:
+<?php for($i = 1; $i <= $cantidad_ventas; $i++): ?>
+  Venta_<?php echo $i; ?>:
+    created_by: Empleado_<?php echo rand(1, $cantidad_empleados) . "\n"; ?>
+    cliente_id: Cliente_<?php echo rand(1, $cantidad_clientes) . "\n"; ?>
+    sucursal_id: Sucursal_<?php echo rand(1, 4) . "\n"; ?>
+    medio_pago_id: MedioPago_<?php echo rand(1, $cantidad_medios_pago) . "\n"; ?>
+    es_finalizado: <?php echo rand(0, 1) . "\n"; ?>
+
+<?php endfor; ?>
+

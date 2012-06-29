@@ -1,7 +1,7 @@
 StockProductoSucursal:
-<? for($i = 1; $i <= 52; $i++): ?>
+<? for($i = 1; $i <= 200; $i++): ?>
 <? for($j = 1; $j <= 4; $j++): ?>
-  StockProductoSucursal_<?php echo (52 * ($j - 1)) + $i; ?>:
+  StockProductoSucursal_<?php echo (200 * ($j - 1)) + $i; ?>:
     created_by: admin
     producto_id: Producto_<? echo $i . "\n"; ?>
     sucursal_id: Sucursal_<? echo $j . "\n"; ?>

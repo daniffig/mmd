@@ -35,6 +35,15 @@ generator:
         title: Listado de Usuarios
         display: [username, last_login, is_active]
 
+        object_actions:
+          _edit:
+          _delete:
+          _show:
+          ver_ventas:
+            action: verVentas
+            label: Ver Ventas
+            show_when: esEmpleado          
+
       filter:  ~
       form:    ~
       edit:    ~

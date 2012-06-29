@@ -22,39 +22,12 @@ factura:
     column:               id
     with_wildcard_routes: true
 
-situacion_impositiva:
-  class: sfPropelRouteCollection
-  options:
-    model:                SituacionImpositiva
-    module:               situacion_impositiva
-    prefix_path:          /situacion_impositiva
-    column:               id
-    with_wildcard_routes: true
-
-tipo_factura:
-  class: sfPropelRouteCollection
-  options:
-    model:                TipoFactura
-    module:               tipo_factura
-    prefix_path:          /tipo_factura
-    column:               id
-    with_wildcard_routes: true
-
 sf_guard_user:
   class: sfPropelRouteCollection
   options:
     model:                sfGuardUser
     module:               usuario
     prefix_path:          /usuario
-    column:               id
-    with_wildcard_routes: true
-
-preferencia:
-  class: sfPropelRouteCollection
-  options:
-    model:                Preferencia
-    module:               preferencia
-    prefix_path:          /preferencia
     column:               id
     with_wildcard_routes: true
 
@@ -115,15 +88,6 @@ venta:
     column:               id
     with_wildcard_routes: true
 
-tipo_documento:
-  class: sfPropelRouteCollection
-  options:
-    model:                TipoDocumento
-    module:               tipo_documento
-    prefix_path:          /tipo_documento
-    column:               id
-    with_wildcard_routes: true
-
 cliente:
   class: sfPropelRouteCollection
   options:
@@ -132,25 +96,6 @@ cliente:
     prefix_path:          /cliente
     column:               id
     with_wildcard_routes: true
-
-categoria:
-  class: sfPropelRouteCollection
-  options:
-    model:                Categoria
-    module:               categoria
-    prefix_path:          /categoria
-    column:               id
-    with_wildcard_routes: true
-
-tipo_producto:
-  class: sfPropelRouteCollection
-  options:
-    model:                TipoProducto
-    module:               tipo_producto
-    prefix_path:          /tipo_producto
-    column:               id
-    with_wildcard_routes: true
-
 stock_producto_sucursal_reportar_stock_minimo:
   url: /stock_producto_sucursal/reportarStockMinimo.:sf_format/*
   param:
@@ -176,23 +121,17 @@ producto:
     column:               id
     with_wildcard_routes: true
 
-sucursal:
-  class: sfPropelRouteCollection
-  options:
-    model:                Sucursal
-    module:               sucursal
-    prefix_path:          /sucursal
-    column:               id
-    with_wildcard_routes: true
+usuario_editar_mi_perfil:
+  url: /usuario/miPerfil/editar
+  param:
+    module: usuario
+    action: editarMiPerfil
 
-marca:
-  class: sfPropelRouteCollection
-  options:
-    model:                Marca
-    module:               marca
-    prefix_path:          /marca
-    column:               id
-    with_wildcard_routes: true
+usuario_ver_mi_perfil:
+  url: /usuario/miPerfil/ver
+  param:
+    module: usuario
+    action: verMiPerfil
 
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
@@ -223,10 +162,3 @@ default_index:
 default:
   url:   /:module/:action/*
 
-#default_index:
-#  url:   /:module.:sf_format
-#  param: { action: index, sf_format: html }
- 
-#default:
-#  url:   /:module/:action.:sf_format/*
-#  param: { sf_format: html }

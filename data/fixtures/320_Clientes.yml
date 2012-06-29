@@ -10,7 +10,7 @@ Cliente:
     telefono: S/D
     direccion: S/D
 
-<?php for($i = 1; $i <= 200; $i++): ?>
+<?php for($i = 1; $i <= $cantidad_clientes; $i++): ?>
 <?php $nro_documento = rand(30000000, 38000000); ?>
   Cliente_<?php echo $i; ?>:
     tipo_documento_id: <?php echo $tipo_documento[array_rand($tipo_documento)] . "\n"; ?>
@@ -22,3 +22,4 @@ Cliente:
     cuit: <?php echo array_rand($cuit) . "-" . $nro_documento . "-" . rand(0, 9) . "\n"; ?>
 
 <?php endfor; ?>
+

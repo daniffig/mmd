@@ -1,183 +1,85 @@
+<?php include('data.php'); ?>
+<?php $i = 1; ?>
+
 TipoProducto:
   # TV, Imagen y Sonido
-  TipoProducto_21:
-    nombre: Televisores
-    categoria_id: Categoria_1
-  TipoProducto_22:
-    nombre: Monitores con TV
-    categoria_id: Categoria_1
-  TipoProducto_23:
-    nombre: DVD - BluRay
-    categoria_id: Categoria_1
-  TipoProducto_24:
-    nombre: Sintonizadoras
-    categoria_id: Categoria_1
-  TipoProducto_25:
-    nombre: Combos
-    categoria_id: Categoria_1
-  TipoProducto_26:
-    nombre: Sistemas de Audio
-    categoria_id: Categoria_1
-  TipoProducto_27:
-    nombre: Audio Portable
-    categoria_id: Categoria_1
-  TipoProducto_28:
-    nombre: Home Theatre
-    categoria_id: Categoria_1
-  TipoProducto_29:
-    nombre: Juego de Parlantes
-    categoria_id: Categoria_1
-  TipoProducto_30:
-    nombre: Parlantes para Autos
+<?php foreach($tipo_producto_tv_imagen_sonido as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_1
 
+<?php $i++; ?>
+<?php endforeach; ?>
+  
   # Informática y Gaming
-  TipoProducto_11:
-    nombre: Computadoras
-    categoria_id: Categoria_2
-  TipoProducto_12:
-    nombre: Notebook - Netbook
-    categoria_id: Categoria_2
-  TipoProducto_13:
-    nombre: Tablets PC
-    categoria_id: Categoria_2
-  TipoProducto_14:
-    nombre: e-Readers
-    categoria_id: Categoria_2
-  TipoProducto_15:
-    nombre: Consolas
-    categoria_id: Categoria_2
-  TipoProducto_16:
-    nombre: Monitores
-    categoria_id: Categoria_2
-  TipoProducto_17:
-    nombre: Proyectores
-    categoria_id: Categoria_2
-  TipoProducto_18:
-    nombre: Impresión
-    categoria_id: Categoria_2
-  TipoProducto_19:
-    nombre: Teléfonos
-    categoria_id: Categoria_2
-  TipoProducto_20:
-    nombre: GPS
+<?php foreach($tipo_producto_informatica_y_gaming as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_2
 
+<?php $i++; ?>
+<?php endforeach; ?>
+  
   # Accesorios
-  TipoProducto_31:
-    nombre: Acc. Computadoras
-    categoria_id: Categoria_3
-  TipoProducto_32:
-    nombre: Acc. Notebook - Netbook
-    categoria_id: Categoria_3
-  TipoProducto_33: 
-    nombre: Acc. Teléfonos Celulares 
-    categoria_id: Categoria_3
-  TipoProducto_34:
-    nombre: Acc. Consolas de Juegos
-    categoria_id: Categoria_3
-  TipoProducto_35:
-    nombre: Acc. Camaras Digitales
-    categoria_id: Categoria_3
-  TipoProducto_36:
-    nombre: Acc. TV - LCD
-    categoria_id: Categoria_3
-  TipoProducto_37:
-    nombre: Insumos
-    categoria_id: Categoria_3
-  TipoProducto_38:
-    nombre: Memorias
-    categoria_id: Categoria_3
-  TipoProducto_39:
-    nombre: Cables
-    categoria_id: Categoria_3
-  TipoProducto_40:
-    nombre: Acc. Apple
-    categoria_id: Categoria_3
-  TipoProducto_41:
-    nombre: Auriculares
+<?php foreach($tipo_producto_accesorios as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_3
 
+<?php $i++; ?>
+<?php endforeach; ?>
+  
   # Celulares
-  TipoProducto_42:
-    nombre: Celulares Libres
+<?php foreach($tipo_producto_celulares as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_4
 
-# Camaras
-  TipoProducto_43:
-    nombre: Videos
-    categoria_id: Categoria_5
-  TipoProducto_44: 
-    nombre: Digitales
+<?php $i++; ?>
+<?php endforeach; ?>
+  
+  # Cámaras
+<?php foreach($tipo_producto_camaras as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_5
 
-  # Cocina y heladeras
-  TipoProducto_45:
-    nombre: Cocinas
-    categoria_id: Categoria_6
-  TipoProducto_46:
-    nombre: Hornos
-    categoria_id: Categoria_6
-  TipoProducto_47:
-    nombre: Anafes
-    categoria_id: Categoria_6
-  TipoProducto_48:
-    nombre: Purificadores
-    categoria_id: Categoria_6
-  TipoProducto_49:
-    nombre: Campanas
-    categoria_id: Categoria_6
-  TipoProducto_50:
-    nombre: Microondas
-    categoria_id: Categoria_6
-  TipoProducto_51:
-    nombre: Heladeras
-    categoria_id: Categoria_6
-  TipoProducto_52:
-    nombre: Freezers
-    categoria_id: Categoria_6
-  TipoProducto_53:
-    nombre: Enfriadoras y Cavas
+<?php $i++; ?>
+<?php endforeach; ?>
+  
+  # Cocina y Heladeras
+<?php foreach($tipo_producto_cocina_y_heladeras as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_6
 
+<?php $i++; ?>
+<?php endforeach; ?>
+  
   # Aire y Calefacción
-  TipoProducto_54:
-    nombre: Aire Acondicionado
-    categoria_id: Categoria_7
-  TipoProducto_55:
-    nombre: Ventiladores
-    categoria_id: Categoria_7
-  TipoProducto_56:
-    nombre: Calefacción
+<?php foreach($tipo_producto_aire_y_calefaccion as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_7
 
+<?php $i++; ?>
+<?php endforeach; ?>
+  
   # Agua y Lavado
-  TipoProducto_57:
-    nombre: Lavarropas
-    categoria_id: Categoria_8
-  TipoProducto_58:
-    nombre: Secarropas
-    categoria_id: Categoria_8
-  TipoProducto_59:
-    nombre: Lavasecarropas
-    categoria_id: Categoria_8
-  TipoProducto_60:
-    nombre: Lavavajillas
-    categoria_id: Categoria_8
-  TipoProducto_61:
-    nombre: Calefones
-    categoria_id: Categoria_8
-  TipoProducto_62:
-    nombre: Termotanque
+<?php foreach($tipo_producto_agua_y_lavado as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_8
 
+<?php $i++; ?>
+<?php endforeach; ?>
+  
   # Pequeños
-  TipoProducto_63:
-    nombre: Cuidado Personal
+<?php foreach($tipo_producto_pequenios as $tipo_producto): ?>
+  TipoProducto_<?php echo $i; ?>:
+    nombre: <?php echo $tipo_producto . "\n"; ?>
     categoria_id: Categoria_9
-  TipoProducto_64:
-    nombre: Electro Cocina
-    categoria_id: Categoria_9
-  TipoProducto_65:
-    nombre: Electro Hogar
-    categoria_id: Categoria_9
+
+<?php $i++; ?>
+<?php endforeach; ?>
+
